@@ -1,5 +1,5 @@
 Android
-400e06ea2ee3c716cf3911b165a7104a Assembly-CSharp.dll:.Controller
+12255583f6cf7ea5a27faa02ed007967 Assembly-CSharp.dll:.Controller
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 9f07aaefd0255462bb6e4f9e5da6b2d4 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -14,6 +14,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 7b848b7feaa524953d09fc1851efa6da UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 c24a21b131bfa67be1162db2cba4b52b UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Obstacle
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.AppResources
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -132,3 +133,10 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingRenderer
+9d517ae88dbebd42b41440a30e1b230d Assembly-CSharp.dll:.Link
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.LinkController
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Player
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.EventManager
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.LevelController
+38c7a297e6a312f49313521b3cd2147c Assembly-CSharp.dll:.LevelProgessionHandler
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CameraController

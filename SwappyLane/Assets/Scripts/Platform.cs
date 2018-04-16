@@ -27,6 +27,15 @@ public class Platform : MonoBehaviour {
 			targetRotation *= Quaternion.Euler(new Vector3(0, 0, 90 * direction));
 		}
 
+		if(Input.GetKeyDown(KeyCode.LeftArrow))
+		{
+			targetRotation *= Quaternion.Euler(new Vector3(0, 0, -90));
+		}
+		else if(Input.GetKeyDown(KeyCode.RightArrow))
+		{
+			targetRotation *= Quaternion.Euler(new Vector3(0, 0, 90));
+		}
+
 		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
 	}
 }

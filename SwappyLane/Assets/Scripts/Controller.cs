@@ -4,33 +4,66 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour {
 
-	public GameObject obstacle;
+	public static Controller Instance; 
+
+
+
+	private int linkSize = 15; 
+
+	void Awake()
+	{
+		if(Instance == null)
+		{
+			Instance = this; 
+		}	
+	}
+	public GameObject link;
 
 	private Vector3[] positions;
 
+
+
+	private LinkController linkController; 
+
+
+	public List<GameObject> links = new List<GameObject>(); 
+
+
 	void Start () {
-		positions = new Vector3[4];
-		positions[0] = new Vector3(-.25f, 0f, 0f);
-		positions[1] = new Vector3(0, .25f, 0f);
-		positions[2] = new Vector3(.25f, 0f, 0f);
-		positions[3] = new Vector3(0, -.25f, 0f);
 
 		SpawnObstacle();
+
+		linkController = LinkController.Instance; 
 	}
 
 	void Update () {
 
+		
 	}
 
 
 	public void SpawnObstacle()
 	{
-		for (int i = 0; i < 4; i++)
+		int count = linkSize; 
+		for (int i = 0; i < count; i++)
 		{
-			GameObject clone = (GameObject)Instantiate(obstacle, positions[Random.Range(0, 4)] + new Vector3(0f, 0f, 8 + i), Quaternion.identity) as GameObject;
+			GameObject clone = (GameObject)Instantiate(link) as GameObject;
 			clone.transform.SetParent(FindObjectOfType<Platform>().transform);
+			clone.transform.localPosition = new Vector3(0, 0, .5f); 
 			clone.transform.localScale = new Vector3(1, 1, clone.transform.localScale.z);
-
+			links.Add(clone); 
+			if(i > 0)
+			{
+				clone.GetComponent<Link>().PrevLink = links[i - 1].GetComponent<Link>(); 
+			}
 		}
+	}
+
+
+
+
+	public Vector3 LastLinkPosition()
+	{
+		return new Vector3(0, 0, ((linkSize * .5f) / linkSize) * linkSize / 2f); 
 	}
 }
