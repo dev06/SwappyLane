@@ -6,7 +6,7 @@ public class Controller : MonoBehaviour {
 
 	public static Controller Instance; 
 
-
+	public static bool isGameOver; 
 
 	private int linkSize = 15; 
 
@@ -15,7 +15,11 @@ public class Controller : MonoBehaviour {
 		if(Instance == null)
 		{
 			Instance = this; 
-		}	
+		}
+
+		isGameOver = false; 
+
+		Application.targetFrameRate = 60;
 	}
 	public GameObject link;
 
@@ -58,8 +62,6 @@ public class Controller : MonoBehaviour {
 			}
 		}
 	}
-
-
 
 
 	public Vector3 LastLinkPosition()

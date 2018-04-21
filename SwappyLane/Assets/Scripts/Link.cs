@@ -6,7 +6,9 @@ public class Link : MonoBehaviour {
 
 	private Controller controller; 
 
-	private  List<Vector3> positions; 
+	private List<int> positionDirection; 
+
+	private List<int> availablePositionDirection; 
 
 	public List<GameObject> obstacles; 
 
@@ -26,7 +28,9 @@ public class Link : MonoBehaviour {
 
 	private LevelController levelController; 
 
+	private GameObject coin; 
 
+	private Player player; 
 	
 	void Start () 
 	{
@@ -36,32 +40,44 @@ public class Link : MonoBehaviour {
 		levelController = LevelController.Instance; 
 		obstacles = new List<GameObject>(); 
 
-		positions = new List<Vector3>();
-		positions.Add(new Vector3(-1, 0f, 0f));
-		positions.Add(new Vector3(0, 1, 0f));
-		positions.Add(new Vector3(1, 0f, 0f));
-		positions.Add(new Vector3(0, -1, 0f));
+		positionDirection = new List<int>(); 
+		positionDirection.Add(0); 
+		positionDirection.Add(1); 
+		positionDirection.Add(2); 
+		positionDirection.Add(3); 
 
-		availablePosition = positions; 
+		availablePositionDirection = positionDirection; 
+
 
 		chosenLocation = transform.localPosition; 
 
 		GameObject prefab = AppResources.Obstacle; 
-		
+
+		GameObject coin_prefab = AppResources.Coin; 
+
+		player = FindObjectOfType<Player>(); 
 		
 		for(int i = 0;i < 4; i++)
 		{
 			GameObject clone = (GameObject)Instantiate(prefab) as GameObject;
 			clone.transform.SetParent(transform); 
-			Vector3 location = availablePosition[Random.Range(0,availablePosition.Count)]; 
-			clone.transform.localPosition = location; 
-			availablePosition.Remove(location); 
+
 			clone.transform.localScale = new Vector3(1,1,clone.transform.localScale.z); 
 			obstacles.Add(clone); 
 			clone.SetActive(false); 
 		}
 
+		GameObject coin = (GameObject)Instantiate(coin_prefab) as GameObject; 
+		coin.transform.SetParent(transform); 
+		coin.transform.localScale = new Vector3(1,1,coin.transform.localScale.z); 
+		coin.transform.localScale *= .25f; 
+		coin.transform.localRotation = Quaternion.Euler(new Vector3(0,0,45)); 
+		coin.SetActive(false); 
+		this.coin = coin; 
+
 		ActiveCubes(); 
+
+		ChangeCubeSides(); 
 
 		transform.gameObject.SetActive(false); 
 
@@ -87,19 +103,12 @@ public class Link : MonoBehaviour {
 	}
 
 
-	void Update () {
+	void Update () 
+	{
+		if(Controller.isGameOver) return; 
 		CheckIfOutside(); 
+		UpdateObstacleRotation(); 
 
-		timer+=Time.deltaTime; 
-
-		if(timer > 1.0f)
-		{
-			int prob = Random.Range(0,2) == 0 ? -1 : 1; 
-			targetRotation *= Quaternion.Euler(new Vector3(0,0,prob * 90)); 			
-			timer = 0; 
-		}
-
-		//transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.deltaTime *20f); 
 
 		if(CanTranslate)
 		{
@@ -107,6 +116,26 @@ public class Link : MonoBehaviour {
 		}
 
 		transform.localPosition = new Vector3(chosenLocation.x,chosenLocation.y, transform.localPosition.z); 
+	}
+
+	void UpdateObstacleRotation()
+	{
+		if(levelController.level.Index < 8) return; 
+
+		if(Vector3.Distance(transform.position, player.transform.position) > 10)
+		{
+			timer+=Time.deltaTime; 
+			if(timer > 1.0f)
+			{
+				int prob = Random.Range(0,2) == 0 ? -1 : 1; 
+				targetRotation *= Quaternion.Euler(new Vector3(0,0,prob * 90)); 			
+				timer = 0; 
+			}
+
+		}
+
+		transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.deltaTime *20f); 			
+		
 	}
 
 	void CheckIfOutside()
@@ -122,26 +151,71 @@ public class Link : MonoBehaviour {
 		}
 	}
 
+	private Vector3 GetPositionByDirection(int direction)
+	{
+		switch(direction)
+		{
+			case 0: return new Vector3(0, 1, 0f); 
+			case 1: return new Vector3(1, 0, 0f); 
+			case 2: return new Vector3(0, -1, 0f);
+			case 3: return new Vector3(-1, 0, 0f);
+			default: return Vector3.zero; 
+		}
+	}
+
 
 	private void ChangeCubeSides()
 	{
-		positions.Clear(); 
 
-		positions.Add(new Vector3(-1, 0f, 0f));
-		positions.Add(new Vector3(0, 1, 0f));
-		positions.Add(new Vector3(1, 0f, 0f));
-		positions.Add(new Vector3(0, -1, 0f));
+		positionDirection.Clear(); 
 
-		availablePosition = positions; 
+		positionDirection.Add(0); 
+		positionDirection.Add(1); 
+		positionDirection.Add(2); 		
+		positionDirection.Add(3); 
+
+		availablePositionDirection = positionDirection; 
+
+		ActiveCubes(); 
+		int rand = Random.Range(0, obstacles.Count); 
 
 		for(int i = 0;i < obstacles.Count; i++)
 		{
-			Vector3 location = availablePosition[Random.Range(0,availablePosition.Count)];
-			obstacles[i].transform.localPosition = location; 
-			availablePosition.Remove(location); 
+			int dir = 0; 
+			
+			if(rand == i)
+			{
+				if(Random.Range(0f, 1f) < .2f)
+				{				
+					dir = FindObjectOfType<Platform>().direction; 
+				}
+				else
+				{
+					dir = availablePositionDirection[Random.Range(0, availablePositionDirection.Count)];
+				}
+			}
+			else
+			{
+				dir = availablePositionDirection[Random.Range(0, availablePositionDirection.Count)]; 
+			}
+
+			obstacles[i].transform.localPosition  = GetPositionByDirection(dir); 
+			obstacles[i].transform.localRotation = Quaternion.Euler(Vector3.zero); 
+
+			if(obstacles[i].activeSelf)
+			{
+				availablePositionDirection.Remove(dir); 				
+			}
+
 		}
 
-		ActiveCubes(); 
+
+		Vector3 remainingLoc = GetPositionByDirection(availablePositionDirection[Random.Range(0, availablePositionDirection.Count)]); 
+		coin.SetActive(true); 
+		coin.transform.localPosition = remainingLoc; 
+
+
+
 	}
 
 	public Link PrevLink

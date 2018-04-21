@@ -6,6 +6,7 @@ public class LevelController : MonoBehaviour {
 
 	public delegate void LevelComplete(); 
 	public static LevelComplete OnLevelComplete; 
+	public static LevelComplete OnNewLevelStart; 
 
 
 	public static LevelController Instance; 
@@ -24,7 +25,7 @@ public class LevelController : MonoBehaviour {
 	{
 		if(level == null)
 		{
-			level = new Level(1); 
+			level = new Level(10); 
 		}
 	}
 
@@ -34,6 +35,14 @@ public class LevelController : MonoBehaviour {
 	
 	void Update () {
 		
+		if(Input.GetKeyDown(KeyCode.L))
+		{
+			if(OnLevelComplete != null)
+			{
+				OnLevelComplete(); 
+			}
+			IncrementLevel();	
+		}
 	}
 
 	public void IncrementLevel()
@@ -57,7 +66,6 @@ public class LevelController : MonoBehaviour {
 		}
 
 		level.Progress++; 
-		//Debug.Log(level.ToString()); 
 
 		if(level.Progress >= level.Length)
 		{
@@ -65,11 +73,18 @@ public class LevelController : MonoBehaviour {
 			{
 				OnLevelComplete(); 
 			}
-			IncrementLevel(); 
-//			Debug.Log("Next-> " + level.ToString()); 
 		}
 	}
 
+	public void StartNewLevel()
+	{
+		IncrementLevel(); 
+
+		if(OnNewLevelStart != null)
+		{
+			OnNewLevelStart(); 
+		}
+	}
 }
 
 public class Level
@@ -84,7 +99,7 @@ public class Level
 	public Level(int index)
 	{
 		this.index = index;
-		Length = index * 10; 
+		Length = (index * 6) + 10; 
 		maxVelocity = (index) + 8; 
 		maxVelocity = Mathf.Clamp(maxVelocity, LinkController.MIN_VELOCITY, LinkController.MAX_VELOCITY); 
 	}

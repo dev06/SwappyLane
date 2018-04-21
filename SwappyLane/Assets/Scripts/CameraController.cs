@@ -15,6 +15,7 @@ public class CameraController : MonoBehaviour {
 	}
 	Camera camera;
 	float targetFOV; 
+	float targetSpeed; 
 	float fovVel; 
 
 	void Start () 
@@ -26,11 +27,20 @@ public class CameraController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		camera.fieldOfView = Mathf.SmoothDamp(camera.fieldOfView, targetFOV, ref fovVel, Time.deltaTime * 10f); 
+		camera.fieldOfView = Mathf.SmoothDamp(camera.fieldOfView, targetFOV, ref fovVel, Time.deltaTime * targetSpeed); 
 	}
 
 	public void UpdateZoomStatus(bool b)
 	{	
-		targetFOV = b ? 70f : 55f; 
+		if(b)
+		{
+			targetFOV = 70f; 
+			targetSpeed = 60f; 
+		}
+		else
+		{
+			targetFOV = 55f; 
+			targetSpeed = 10f; 
+		}
 	}
 }
