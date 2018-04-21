@@ -42,9 +42,10 @@ public class Controller : MonoBehaviour {
 
 	public List<GameObject> links = new List<GameObject>();
 
+	private Platform platform;
+
 
 	void Start () {
-
 		SpawnObstacle();
 
 		linkController = LinkController.Instance;
@@ -54,8 +55,17 @@ public class Controller : MonoBehaviour {
 		FindObjectOfType<UserInterface>().Init();
 	}
 
-	void Update () {
+	void Update ()
+	{
+		if (Input.GetMouseButtonDown(0))
+		{
+			if (GameState == State.MENU)
+			{
+				SetState(State.GAME);
 
+			}
+
+		}
 
 	}
 

@@ -13,6 +13,7 @@ public class UserInterface : MonoBehaviour {
 		group = GetComponent<CanvasGroup>();
 	}
 
+
 	void OnValidate()
 	{
 		if (group == null)
@@ -27,12 +28,20 @@ public class UserInterface : MonoBehaviour {
 
 	public virtual void Show()
 	{
+		if (group == null)
+		{
+			group = GetComponent<CanvasGroup>();
+		}
 		group.alpha = 1;
 		group.blocksRaycasts = true;
 	}
 
 	public virtual void Hide()
 	{
+		if (group == null)
+		{
+			group = GetComponent<CanvasGroup>();
+		}
 		group.alpha = 0f;
 		group.blocksRaycasts = false;
 	}

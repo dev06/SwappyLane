@@ -7,6 +7,17 @@ public class MenuUI : UserInterface {
 	public Text currentLevelText;
 
 	private LevelController levelController;
+	void OnEnable()
+	{
+		EventManager.OnStateChange += OnStateChange;
+	}
+
+	void OnDisable()
+	{
+		EventManager.OnStateChange -= OnStateChange;
+	}
+
+
 
 	public override void Init()
 	{
@@ -17,30 +28,15 @@ public class MenuUI : UserInterface {
 		currentLevelText.text = "Level " + levelController.level.Index;
 	}
 
-	void Update ()
+	void OnStateChange(State s)
 	{
-		if (Controller.GameState == State.MENU)
+
+		if (s != State.MENU)
 		{
-
-			if (Input.GetMouseButtonDown(0))
-			{
-				Controller.SetState(State.GAME);
-				Debug.LogError("Called");
-				Hide();
-			}
+			Hide();
+			return;
 		}
-	}
 
-	public override void Show()
-	{
-		group.alpha = 1;
-		group.blocksRaycasts = true;
+		Show();
 	}
-
-	public override void Hide()
-	{
-		group.alpha = 0f;
-		group.blocksRaycasts = false;
-	}
-
 }

@@ -21,18 +21,12 @@ public class GameUI : UserInterface {
 
 	void OnStateChange(State s)
 	{
-		if (s != State.GAME) return;
+		if (s != State.GAME)
+		{
+			Hide();
+			return;
+		}
 
 		Show();
-	}
-
-	void Start () {
-
-	}
-
-	// Update is called once per frame
-	void Update ()
-	{
-
 	}
 }
