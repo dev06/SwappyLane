@@ -18,7 +18,7 @@ public class PanelTitleHandler : MonoBehaviour, IPointerClickHandler {
 
 
 	void Update () {
-		Debug.Log("asdf");
+//		Debug.Log("asdf");
 	}
 
 	public virtual void OnPointerClick(PointerEventData data)

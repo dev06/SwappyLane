@@ -16,7 +16,7 @@ public class Package
 
 	public Package(GameObject model)
 	{
-		Debug.Log("Mode" + model);
+//		Debug.Log("Mode" + model);
 		this.model = model;
 	}
 
@@ -34,7 +34,9 @@ public class CharacterSelector : MonoBehaviour {
 		switch (i)
 		{
 			case 1:
-				return new Package(AppResources.char_1);
+			return new Package(AppResources.char_1);
+			case 2:
+			return new Package(AppResources.char_2);
 		}
 
 		return null;
