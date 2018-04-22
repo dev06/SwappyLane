@@ -32,7 +32,25 @@ public class Link : MonoBehaviour {
 
 	private Player player;
 
-	void Start ()
+	void OnEnable()
+	{
+		EventManager.OnStateChange += OnStateChange;
+	}
+
+	void OnDisable()
+	{
+		EventManager.OnStateChange -= OnStateChange;
+	}
+
+	void OnStateChange(State s)
+	{
+		if (s == State.GAME)
+		{
+			Initalize();
+		}
+	}
+
+	void Initalize ()
 	{
 
 		controller = Controller.Instance;

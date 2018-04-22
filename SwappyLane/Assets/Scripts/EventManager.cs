@@ -21,4 +21,8 @@ public class EventManager : MonoBehaviour {
 
 	public delegate void ButtonEvent(ButtonID buttonID);
 	public static ButtonEvent OnButtonClick;
+
+
+	public delegate void StoreItemClick(Package package);
+	public static StoreItemClick OnStoreItemClick;
 }

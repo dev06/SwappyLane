@@ -44,7 +44,10 @@ public class Player : MonoBehaviour {
 
 	void OnGameOver()
 	{
+		Controller.isGameOver = true;
+
 		transform.GetComponent<MeshRenderer>().enabled = false;
+		Debug.LogError("Game Over");
 		characterFragments.Play();
 		characterFragments.transform.position = transform.position;
 		StopCoroutine("IOnGameOver");
@@ -59,6 +62,7 @@ public class Player : MonoBehaviour {
 			timer += Time.deltaTime;
 			yield return null;
 		}
+
 		UnityEngine.SceneManagement.SceneManager.LoadScene(0);
 
 	}
@@ -76,7 +80,7 @@ public class Player : MonoBehaviour {
 			AutoRotate();
 		}
 
-		transform.Rotate(new Vector3(0, 0, 1720f * Time.deltaTime));
+		transform.Rotate(new Vector3(0, 0, 1000f * Time.deltaTime));
 	}
 
 	private void AutoRotate()

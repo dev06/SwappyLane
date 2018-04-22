@@ -9,6 +9,7 @@ public enum ButtonID
 	Characters,
 	StartArea,
 	Back,
+	StoreItem,
 }
 public class ButtonEventHandler : MonoBehaviour, IPointerClickHandler, IPointerDownHandler  {
 

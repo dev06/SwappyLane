@@ -87,7 +87,7 @@ public class LinkController : MonoBehaviour {
 
 		else
 		{
-			Controller.isGameOver = true;
+
 			//GAME OVER
 			if (EventManager.OnGameOver != null)
 			{

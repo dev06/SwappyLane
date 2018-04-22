@@ -38,7 +38,7 @@ public class StorePanel : MonoBehaviour {
 		int xRow = 0;
 		float multiplier = .85f;
 		float ySize = 0;
-		for (int i = 0; i < 36; i++)
+		for (int i = 0; i < 30; i++)
 		{
 			GameObject clone = Instantiate(AppResources.StoreIconTemplate) as GameObject;
 			clone.transform.SetParent(content);

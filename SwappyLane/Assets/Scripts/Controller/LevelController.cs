@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour {
 
+
 	public delegate void LevelComplete();
 	public static LevelComplete OnLevelComplete;
 	public static LevelComplete OnNewLevelStart;

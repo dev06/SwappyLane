@@ -34,9 +34,21 @@ public class CharacterSelector : MonoBehaviour {
 		switch (i)
 		{
 			case 1:
-			return new Package(AppResources.char_1);
+				return new Package(AppResources.char_1);
 			case 2:
-			return new Package(AppResources.char_2);
+				return new Package(AppResources.char_2);
+			case 3:
+				return new Package(AppResources.char_3);
+			case 4:
+				return new Package(AppResources.char_4);
+			case 5:
+				return new Package(AppResources.char_5);
+			case 6:
+				return new Package(AppResources.char_6);
+			case 7:
+				return new Package(AppResources.char_7);
+			case 8:
+				return new Package(AppResources.char_8);
 		}
 
 		return null;
