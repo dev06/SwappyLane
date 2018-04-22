@@ -18,4 +18,7 @@ public class EventManager : MonoBehaviour {
 
 	public delegate void StateChange(State s);
 	public static StateChange OnStateChange;
+
+	public delegate void ButtonEvent(ButtonID buttonID);
+	public static ButtonEvent OnButtonClick;
 }

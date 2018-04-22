@@ -61,7 +61,7 @@ public class Controller : MonoBehaviour {
 		{
 			if (GameState == State.MENU)
 			{
-				SetState(State.GAME);
+				//SetState(State.GAME);
 
 			}
 
