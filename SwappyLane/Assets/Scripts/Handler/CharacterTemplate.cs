@@ -15,9 +15,9 @@ public class CharacterTemplate : MonoBehaviour {
 		EventManager.OnStoreItemClick -= OnStoreItemClick;
 	}
 
-	void OnStoreItemClick(Package p)
+	void OnStoreItemClick(StoreItem s, Package p)
 	{
-		if (p == null) return;
+		if (p == null) { return; }
 		activeModel = p.model;
 		CreateCharacter(activeModel);
 	}

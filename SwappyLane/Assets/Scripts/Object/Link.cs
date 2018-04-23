@@ -75,12 +75,14 @@ public class Link : MonoBehaviour {
 
 		player = FindObjectOfType<Player>();
 
+		float scaleMultiplier = .9f;
+
 		for (int i = 0; i < 4; i++)
 		{
 			GameObject clone = (GameObject)Instantiate(prefab) as GameObject;
 			clone.transform.SetParent(transform);
 
-			clone.transform.localScale = new Vector3(1, 1, clone.transform.localScale.z);
+			clone.transform.localScale = new Vector3(1, 1, clone.transform.localScale.z) * scaleMultiplier;
 			obstacles.Add(clone);
 			clone.SetActive(false);
 		}
@@ -123,8 +125,8 @@ public class Link : MonoBehaviour {
 
 	void Update ()
 	{
-		if (Controller.isGameOver) return;
-		if (Controller.GameState != State.GAME) return;
+		if (Controller.isGameOver) { return; }
+		if (Controller.GameState != State.GAME) { return; }
 		CheckIfOutside();
 		UpdateObstacleRotation();
 
@@ -139,7 +141,7 @@ public class Link : MonoBehaviour {
 
 	void UpdateObstacleRotation()
 	{
-		if (levelController.level.Index < 8) return;
+		if (levelController.level.Index < 8) { return; }
 
 		if (Vector3.Distance(transform.position, player.transform.position) > 10)
 		{

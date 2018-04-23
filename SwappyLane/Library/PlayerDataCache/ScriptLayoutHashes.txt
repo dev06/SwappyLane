@@ -15,7 +15,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 7b848b7feaa524953d09fc1851efa6da UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 c24a21b131bfa67be1162db2cba4b52b UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 c08b196716247885d3b27f7f282b2568 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.ImageEffectBase
-da440722774218f1b797e6cce860c7fb Assembly-CSharp.dll:.CharacterSelector
+511171e995649572053ddc526e138234 Assembly-CSharp.dll:.CharacterSelector
 a30beadf4d109f44144b9a9f42e61cbf Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.BlurOptimized
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Obstacle
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CharacterTemplate
@@ -124,7 +124,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 40d41f498420a9b3985f6fc7e5763447 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.Bloom
 b84586ea0deaee8fe99068101a096003 Assembly-CSharp.dll:.UserInterface
 22df741b1a3c6d3b215ca28ad83c5a3f Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.ScreenSpaceAmbientObscurance
-f9a2eefa869f1ab431d6832b71feba3b Assembly-CSharp.dll:.StorePanel
+896928d15489f6f7eb1106e5bf25150f Assembly-CSharp.dll:.StorePanel
 9865a0db77364f8930077972a1d5efab Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.BloomOptimized
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
@@ -189,5 +189,7 @@ e2a8fd4524fc2a3a236b7e7720b544a6 Assembly-CSharp-firstpass.dll:UnityStandardAsse
 b3432dfe180f02232d7612fb366593d3 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.ColorCorrectionLookup
 b84586ea0deaee8fe99068101a096003 Assembly-CSharp.dll:.GameUI
 3ae0dad0b55a80319e1d57c2dce28da7 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.Tonemapping
-0f55244d4631ca15ffa0ba4913c50322 Assembly-CSharp.dll:.StoreItem
+7512b022d1a2e7cce8dfc31c61f50e35 Assembly-CSharp.dll:.StoreItem
 efbf7cb64274943b70b01cc406de9c74 Assembly-CSharp.dll:.MenuUI
+6a44829ccb4cc4666ecf9a98af490fbe Assembly-CSharp.dll:.SelectorInfoHandler
+b2566b6a1abb499ef1bb0675aaced3f3 Assembly-CSharp.dll:.StatRecordController

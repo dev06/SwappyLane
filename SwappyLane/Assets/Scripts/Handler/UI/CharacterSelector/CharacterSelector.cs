@@ -13,13 +13,79 @@ public class Package
 {
 
 	public GameObject model;
+	public Challenge challenge;
 
 	public Package(GameObject model)
 	{
-//		Debug.Log("Mode" + model);
 		this.model = model;
+
 	}
 
+	public Package(GameObject model, Challenge challenge)
+	{
+		this.model = model;
+		this.challenge = challenge;
+	}
+
+}
+
+public enum ChallengeType
+{
+	None,
+	PlayGame,
+	LevelReach,
+}
+
+public class Challenge
+{
+	public bool completed;
+	public ChallengeType type;
+	public string description;
+	public float progress;
+	public float cap;
+
+	public Challenge( ChallengeType type, float cap)
+	{
+		this.cap = cap;
+		this.type = type;
+		SetDesription();
+	}
+
+	public void UpdateValues()
+	{
+		switch (type)
+		{
+			case ChallengeType.PlayGame:
+			{
+				progress = StatRecordController.TotalGamesPlayed;
+				break;
+			}
+
+			case ChallengeType.LevelReach:
+			{
+				progress = StatRecordController.HighestLevelReached;
+				break;
+			}
+		}
+	}
+
+	private void SetDesription()
+	{
+		switch (type)
+		{
+			case ChallengeType.PlayGame: description = "Play " + cap + " games"; break;
+			case ChallengeType.LevelReach: description = "Reach Level " + cap; break;
+		}
+	}
+
+	public void RefreshCompletion()
+	{
+		UpdateValues();
+		if (progress >= cap)
+		{
+			completed = true;
+		}
+	}
 }
 
 public class CharacterSelectorEvent
@@ -27,40 +93,48 @@ public class CharacterSelectorEvent
 	public delegate void PanelClick(PanelType p);
 	public static PanelClick OnPanelClick;
 }
-public class CharacterSelector : MonoBehaviour {
 
-	public static Package GetPackage(int i)
+public class PackageCreator
+{
+
+	public static Challenge challenge_playgame_1 = new Challenge(ChallengeType.PlayGame, 5);
+	public static Challenge challenge_playgame_2 = new Challenge(ChallengeType.PlayGame, 7);
+	public static Challenge challenge_playgame_3 = new Challenge(ChallengeType.PlayGame, 9);
+	public static Challenge challenge_playgame_4 = new Challenge(ChallengeType.PlayGame, 11);
+	public static Challenge challenge_playgame_5 = new Challenge(ChallengeType.PlayGame, 13);
+	public static Challenge challenge_playgame_6 = new Challenge(ChallengeType.PlayGame, 15);
+
+	public static Challenge challenge_levelreach_1 = new Challenge(ChallengeType.LevelReach, 5);
+	public static Challenge challenge_levelreach_2 = new Challenge(ChallengeType.LevelReach, 10);
+	public static Challenge challenge_levelreach_3 = new Challenge(ChallengeType.LevelReach, 15);
+	public static Challenge challenge_levelreach_4 = new Challenge(ChallengeType.LevelReach, 20);
+	public static Challenge challenge_levelreach_5 = new Challenge(ChallengeType.LevelReach, 25);
+	public static Challenge challenge_levelreach_6 = new Challenge(ChallengeType.LevelReach, 30);
+
+	public static Package[] Skins =
 	{
-		switch (i)
-		{
-			case 1:
-				return new Package(AppResources.char_1);
-			case 2:
-				return new Package(AppResources.char_2);
-			case 3:
-				return new Package(AppResources.char_3);
-			case 4:
-				return new Package(AppResources.char_4);
-			case 5:
-				return new Package(AppResources.char_5);
-			case 6:
-				return new Package(AppResources.char_6);
-			case 7:
-				return new Package(AppResources.char_7);
-			case 8:
-				return new Package(AppResources.char_8);
-			case 9:
-				return new Package(AppResources.char_9);
-			case 10:
-				return new Package(AppResources.char_10);
-			case 11:
-				return new Package(AppResources.char_11);
-			case 12:
-				return new Package(AppResources.char_12);
-		}
+		new Package(AppResources.char_1),
+		new Package(AppResources.char_2, challenge_playgame_1),
+		new Package(AppResources.char_3, challenge_playgame_2),
+		new Package(AppResources.char_4, challenge_playgame_3),
+		new Package(AppResources.char_5, challenge_playgame_4),
+		new Package(AppResources.char_6, challenge_playgame_5),
+		new Package(AppResources.char_7, challenge_playgame_6),
+		new Package(AppResources.char_8, challenge_levelreach_1),
+		new Package(AppResources.char_9, challenge_levelreach_2),
+		new Package(AppResources.char_10, challenge_levelreach_3),
+		new Package(AppResources.char_11, challenge_levelreach_4),
+		new Package(AppResources.char_12, challenge_levelreach_5),
+		new Package(AppResources.char_13, challenge_levelreach_6),
+	};
 
-		return null;
-	}
+	public static Package[] Theme =
+	{
+
+	};
+}
+public class CharacterSelector : UserInterface
+{
 
 	public List<StorePanel> panels;
 
@@ -69,15 +143,28 @@ public class CharacterSelector : MonoBehaviour {
 	void OnEnable()
 	{
 		CharacterSelectorEvent.OnPanelClick += OnPanelClick;
+		EventManager.OnStateChange += OnStateChange;
 	}
 	void OnDisable()
 	{
 		CharacterSelectorEvent.OnPanelClick -= OnPanelClick;
+		EventManager.OnStateChange -= OnStateChange;
 	}
 
 	void OnPanelClick(PanelType type)
 	{
 		ShowPanel(type);
+	}
+
+	void OnStateChange(State s)
+	{
+		if (s != State.CHARACTER_SELECTOR)
+		{
+			HideSelector();
+			return;
+		}
+
+		ShowSelector();
 	}
 
 	void Start()
@@ -86,13 +173,23 @@ public class CharacterSelector : MonoBehaviour {
 
 		canvasGroup = GetComponent<CanvasGroup> ();
 
-		for (int i = 2; i < transform.childCount; i++)
+		for (int i = 0; i < transform.childCount; i++)
 		{
+			StorePanel sp = transform.GetChild(i).GetComponent<StorePanel>();
+			if (sp == null) {
+				continue;
+			}
 			panels.Add(transform.GetChild(i).GetComponent<StorePanel>());
 		}
 
 		HideSelector ();
-		HideAll();
+		//HideAll();
+	}
+
+	public override void Init()
+	{
+		base.Init();
+
 	}
 
 	public void ShowPanel(PanelType p)

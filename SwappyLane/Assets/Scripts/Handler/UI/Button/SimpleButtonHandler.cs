@@ -1,34 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems; 
+using UnityEngine.EventSystems;
 public class SimpleButtonHandler : ButtonEventHandler {
 
-		
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	public override void OnPointerClick(PointerEventData data)
 	{
-		switch (buttonID) 
+		switch (buttonID)
 		{
-		case ButtonID.Back: 
+			case ButtonID.Back:
 			{
-				FindObjectOfType<CharacterSelector> ().HideSelector (); 
-				break; 
+				//FindObjectOfType<CharacterSelector> ().HideSelector ();
+				if (EventManager.OnStateChange != null)
+				{
+					EventManager.OnStateChange(State.MENU);
+				}
+				break;
 			}
 
-		case ButtonID.StartArea: 
+			case ButtonID.StartArea:
 			{
 				Controller.SetState(State.GAME);
-		
-				break; 
+
+				break;
+			}
+
+			case ButtonID.InfoClose:
+			{
+				FindObjectOfType<SelectorInfoHandler>().Hide();
+				break;
 			}
 		}
 	}

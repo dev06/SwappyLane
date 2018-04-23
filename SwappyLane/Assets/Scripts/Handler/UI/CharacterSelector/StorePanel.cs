@@ -16,29 +16,64 @@ public class StorePanel : MonoBehaviour {
 
 	private ScrollRect scrollView;
 
-	void Start ()
+	public StoreItem activeStoreItem;
+
+	void OnEnable()
 	{
-		Init();
+		EventManager.OnStoreItemClick += OnStoreItemClick;
+		EventManager.OnStateChange += OnStateChange;
 	}
 
-	private void Init()
+	void OnDisable()
+	{
+		EventManager.OnStoreItemClick -= OnStoreItemClick;
+		EventManager.OnStateChange -= OnStateChange;
+	}
+
+	void OnStoreItemClick(StoreItem s, Package p)
+	{
+		ShowCurrentSelector(s);
+	}
+
+	void OnStateChange(State s)
+	{
+		if (s == State.CHARACTER_SELECTOR)
+		{
+			foreach (Transform t in content)
+			{
+				t.GetComponent<StoreItem>().DoDance();
+			}
+		}
+	}
+
+	// void Start ()
+	// {
+	// 	Init();
+	// }
+
+	public void Init()
 	{
 		canvasGroup = GetComponent<CanvasGroup>();
 
 		scrollView = transform.GetChild(0).GetComponent<ScrollRect>();
 
-		GenerateElements();
+		GenerateElements(panelType);
+
+		if (panelType == PanelType.Skins)
+		{
+			Show();
+		}
 	}
 
-	private void GenerateElements()
+	private void GenerateElements(PanelType type)
 	{
 		int countPerRow = 3;
 		float size = scrollView.transform.GetComponent<RectTransform>().sizeDelta.x / countPerRow;
 		int yRow = 0;
 		int xRow = 0;
-		float multiplier = .85f;
+		float multiplier = .9f;
 		float ySize = 0;
-		for (int i = 0; i < 30; i++)
+		for (int i = 0; i < (type == PanelType.Skins ? PackageCreator.Skins.Length : PackageCreator.Theme.Length); i++)
 		{
 			GameObject clone = Instantiate(AppResources.StoreIconTemplate) as GameObject;
 			clone.transform.SetParent(content);
@@ -58,7 +93,7 @@ public class StorePanel : MonoBehaviour {
 			xRow++;
 
 			StoreItem s = clone.GetComponent<StoreItem>();
-			s.SetPackage(CharacterSelector.GetPackage(i));
+			s.SetPackage(type == PanelType.Skins ? PackageCreator.Skins[i] : PackageCreator.Theme[i]);
 			s.Initalize();
 		}
 
@@ -66,11 +101,18 @@ public class StorePanel : MonoBehaviour {
 		contentRect.sizeDelta = new Vector2(contentRect.sizeDelta.x, (ySize / countPerRow));
 	}
 
-	void Update()
+	private void ShowCurrentSelector(StoreItem item)
 	{
-		//Debug.Log ("test");
-	}
+		foreach (Transform t in content)
+		{
+			t.GetComponent<StoreItem>().Hide();
+		}
 
+		item.Show();
+
+		activeStoreItem = item;
+
+	}
 
 	public void Show()
 	{

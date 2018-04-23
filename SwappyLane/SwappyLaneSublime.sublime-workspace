@@ -519,51 +519,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "Assets/Scripts/Platform.cs",
-			"settings":
-			{
-				"buffer_size": 677,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Assets/Scripts/Controller.cs",
-			"settings":
-			{
-				"buffer_size": 834,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/Devan/Desktop/DSReport/DSProject/Assets/Scripts/ObjectPool/ObjectPool.cs",
-			"settings":
-			{
-				"buffer_size": 4131,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/Devan/Desktop/DSReport/DSProject/Assets/Scripts/ListVArrays/ListVArrayController.cs",
-			"settings":
-			{
-				"buffer_size": 5130,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Assets/Scripts/Obstacle.cs",
-			"settings":
-			{
-				"buffer_size": 781,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -614,10 +569,12 @@
 	],
 	"file_history":
 	[
-		"/E/Unity/Github/SwappyLane/SwappyLane/Assets/Scripts/Platform.cs",
-		"/C/Users/Devan/Desktop/DSReport/DSProject/Assets/Scripts/ObjectPool/Cube.cs",
 		"/C/Users/Devan/Desktop/DSReport/DSProject/Assets/Scripts/ObjectPool/ObjectPool.cs",
 		"/C/Users/Devan/Desktop/DSReport/DSProject/Assets/Scripts/ListVArrays/ListVArrayController.cs",
+		"/E/Unity/Github/SwappyLane/SwappyLane/Assets/Scripts/Obstacle.cs",
+		"/E/Unity/Github/SwappyLane/SwappyLane/Assets/Scripts/Controller.cs",
+		"/E/Unity/Github/SwappyLane/SwappyLane/Assets/Scripts/Platform.cs",
+		"/C/Users/Devan/Desktop/DSReport/DSProject/Assets/Scripts/ObjectPool/Cube.cs",
 		"/C/Users/Devan/Desktop/DSReport/DSProject/Assets/Scripts/Cube.cs",
 		"/C/Users/Devan/Desktop/DSReport/DSProject/Assets/Scripts/ObjectPool.cs",
 		"/E/Unity/Github/TetherNew/Tether/Assets/Tether/scripts/UI/PerfectBastHit.cs",
@@ -739,9 +696,7 @@
 		"/C/Users/Devan/Documents/UnityProjects/KSU/Summer Experiment 2017/Assets/scripts/Circular.cs",
 		"/C/Users/Devan/Documents/UnityProjects/KSU/Summer Experiment 2017/Assets/scripts/Jitter.cs",
 		"/C/Users/Devan/Desktop/Android-SDK-master/README.md",
-		"/C/Users/Devan/Desktop/Android-SDK-master/Examples/README.md",
-		"/C/Users/Devan/Documents/UnityProjects/KSU_ResearchWizard/ResearchWizard/Assets/scripts/systemTools/Files.cs",
-		"/C/Users/Devan/Documents/UnityProjects/KSU_ResearchWizard/ResearchWizard/Assets/scripts/appSystem/util/GroupUtil.cs"
+		"/C/Users/Devan/Desktop/Android-SDK-master/Examples/README.md"
 	],
 	"find":
 	{
@@ -783,159 +738,8 @@
 	"groups":
 	[
 		{
-			"selected": 3,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "Assets/Scripts/Platform.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 677,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								677,
-								677
-							]
-						],
-						"settings":
-						{
-							"side_bar_folders_auto_load_folder": 1,
-							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Assets/Scripts/Controller.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 834,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								577,
-								635
-							]
-						],
-						"settings":
-						{
-							"side_bar_folders_auto_load_folder": 1,
-							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/Users/Devan/Desktop/DSReport/DSProject/Assets/Scripts/ObjectPool/ObjectPool.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4131,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4124,
-								4124
-							]
-						],
-						"settings":
-						{
-							"side_bar_folders_auto_load_folder": 1,
-							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1643.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/C/Users/Devan/Desktop/DSReport/DSProject/Assets/Scripts/ListVArrays/ListVArrayController.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5130,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4691,
-								4691
-							]
-						],
-						"settings":
-						{
-							"side_bar_folders_auto_load_folder": 1,
-							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 336.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "Assets/Scripts/Obstacle.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 781,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								680,
-								680
-							]
-						],
-						"settings":
-						{
-							"side_bar_folders_auto_load_folder": 1,
-							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				}
 			]
 		}
 	],

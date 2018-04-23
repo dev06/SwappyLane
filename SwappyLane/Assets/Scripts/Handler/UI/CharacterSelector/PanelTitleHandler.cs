@@ -14,11 +14,13 @@ public class PanelTitleHandler : MonoBehaviour, IPointerClickHandler {
 		activeIndicator = GetComponentInChildren<Image>();
 
 		panel.SetPanelTitleHandler(this);
+
+		panel.Init();
 	}
 
 
 	void Update () {
-//		Debug.Log("asdf");
+		//		Debug.Log("asdf");
 	}
 
 	public virtual void OnPointerClick(PointerEventData data)

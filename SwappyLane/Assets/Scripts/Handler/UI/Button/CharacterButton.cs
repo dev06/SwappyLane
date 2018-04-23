@@ -16,7 +16,11 @@ public class CharacterButton : ButtonEventHandler {
 
 	public override void OnPointerClick(PointerEventData data)
 	{
-		FindObjectOfType<CharacterSelector> ().ShowSelector (); 
+		if (EventManager.OnStateChange != null)
+		{
+			EventManager.OnStateChange(State.CHARACTER_SELECTOR);
+		}
+		//FindObjectOfType<CharacterSelector> ().ShowSelector ();
 	}
 
 

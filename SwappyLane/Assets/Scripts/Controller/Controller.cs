@@ -7,6 +7,7 @@ public enum State
 	NONE,
 	MENU,
 	GAME,
+	CHARACTER_SELECTOR,
 }
 
 public class Controller : MonoBehaviour {
@@ -53,6 +54,8 @@ public class Controller : MonoBehaviour {
 		linkController.Initalize();
 
 		FindObjectOfType<UserInterface>().Init();
+
+		StatRecordController.Instance.Initialize();
 	}
 
 	void Update ()

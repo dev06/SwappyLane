@@ -23,6 +23,6 @@ public class EventManager : MonoBehaviour {
 	public static ButtonEvent OnButtonClick;
 
 
-	public delegate void StoreItemClick(Package package);
+	public delegate void StoreItemClick(StoreItem storeItem, Package package);
 	public static StoreItemClick OnStoreItemClick;
 }
