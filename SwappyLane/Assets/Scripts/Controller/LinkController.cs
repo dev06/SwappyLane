@@ -34,6 +34,8 @@ public class LinkController : MonoBehaviour {
 
 	private bool terminalVelocityStart;
 
+	private bool canCollideAgain = true;
+
 	void Awake()
 	{
 		if (Instance == null)
@@ -61,6 +63,22 @@ public class LinkController : MonoBehaviour {
 
 	}
 
+	IEnumerator HitCoolDown()
+	{
+		canCollideAgain = false;
+
+		float timer = 0;
+
+		while (timer < .2f)
+		{
+			timer += Time.deltaTime;
+			yield return null;
+		}
+
+		canCollideAgain = true;
+		StopCoroutine("HitCoolDown");
+	}
+
 
 	void OnObstacleHit(GameObject o)
 	{
@@ -83,15 +101,20 @@ public class LinkController : MonoBehaviour {
 			{
 				EventManager.OnTerminalVelocityStatus(false);
 			}
+
+			StopCoroutine("HitCoolDown");
+			StartCoroutine("HitCoolDown");
 		}
 
 		else
 		{
-
-			//GAME OVER
-			if (EventManager.OnGameOver != null)
+			if (canCollideAgain)
 			{
-				EventManager.OnGameOver();
+				//GAME OVER
+				if (EventManager.OnGameOver != null)
+				{
+					EventManager.OnGameOver();
+				}
 			}
 		}
 	}

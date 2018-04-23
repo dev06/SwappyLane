@@ -20,5 +20,8 @@ public class AppResources : MonoBehaviour {
 	public static GameObject char_6 = (GameObject)Resources.Load("Prefabs/Characters/char_6") as GameObject;
 	public static GameObject char_7 = (GameObject)Resources.Load("Prefabs/Characters/char_7") as GameObject;
 	public static GameObject char_8 = (GameObject)Resources.Load("Prefabs/Characters/char_8") as GameObject;
-
+	public static GameObject char_9 = (GameObject)Resources.Load("Prefabs/Characters/char_9") as GameObject;
+	public static GameObject char_10 = (GameObject)Resources.Load("Prefabs/Characters/char_10") as GameObject;
+	public static GameObject char_11 = (GameObject)Resources.Load("Prefabs/Characters/char_11") as GameObject;
+	public static GameObject char_12 = (GameObject)Resources.Load("Prefabs/Characters/char_12") as GameObject;
 }

@@ -10,6 +10,10 @@ public class Player : MonoBehaviour {
 	public ParticleSystem trail;
 
 	public ParticleSystem characterFragments;
+
+	private float terminalVelocity = 1000f;
+	private float defaultVelocity = 700f;
+	private float rotatingVelocity;
 	void OnEnable()
 	{
 		EventManager.OnTerminalVelocityStatus += OnTerminalVelocityStatus;
@@ -30,10 +34,13 @@ public class Player : MonoBehaviour {
 		if (b)
 		{
 			trail.Play();
+			rotatingVelocity = terminalVelocity;
 		}
 		else
 		{
 			trail.Stop();
+			rotatingVelocity = defaultVelocity;
+
 		}
 	}
 
@@ -68,8 +75,11 @@ public class Player : MonoBehaviour {
 	}
 
 
-	void Start () {
+	void Start ()
+	{
+		rotatingVelocity = defaultVelocity;
 	}
+
 
 	// Update is called once per frame
 	void Update ()
@@ -80,7 +90,7 @@ public class Player : MonoBehaviour {
 			AutoRotate();
 		}
 
-		transform.Rotate(new Vector3(0, 0, 1000f * Time.deltaTime));
+		transform.Rotate(new Vector3(0, 0, rotatingVelocity * Time.deltaTime));
 	}
 
 	private void AutoRotate()
