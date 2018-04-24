@@ -47,7 +47,7 @@ public class Controller : MonoBehaviour {
 
 
 	void Start () {
-		SpawnObstacle();
+		SpawnLink();
 
 		linkController = LinkController.Instance;
 
@@ -73,8 +73,9 @@ public class Controller : MonoBehaviour {
 	}
 
 
-	public void SpawnObstacle()
+	public void SpawnLink()
 	{
+		links.Clear();
 		int count = linkSize;
 		for (int i = 0; i < count; i++)
 		{

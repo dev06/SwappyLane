@@ -18,6 +18,7 @@ public class CharacterTemplate : MonoBehaviour {
 	void OnStoreItemClick(StoreItem s, Package p)
 	{
 		if (p == null) { return; }
+		if (p.type != PackageType.Skins) { return; }
 		activeModel = p.model;
 		CreateCharacter(activeModel);
 	}

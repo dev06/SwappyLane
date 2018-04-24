@@ -1,4 +1,4 @@
-iOS
+Android
 12255583f6cf7ea5a27faa02ed007967 Assembly-CSharp.dll:.Controller
 f62d1e12c4ea2e5d19ca5a2c81b0bf32 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.TiltShift
 c08b196716247885d3b27f7f282b2568 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.ImageEffectBase
@@ -54,14 +54,14 @@ f7ad1e1c4988ea454cabda82d08efdf3 Assembly-CSharp.dll:.CoinController
 66a45d872571bb7d96f7fd3527df586d Assembly-CSharp.dll:.CoinHUD
 53dbd7baa3c8da2f87828dd70d70dae4 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.DepthOfFieldDeprecated
 7fc3adfac7efbc0706567dbaca46f637 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.Fisheye
-6a44829ccb4cc4666ecf9a98af490fbe Assembly-CSharp.dll:.SelectorInfoHandler
+fcc1cdab55363d01de6ac3d6f6503a4a Assembly-CSharp.dll:.SelectorInfoHandler
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.PostEffectsBase
 0f55244d4631ca15ffa0ba4913c50322 Assembly-CSharp.dll:.SimpleButtonHandler
 e2a8fd4524fc2a3a236b7e7720b544a6 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.EdgeDetection
 b3432dfe180f02232d7612fb366593d3 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.ColorCorrectionLookup
 b84586ea0deaee8fe99068101a096003 Assembly-CSharp.dll:.GameUI
 3ae0dad0b55a80319e1d57c2dce28da7 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.Tonemapping
-73be67863a9f53147edceb09877e50d1 Assembly-CSharp.dll:.StoreItem
+3ae83a1e9a8bedc3c92520766e41b2c2 Assembly-CSharp.dll:.StoreItem
 800660ce0ca8325ed1f4ea7e1b4285da Assembly-CSharp.dll:.MenuUI
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingCollider
@@ -193,3 +193,4 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingRenderer
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ThemeTemplate

@@ -4,10 +4,30 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SelectorInfoHandler : MonoBehaviour {
 
+	public enum ContainerType
+	{
+		Challenge,
+		Buy,
+	}
+
 	public Image info_sprite;
 	public Text info_desc;
 
 	private CanvasGroup canvasGroup;
+	private Image background;
+	private StoreItem activeStoreItem;
+	public GameObject challengeContainer;
+	public GameObject buyContainer;
+
+
+	void OnEnable()
+	{
+		EventManager.OnButtonClick += OnButtonClick;
+	}
+	void OnDisable()
+	{
+		EventManager.OnButtonClick -= OnButtonClick;
+	}
 
 	void Start ()
 	{
@@ -16,37 +36,61 @@ public class SelectorInfoHandler : MonoBehaviour {
 
 	void Initialize()
 	{
-		Hide();
+		background = GetComponent<Image>();
+		HideContainers();
 	}
 
-	private void SetValues(Package p)
+	public void ShowContainer(ContainerType type, Package p)
 	{
+		HideContainers();
+		background.enabled = true;
 		p.challenge.UpdateValues();
-		info_sprite.sprite = p.model.transform.GetChild(3).GetComponent<SpriteRenderer>().sprite;
-		info_desc.text = p.challenge.description + " [ " + p.challenge.progress + " / " + p.challenge.cap + " ] ";
+		switch (type)
+		{
+			case ContainerType.Challenge:
+			{
+				challengeContainer.SetActive(true);
+				challengeContainer.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = p.icon;
+				challengeContainer.transform.GetChild(1).GetComponent<Text>().text = p.challenge.description + " [ " + p.challenge.progress + " / " + p.challenge.cap + " ] ";
+				break;
+			}
+			case ContainerType.Buy:
+			{
+				buyContainer.SetActive(true);
+				buyContainer.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = p.icon;
+				buyContainer.transform.GetChild(1).GetComponent<Text>().text = "test stuff";
+
+				break;
+			}
+		}
 	}
 
-	public void Show(Package p)
+	void OnButtonClick(ButtonID id)
 	{
-		if (canvasGroup == null)
+		if (id == ButtonID.InfoBuy)
 		{
-			canvasGroup = GetComponent<CanvasGroup>();
+			if (ActiveStoreItem != null)
+			{
+				ActiveStoreItem.Select();
+				ActiveStoreItem.Unlock();
+				HideContainers();
+
+			}
 		}
-
-		canvasGroup.alpha = 1f;
-		canvasGroup.blocksRaycasts = true;
-
-		SetValues(p);
 	}
 
-	public void Hide()
+	public void HideContainers()
 	{
-		if (canvasGroup == null)
-		{
-			canvasGroup = GetComponent<CanvasGroup>();
-		}
+		background.enabled = false;
+		challengeContainer.SetActive(false);
+		buyContainer.SetActive(false);
+	}
 
-		canvasGroup.alpha = 0f;
-		canvasGroup.blocksRaycasts = false;
+	public StoreItem ActiveStoreItem
+	{
+		get {return activeStoreItem; }
+		set {
+			this.activeStoreItem = value;
+		}
 	}
 }

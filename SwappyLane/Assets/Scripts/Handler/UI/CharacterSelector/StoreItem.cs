@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+
+
+
 public class StoreItem : ButtonEventHandler {
 
 	private Package package;
 
+	public PackageType type;
 	private Image icon;
 
 	public Image status;
@@ -18,7 +22,9 @@ public class StoreItem : ButtonEventHandler {
 
 	private Image progression_progress;
 
-	public bool defaultItem; 
+	public bool defaultItem;
+
+
 
 
 	public void Initalize()
@@ -28,16 +34,16 @@ public class StoreItem : ButtonEventHandler {
 		if (package != null)
 		{
 			icon = GetComponent<Image>();
-			icon.sprite = package.model.transform.GetChild(3).GetComponent<SpriteRenderer>().sprite;
+			icon.sprite = package.icon;
 
-			if(StatRecordController.Instance.UnlockChallenges)
+			if (StatRecordController.Instance.UnlockChallenges)
 			{
-				Unlock(); 
+				Unlock();
 			}
 
-			if(package.defaultPackage)
+			if (package.defaultPackage)
 			{
-				Unlock(); 
+				Unlock();
 			}
 
 			if (package.challenge != null)
@@ -49,13 +55,26 @@ public class StoreItem : ButtonEventHandler {
 					progression.SetActive(false);
 				}
 			}
+
+			type = package.type;
 		}
 
-		Hide(); 
-		
-		if(CharacterSelector.ActiveSkinPackage.id == package.id)
+		Hide();
+
+		if (package.type == PackageType.Skins)
 		{
-			Show(); 
+			if (CharacterSelector.ActiveSkinPackage.id == package.id)
+			{
+				Show();
+			}
+		}
+
+		if (package.type == PackageType.Theme)
+		{
+			if (CharacterSelector.ActiveThemePackage.id == package.id)
+			{
+				Show();
+			}
 		}
 
 
@@ -76,16 +95,26 @@ public class StoreItem : ButtonEventHandler {
 		while (true)
 		{
 			progression_progress.fillAmount = Mathf.SmoothDamp(progression_progress.fillAmount, package.challenge.progress / package.challenge.cap,
-			ref vel, Time.deltaTime * 20f);
+			                                  ref vel, Time.deltaTime * 20f);
 
 
 			yield return null;
 		}
 	}
 
-	private void Unlock()
+	public void Unlock()
 	{
 		progression.SetActive(false);
+		if (package.challenge != null)
+		{
+			package.challenge.completed = true;
+		}
+
+		if (package.type == PackageType.Theme)
+		{
+			PlayerPrefs.SetString("theme_" + package.id, "True");
+		}
+
 	}
 
 	public void SetPackage(Package p)
@@ -96,25 +125,37 @@ public class StoreItem : ButtonEventHandler {
 	public override void OnPointerClick(PointerEventData data)
 	{
 		SelectorInfoHandler infoHandler = FindObjectOfType<SelectorInfoHandler>();
-
+		infoHandler.ActiveStoreItem = this;
 		if (package.challenge != null)
 		{
 			if (package.challenge.completed == false)
 			{
-				FindObjectOfType<SelectorInfoHandler>().Show(package);
+				switch (type)
+				{
+					case PackageType.Skins:
+					{
+						infoHandler.ShowContainer(SelectorInfoHandler.ContainerType.Challenge, package);
+						break;
+					}
+					case PackageType.Theme:
+					{
+						infoHandler.ShowContainer(SelectorInfoHandler.ContainerType.Buy, package);
+						break;
+					}
+				}
 			}
 			else
 			{
-				Select(); 
+				Select();
 			}
 		}
 		else
 		{
-			Select(); 
+			Select();
 		}
 	}
 
-	private void Select()
+	public void Select()
 	{
 		if (EventManager.OnStoreItemClick != null)
 		{
@@ -123,7 +164,17 @@ public class StoreItem : ButtonEventHandler {
 
 		status.enabled = true;
 
-		CharacterSelector.ActiveSkinPackage = package; 
+
+		if (package.type == PackageType.Skins)
+		{
+			CharacterSelector.ActiveSkinPackage = package;
+		}
+
+		if (package.type == PackageType.Theme)
+		{
+			CharacterSelector.ActiveThemePackage = package;
+		}
+
 
 	}
 

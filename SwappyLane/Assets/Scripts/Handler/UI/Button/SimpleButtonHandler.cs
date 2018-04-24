@@ -28,7 +28,16 @@ public class SimpleButtonHandler : ButtonEventHandler {
 
 			case ButtonID.InfoClose:
 			{
-				FindObjectOfType<SelectorInfoHandler>().Hide();
+				FindObjectOfType<SelectorInfoHandler>().HideContainers();
+				break;
+			}
+
+			case ButtonID.InfoBuy:
+			{
+				if (EventManager.OnButtonClick != null)
+				{
+					EventManager.OnButtonClick(buttonID);
+				}
 				break;
 			}
 		}

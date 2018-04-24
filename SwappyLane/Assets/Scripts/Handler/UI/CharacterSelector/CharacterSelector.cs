@@ -9,12 +9,21 @@ public enum PanelType
 	Theme,
 }
 
+public enum PackageType
+{
+	Skins,
+	Theme,
+}
+
 public class Package
 {
-	public int id; 
+	public int id;
 	public GameObject model;
 	public Challenge challenge;
-	public bool defaultPackage; 
+	public Purchase purchase;
+	public bool defaultPackage;
+	public Sprite icon;
+	public PackageType type;
 
 	public Package(GameObject model)
 	{
@@ -22,18 +31,51 @@ public class Package
 
 	}
 
-	public Package(int id, GameObject model, Challenge challenge)
+	public Package(PackageType type, int id, GameObject model, Challenge challenge)
 	{
-		this.id = id; 
+		this.type = type;
+		this.id = id;
 		this.model = model;
 		this.challenge = challenge;
+		SetSprite();
+	}
+	public Package(PackageType type, int id, GameObject model, Purchase purchase)
+	{
+		this.type = type;
+		this.id = id;
+		this.purchase = purchase;
+		this.model = model;
+		this.purchase.id = id;
+		SetSprite();
+	}
+	public Package(PackageType type, int id, GameObject model, bool defaultPackage)
+	{
+		this.type = type;
+		this.id = id;
+		this.defaultPackage = defaultPackage;
+		this.model = model;
+		SetSprite();
 	}
 
-	public Package(int id, GameObject model, bool defaultPackage)
+
+
+
+	private void SetSprite()
 	{
-		this.id = id; 
-		this.defaultPackage = defaultPackage; 
-		this.model = model; 
+		switch (type)
+		{
+			case PackageType.Skins:
+			{
+				icon = model.transform.GetChild(3).GetComponent<SpriteRenderer>().sprite;
+				break;
+			}
+
+			case PackageType.Theme:
+			{
+				icon = model.transform.GetChild(2).GetComponent<SpriteRenderer>().sprite;
+				break;
+			}
+		}
 	}
 
 }
@@ -58,7 +100,7 @@ public class Challenge
 		this.cap = cap;
 		this.type = type;
 		SetDesription();
-		UpdateCompletion(); 
+		UpdateCompletion();
 	}
 
 	public void UpdateValues()
@@ -81,7 +123,7 @@ public class Challenge
 
 	private void UpdateCompletion()
 	{
-		completed = StatRecordController.Instance.UnlockChallenges; 
+		completed = StatRecordController.Instance.UnlockChallenges;
 	}
 
 	private void SetDesription()
@@ -100,6 +142,26 @@ public class Challenge
 		{
 			completed = true;
 		}
+	}
+}
+
+public class Purchase
+{
+	public int id;
+	public bool purchased;
+	public string description;
+	public float cost;
+
+	public Purchase(float cost)
+	{
+		this.cost = cost;
+		description = "Unlock for " + cost + " coins";
+		RefreshPurchased();
+	}
+
+	public void RefreshPurchased()
+	{
+		purchased = PlayerPrefs.HasKey("theme_" + id) ? bool.Parse(PlayerPrefs.GetString("theme_" + id)) : false;
 	}
 }
 
@@ -128,24 +190,25 @@ public class PackageCreator
 
 	public static Package[] Skins =
 	{
-		new Package(1,AppResources.char_1, true),
-		new Package(2,AppResources.char_2, challenge_playgame_1),
-		new Package(3,AppResources.char_3, challenge_playgame_2),
-		new Package(4,AppResources.char_4, challenge_playgame_3),
-		new Package(5,AppResources.char_5, challenge_playgame_4),
-		new Package(6,AppResources.char_6, challenge_playgame_5),
-		new Package(7,AppResources.char_7, challenge_playgame_6),
-		new Package(8,AppResources.char_8, challenge_levelreach_1),
-		new Package(9,AppResources.char_9, challenge_levelreach_2),
-		new Package(10,AppResources.char_10, challenge_levelreach_3),
-		new Package(11,AppResources.char_11, challenge_levelreach_4),
-		new Package(12,AppResources.char_12, challenge_levelreach_5),
-		new Package(13,AppResources.char_13, challenge_levelreach_6),
+		new Package(PackageType.Skins, 1, AppResources.char_1, true),
+		new Package(PackageType.Skins, 2, AppResources.char_2, challenge_playgame_1),
+		new Package(PackageType.Skins, 3, AppResources.char_3, challenge_playgame_2),
+		new Package(PackageType.Skins, 4, AppResources.char_4, challenge_playgame_3),
+		new Package(PackageType.Skins, 5, AppResources.char_5, challenge_playgame_4),
+		new Package(PackageType.Skins, 6, AppResources.char_6, challenge_playgame_5),
+		new Package(PackageType.Skins, 7, AppResources.char_7, challenge_playgame_6),
+		new Package(PackageType.Skins, 8, AppResources.char_8, challenge_levelreach_1),
+		new Package(PackageType.Skins, 9, AppResources.char_9, challenge_levelreach_2),
+		new Package(PackageType.Skins, 10, AppResources.char_10, challenge_levelreach_3),
+		new Package(PackageType.Skins, 11, AppResources.char_11, challenge_levelreach_4),
+		new Package(PackageType.Skins, 12, AppResources.char_12, challenge_levelreach_5),
+		new Package(PackageType.Skins, 13, AppResources.char_13, challenge_levelreach_6),
 	};
 
 	public static Package[] Theme =
 	{
-
+		new Package(PackageType.Theme, 1, AppResources.theme_1, true),
+		new Package(PackageType.Theme, 2, AppResources.theme_2, challenge_playgame_1),
 	};
 }
 public class CharacterSelector : UserInterface
@@ -155,7 +218,8 @@ public class CharacterSelector : UserInterface
 
 	private CanvasGroup canvasGroup;
 
-	public static Package ActiveSkinPackage; 
+	public static Package ActiveSkinPackage;
+	public static Package ActiveThemePackage;
 
 	void OnEnable()
 	{

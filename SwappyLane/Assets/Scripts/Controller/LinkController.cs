@@ -158,9 +158,9 @@ public class LinkController : MonoBehaviour {
 
 	void Update () {
 
-		if (Controller.isGameOver) return;
+		if (Controller.isGameOver) { return; }
 
-		if (Controller.GameState != State.GAME) return;
+		if (Controller.GameState != State.GAME) { return; }
 
 		atTerminalVelocity = levelController.level.MaxLevelVelocity == velocity;
 

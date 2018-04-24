@@ -32,7 +32,11 @@ public class StorePanel : MonoBehaviour {
 
 	void OnStoreItemClick(StoreItem s, Package p)
 	{
-		ShowCurrentSelector(s);
+		if (s.type.ToString() == panelType.ToString())
+		{
+
+			ShowCurrentSelector(s);
+		}
 	}
 
 	void OnStateChange(State s)
@@ -46,10 +50,6 @@ public class StorePanel : MonoBehaviour {
 		}
 	}
 
-	// void Start ()
-	// {
-	// 	Init();
-	// }
 
 	public void Init()
 	{
@@ -97,11 +97,13 @@ public class StorePanel : MonoBehaviour {
 		}
 
 		RectTransform contentRect = content.GetComponent<RectTransform> ();
+
 		contentRect.sizeDelta = new Vector2(contentRect.sizeDelta.x, (ySize / countPerRow));
 	}
 
 	private void ShowCurrentSelector(StoreItem item)
 	{
+
 		foreach (Transform t in content)
 		{
 			t.GetComponent<StoreItem>().Hide();

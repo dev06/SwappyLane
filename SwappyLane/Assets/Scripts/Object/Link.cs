@@ -69,7 +69,7 @@ public class Link : MonoBehaviour {
 
 		chosenLocation = transform.localPosition;
 
-		GameObject prefab = AppResources.Obstacle;
+		GameObject prefab = CharacterSelector.ActiveThemePackage.model.transform.GetChild(1).gameObject;
 
 		GameObject coin_prefab = AppResources.Coin;
 
