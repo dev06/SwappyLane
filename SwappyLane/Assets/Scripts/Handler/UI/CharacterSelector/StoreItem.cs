@@ -18,6 +18,8 @@ public class StoreItem : ButtonEventHandler {
 
 	private Image progression_progress;
 
+	public bool defaultItem; 
+
 
 	public void Initalize()
 	{
@@ -28,6 +30,16 @@ public class StoreItem : ButtonEventHandler {
 			icon = GetComponent<Image>();
 			icon.sprite = package.model.transform.GetChild(3).GetComponent<SpriteRenderer>().sprite;
 
+			if(StatRecordController.Instance.UnlockChallenges)
+			{
+				Unlock(); 
+			}
+
+			if(package.defaultPackage)
+			{
+				Unlock(); 
+			}
+
 			if (package.challenge != null)
 			{
 				package.challenge.RefreshCompletion();
@@ -36,13 +48,17 @@ public class StoreItem : ButtonEventHandler {
 				{
 					progression.SetActive(false);
 				}
-				else
-				{
-
-					//	progression_progress.fillAmount = package.challenge.progress / package.challenge.cap;
-				}
 			}
 		}
+
+		Hide(); 
+		
+		if(CharacterSelector.ActiveSkinPackage.id == package.id)
+		{
+			Show(); 
+		}
+
+
 	}
 
 	public void DoDance()
@@ -60,11 +76,16 @@ public class StoreItem : ButtonEventHandler {
 		while (true)
 		{
 			progression_progress.fillAmount = Mathf.SmoothDamp(progression_progress.fillAmount, package.challenge.progress / package.challenge.cap,
-			                                  ref vel, Time.deltaTime * 20f);
+			ref vel, Time.deltaTime * 20f);
 
 
 			yield return null;
 		}
+	}
+
+	private void Unlock()
+	{
+		progression.SetActive(false);
 	}
 
 	public void SetPackage(Package p)
@@ -84,14 +105,26 @@ public class StoreItem : ButtonEventHandler {
 			}
 			else
 			{
-				if (EventManager.OnStoreItemClick != null)
-				{
-					EventManager.OnStoreItemClick(this, package);
-				}
-
-				status.enabled = true;
+				Select(); 
 			}
 		}
+		else
+		{
+			Select(); 
+		}
+	}
+
+	private void Select()
+	{
+		if (EventManager.OnStoreItemClick != null)
+		{
+			EventManager.OnStoreItemClick(this, package);
+		}
+
+		status.enabled = true;
+
+		CharacterSelector.ActiveSkinPackage = package; 
+
 	}
 
 	public void Show()

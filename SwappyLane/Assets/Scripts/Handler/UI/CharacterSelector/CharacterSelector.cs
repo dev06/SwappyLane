@@ -11,9 +11,10 @@ public enum PanelType
 
 public class Package
 {
-
+	public int id; 
 	public GameObject model;
 	public Challenge challenge;
+	public bool defaultPackage; 
 
 	public Package(GameObject model)
 	{
@@ -21,10 +22,18 @@ public class Package
 
 	}
 
-	public Package(GameObject model, Challenge challenge)
+	public Package(int id, GameObject model, Challenge challenge)
 	{
+		this.id = id; 
 		this.model = model;
 		this.challenge = challenge;
+	}
+
+	public Package(int id, GameObject model, bool defaultPackage)
+	{
+		this.id = id; 
+		this.defaultPackage = defaultPackage; 
+		this.model = model; 
 	}
 
 }
@@ -49,6 +58,7 @@ public class Challenge
 		this.cap = cap;
 		this.type = type;
 		SetDesription();
+		UpdateCompletion(); 
 	}
 
 	public void UpdateValues()
@@ -67,6 +77,11 @@ public class Challenge
 				break;
 			}
 		}
+	}
+
+	private void UpdateCompletion()
+	{
+		completed = StatRecordController.Instance.UnlockChallenges; 
 	}
 
 	private void SetDesription()
@@ -113,19 +128,19 @@ public class PackageCreator
 
 	public static Package[] Skins =
 	{
-		new Package(AppResources.char_1),
-		new Package(AppResources.char_2, challenge_playgame_1),
-		new Package(AppResources.char_3, challenge_playgame_2),
-		new Package(AppResources.char_4, challenge_playgame_3),
-		new Package(AppResources.char_5, challenge_playgame_4),
-		new Package(AppResources.char_6, challenge_playgame_5),
-		new Package(AppResources.char_7, challenge_playgame_6),
-		new Package(AppResources.char_8, challenge_levelreach_1),
-		new Package(AppResources.char_9, challenge_levelreach_2),
-		new Package(AppResources.char_10, challenge_levelreach_3),
-		new Package(AppResources.char_11, challenge_levelreach_4),
-		new Package(AppResources.char_12, challenge_levelreach_5),
-		new Package(AppResources.char_13, challenge_levelreach_6),
+		new Package(1,AppResources.char_1, true),
+		new Package(2,AppResources.char_2, challenge_playgame_1),
+		new Package(3,AppResources.char_3, challenge_playgame_2),
+		new Package(4,AppResources.char_4, challenge_playgame_3),
+		new Package(5,AppResources.char_5, challenge_playgame_4),
+		new Package(6,AppResources.char_6, challenge_playgame_5),
+		new Package(7,AppResources.char_7, challenge_playgame_6),
+		new Package(8,AppResources.char_8, challenge_levelreach_1),
+		new Package(9,AppResources.char_9, challenge_levelreach_2),
+		new Package(10,AppResources.char_10, challenge_levelreach_3),
+		new Package(11,AppResources.char_11, challenge_levelreach_4),
+		new Package(12,AppResources.char_12, challenge_levelreach_5),
+		new Package(13,AppResources.char_13, challenge_levelreach_6),
 	};
 
 	public static Package[] Theme =
@@ -139,6 +154,8 @@ public class CharacterSelector : UserInterface
 	public List<StorePanel> panels;
 
 	private CanvasGroup canvasGroup;
+
+	public static Package ActiveSkinPackage; 
 
 	void OnEnable()
 	{

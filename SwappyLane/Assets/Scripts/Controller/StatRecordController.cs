@@ -6,10 +6,13 @@ public class StatRecordController : MonoBehaviour {
 
 	public bool DeleteSave;
 
+	public bool UnlockChallenges; 
+
 	public static StatRecordController Instance;
 
 	public static int TotalGamesPlayed;
 	public static int HighestLevelReached;
+	public static int CoinsCollected; 
 
 	private LevelController levelController;
 
@@ -46,6 +49,7 @@ public class StatRecordController : MonoBehaviour {
 	{
 		levelController = LevelController.Instance;
 
+
 	}
 
 
@@ -66,6 +70,8 @@ public class StatRecordController : MonoBehaviour {
 			HighestLevelReached = lastLevelAchieved;
 		}
 
+		CoinsCollected+=CoinController.Instance.LevelCoins; 
+
 		SaveStats();
 	}
 
@@ -73,11 +79,17 @@ public class StatRecordController : MonoBehaviour {
 	{
 		PlayerPrefs.SetInt("TotalGamesPlayed", TotalGamesPlayed);
 		PlayerPrefs.SetInt("HighestLevelReached", HighestLevelReached);
+		PlayerPrefs.SetInt("ActiveSkin",CharacterSelector.ActiveSkinPackage.id); 
+		PlayerPrefs.SetInt("LastLevel",levelController.level.Index); 
+		PlayerPrefs.SetInt("CoinsCollected", CoinsCollected); 
 	}
 
 	public void LoadStats()
 	{
 		TotalGamesPlayed = PlayerPrefs.GetInt("TotalGamesPlayed");
 		HighestLevelReached = PlayerPrefs.GetInt("HighestLevelReached");
+		CoinsCollected = PlayerPrefs.HasKey("CoinsCollected") ? PlayerPrefs.GetInt("CoinsCollected") : 0; 
+		CharacterSelector.ActiveSkinPackage = PackageCreator.Skins[!PlayerPrefs.HasKey("ActiveSkin") ? 0 : (PlayerPrefs.GetInt("ActiveSkin")) - 1]; 
+
 	}
 }

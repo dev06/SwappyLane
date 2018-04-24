@@ -12,6 +12,8 @@ public class LevelController : MonoBehaviour {
 
 	public static LevelController Instance;
 
+	public int StartingIndex = 1; 
+
 	void Awake()
 	{
 		if (Instance == null)
@@ -26,7 +28,9 @@ public class LevelController : MonoBehaviour {
 	{
 		if (level == null)
 		{
-			level = new Level(10);
+			StartingIndex =PlayerPrefs.HasKey("LastLevel") ? PlayerPrefs.GetInt("LastLevel") : 1; 
+
+			level = new Level(StartingIndex);
 		}
 	}
 

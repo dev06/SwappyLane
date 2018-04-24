@@ -25,7 +25,7 @@ public class CharacterTemplate : MonoBehaviour {
 	{
 		if (activeModel == null)
 		{
-			activeModel = AppResources.char_1;
+			activeModel = CharacterSelector.ActiveSkinPackage.model;
 			CreateCharacter(activeModel);
 		}
 	}

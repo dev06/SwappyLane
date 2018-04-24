@@ -87,7 +87,6 @@ public class StorePanel : MonoBehaviour {
 			rt.sizeDelta = new Vector2(size * multiplier, size * multiplier );
 
 			rt.anchoredPosition = new Vector2((xRow * size) + (size * (1f - multiplier)) / 2f  , -yRow * size);
-
 			rt.localScale = new Vector3(1, 1, 1);
 			ySize += size;
 			xRow++;
