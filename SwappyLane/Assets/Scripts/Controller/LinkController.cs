@@ -183,15 +183,17 @@ public class LinkController : MonoBehaviour {
 
 		velocity = Mathf.Clamp(velocity, MIN_VELOCITY, levelController.level.MaxLevelVelocity);
 
-		float delay = -Mathf.Log(levelController.level.Index, 10) * 4f + 10f;
+		float delay = -Mathf.Log(levelController.level.Index, 10) * 3f + 10f;
 
 		delay = Mathf.Clamp(delay, 4.75f, delay);
+
+//		Debug.Log(delay); 
 
 		startingDelay = delay / Velocity;
 
 		cameraController.UpdateZoomStatus(atTerminalVelocity);
 
-		startingDelay = Mathf.Clamp(startingDelay, .45f, 1f);
+		startingDelay = Mathf.Clamp(startingDelay, .47f, 1f);
 
 		if (levelController.level != null)
 		{

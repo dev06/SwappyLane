@@ -83,7 +83,6 @@ public class StatRecordController : MonoBehaviour {
 		PlayerPrefs.SetInt("ActiveTheme", CharacterSelector.ActiveThemePackage.id);
 		PlayerPrefs.SetInt("LastLevel", levelController.level.Index);
 		PlayerPrefs.SetInt("CoinsCollected", CoinsCollected);
-
 	}
 
 	public void LoadStats()

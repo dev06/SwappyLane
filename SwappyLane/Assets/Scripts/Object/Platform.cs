@@ -40,7 +40,7 @@ public class Platform : MonoBehaviour {
 			}
 			targetRotation *= Quaternion.Euler(new Vector3(0, 0, 90 * dir));
 		}
-		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
+		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 12f);
 
 		if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
 		{

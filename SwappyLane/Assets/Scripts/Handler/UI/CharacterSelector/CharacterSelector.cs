@@ -46,6 +46,7 @@ public class Package
 		this.purchase = purchase;
 		this.model = model;
 		this.purchase.id = id;
+		this.purchase.IsPurchased = PlayerPrefs.HasKey("theme_" + id) ? bool.Parse(PlayerPrefs.GetString("theme_" + id)) : false; 
 		SetSprite();
 	}
 	public Package(PackageType type, int id, GameObject model, bool defaultPackage)
@@ -155,13 +156,24 @@ public class Purchase
 	public Purchase(float cost)
 	{
 		this.cost = cost;
-		description = "Unlock for " + cost + " coins";
+		description = "Unlock for " + cost + " gems";
 		RefreshPurchased();
 	}
 
 	public void RefreshPurchased()
 	{
 		purchased = PlayerPrefs.HasKey("theme_" + id) ? bool.Parse(PlayerPrefs.GetString("theme_" + id)) : false;
+	}
+
+	public bool IsPurchased
+	{
+		get{
+			return purchased; 
+		}
+
+		set{
+			this.purchased = value; 
+		}
 	}
 }
 
@@ -188,6 +200,8 @@ public class PackageCreator
 	public static Challenge challenge_levelreach_5 = new Challenge(ChallengeType.LevelReach, 25);
 	public static Challenge challenge_levelreach_6 = new Challenge(ChallengeType.LevelReach, 30);
 
+	public static Purchase purchase_1 = new Purchase(10); 
+
 	public static Package[] Skins =
 	{
 		new Package(PackageType.Skins, 1, AppResources.char_1, true),
@@ -208,13 +222,15 @@ public class PackageCreator
 	public static Package[] Theme =
 	{
 		new Package(PackageType.Theme, 1, AppResources.theme_1, true),
-		new Package(PackageType.Theme, 2, AppResources.theme_2, challenge_playgame_1),
+		new Package(PackageType.Theme, 2, AppResources.theme_2, purchase_1),
 	};
 }
 public class CharacterSelector : UserInterface
 {
 
 	public List<StorePanel> panels;
+
+	public Text coinHudText; 
 
 	private CanvasGroup canvasGroup;
 
@@ -244,7 +260,7 @@ public class CharacterSelector : UserInterface
 			HideSelector();
 			return;
 		}
-
+		UpdateSelectorUI(); 
 		ShowSelector();
 	}
 
@@ -285,6 +301,7 @@ public class CharacterSelector : UserInterface
 				break;
 			}
 		}
+
 	}
 
 	public void HideAll()
@@ -312,5 +329,10 @@ public class CharacterSelector : UserInterface
 		}
 		canvasGroup.alpha = 1f;
 		canvasGroup.blocksRaycasts = true;
+	}
+
+	public void UpdateSelectorUI()
+	{
+		coinHudText.text = StatRecordController.CoinsCollected.ToString(); 
 	}
 }

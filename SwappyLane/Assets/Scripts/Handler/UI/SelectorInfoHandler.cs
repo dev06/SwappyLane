@@ -44,7 +44,10 @@ public class SelectorInfoHandler : MonoBehaviour {
 	{
 		HideContainers();
 		background.enabled = true;
-		p.challenge.UpdateValues();
+		if(p.type == PackageType.Skins)
+		{			
+			p.challenge.UpdateValues();
+		}
 		switch (type)
 		{
 			case ContainerType.Challenge:
@@ -58,8 +61,8 @@ public class SelectorInfoHandler : MonoBehaviour {
 			{
 				buyContainer.SetActive(true);
 				buyContainer.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = p.icon;
-				buyContainer.transform.GetChild(1).GetComponent<Text>().text = "test stuff";
-
+				buyContainer.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = StatRecordController.CoinsCollected >= p.purchase.cost ? "Buy" : "Not enough gems"; 
+				buyContainer.transform.GetChild(1).GetComponent<Text>().text = p.purchase.description;
 				break;
 			}
 		}
@@ -71,10 +74,15 @@ public class SelectorInfoHandler : MonoBehaviour {
 		{
 			if (ActiveStoreItem != null)
 			{
-				ActiveStoreItem.Select();
-				ActiveStoreItem.Unlock();
-				HideContainers();
-
+				if(ActiveStoreItem.CanPurchase())
+				{
+					ActiveStoreItem.Select();
+					ActiveStoreItem.Unlock();
+					StatRecordController.CoinsCollected-=(int)ActiveStoreItem.Package.purchase.cost; 
+					PlayerPrefs.SetInt("CoinsCollected", StatRecordController.CoinsCollected);
+					FindObjectOfType<CharacterSelector>().UpdateSelectorUI(); 
+					HideContainers();			
+				}
 			}
 		}
 	}
