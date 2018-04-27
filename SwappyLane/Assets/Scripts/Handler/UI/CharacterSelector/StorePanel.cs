@@ -73,7 +73,8 @@ public class StorePanel : MonoBehaviour {
 		int xRow = 0;
 		float multiplier = .9f;
 		float ySize = 0;
-		for (int i = 0; i < (type == PanelType.Skins ? PackageCreator.Skins.Length : PackageCreator.Theme.Length); i++)
+		int length = (type == PanelType.Skins ? PackageCreator.Skins.Length : PackageCreator.Theme.Length);
+		for (int i = 0; i < length;  i++)
 		{
 			GameObject clone = Instantiate(AppResources.StoreIconTemplate) as GameObject;
 			clone.transform.SetParent(content);
@@ -83,12 +84,13 @@ public class StorePanel : MonoBehaviour {
 			{
 				yRow++;
 				xRow = 0;
+				ySize += size;
 			}
 			rt.sizeDelta = new Vector2(size * multiplier, size * multiplier );
 
 			rt.anchoredPosition = new Vector2((xRow * size) + (size * (1f - multiplier)) / 2f  , -yRow * size);
 			rt.localScale = new Vector3(1, 1, 1);
-			ySize += size;
+
 			xRow++;
 
 			StoreItem s = clone.GetComponent<StoreItem>();
@@ -98,7 +100,7 @@ public class StorePanel : MonoBehaviour {
 
 		RectTransform contentRect = content.GetComponent<RectTransform> ();
 
-		contentRect.sizeDelta = new Vector2(contentRect.sizeDelta.x, (ySize / countPerRow));
+		contentRect.sizeDelta = new Vector2(contentRect.sizeDelta.x, ySize + size);
 	}
 
 	private void ShowCurrentSelector(StoreItem item)

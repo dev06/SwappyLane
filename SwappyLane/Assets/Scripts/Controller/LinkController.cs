@@ -84,11 +84,6 @@ public class LinkController : MonoBehaviour {
 	{
 		if (atTerminalVelocity)
 		{
-
-			fragments.transform.position = o.transform.position;
-
-			fragments.Play();
-
 			Velocity = MIN_VELOCITY;
 
 			o.SetActive(false);
@@ -146,9 +141,8 @@ public class LinkController : MonoBehaviour {
 
 		levelController.Initalize();
 
-		fragments = GameObject.Find("ObstacleFragments").GetComponent<ParticleSystem>();
-
 		tmVelocity = GameObject.Find("TerminalVelocityBoost").GetComponent<ParticleSystem>();
+
 	}
 
 	void Start ()
@@ -187,7 +181,7 @@ public class LinkController : MonoBehaviour {
 
 		delay = Mathf.Clamp(delay, 4.75f, delay);
 
-//		Debug.Log(delay); 
+		//		Debug.Log(delay);
 
 		startingDelay = delay / Velocity;
 
@@ -238,6 +232,13 @@ public class LinkController : MonoBehaviour {
 
 		set {
 			this.velocity = value;
+		}
+	}
+
+	public bool AtTerminalVelocity
+	{
+		get {
+			return atTerminalVelocity;
 		}
 	}
 }

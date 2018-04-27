@@ -6,6 +6,7 @@ public class ThemeTemplate : MonoBehaviour {
 
 	private GameObject activeModel;
 	private Controller controller;
+	private LinkController linkController;
 
 	void Start ()
 	{
@@ -20,10 +21,12 @@ public class ThemeTemplate : MonoBehaviour {
 	void OnEnable()
 	{
 		EventManager.OnStoreItemClick += OnStoreItemClick;
+		EventManager.OnObstacleHit += OnObstacleHit;
 	}
 	void OnDisable()
 	{
 		EventManager.OnStoreItemClick -= OnStoreItemClick;
+		EventManager.OnObstacleHit -= OnObstacleHit;
 	}
 
 	void OnStoreItemClick(StoreItem s, Package p)
@@ -35,6 +38,15 @@ public class ThemeTemplate : MonoBehaviour {
 		controller.SpawnLink();
 	}
 
+	void OnObstacleHit(GameObject o)
+	{
+		if (LinkController.Instance.AtTerminalVelocity)
+		{
+			transform.GetChild(1).transform.position = o.transform.position;
+			transform.GetChild(1).GetComponent<ParticleSystem>().Play();
+		}
+	}
+
 
 	public void CreateTheme(GameObject template)
 	{
@@ -44,6 +56,7 @@ public class ThemeTemplate : MonoBehaviour {
 		}
 		GameObject clone =  (GameObject)Instantiate(template) as GameObject;
 		clone.transform.GetChild(0).SetParent(transform);
+		clone.transform.GetChild(4).SetParent(transform);
 		Destroy(clone);
 	}
 }

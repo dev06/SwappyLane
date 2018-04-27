@@ -46,7 +46,7 @@ public class Package
 		this.purchase = purchase;
 		this.model = model;
 		this.purchase.id = id;
-		this.purchase.IsPurchased = PlayerPrefs.HasKey("theme_" + id) ? bool.Parse(PlayerPrefs.GetString("theme_" + id)) : false; 
+		this.purchase.IsPurchased = PlayerPrefs.HasKey("theme_" + id) ? bool.Parse(PlayerPrefs.GetString("theme_" + id)) : false;
 		SetSprite();
 	}
 	public Package(PackageType type, int id, GameObject model, bool defaultPackage)
@@ -167,12 +167,12 @@ public class Purchase
 
 	public bool IsPurchased
 	{
-		get{
-			return purchased; 
+		get {
+			return purchased;
 		}
 
-		set{
-			this.purchased = value; 
+		set {
+			this.purchased = value;
 		}
 	}
 }
@@ -200,7 +200,9 @@ public class PackageCreator
 	public static Challenge challenge_levelreach_5 = new Challenge(ChallengeType.LevelReach, 25);
 	public static Challenge challenge_levelreach_6 = new Challenge(ChallengeType.LevelReach, 30);
 
-	public static Purchase purchase_1 = new Purchase(10); 
+	public static Purchase purchase_1 = new Purchase(10);
+	public static Purchase purchase_2 = new Purchase(20);
+
 
 	public static Package[] Skins =
 	{
@@ -217,12 +219,18 @@ public class PackageCreator
 		new Package(PackageType.Skins, 11, AppResources.char_11, challenge_levelreach_4),
 		new Package(PackageType.Skins, 12, AppResources.char_12, challenge_levelreach_5),
 		new Package(PackageType.Skins, 13, AppResources.char_13, challenge_levelreach_6),
+		new Package(PackageType.Skins, 14, AppResources.char_14, challenge_levelreach_6),
+		new Package(PackageType.Skins, 15, AppResources.char_15, challenge_levelreach_6),
+		new Package(PackageType.Skins, 16, AppResources.char_16, challenge_levelreach_6),
+
 	};
 
 	public static Package[] Theme =
 	{
 		new Package(PackageType.Theme, 1, AppResources.theme_1, true),
 		new Package(PackageType.Theme, 2, AppResources.theme_2, purchase_1),
+		new Package(PackageType.Theme, 3, AppResources.theme_3, purchase_2),
+
 	};
 }
 public class CharacterSelector : UserInterface
@@ -230,7 +238,7 @@ public class CharacterSelector : UserInterface
 
 	public List<StorePanel> panels;
 
-	public Text coinHudText; 
+	public Text coinHudText;
 
 	private CanvasGroup canvasGroup;
 
@@ -260,7 +268,7 @@ public class CharacterSelector : UserInterface
 			HideSelector();
 			return;
 		}
-		UpdateSelectorUI(); 
+		UpdateSelectorUI();
 		ShowSelector();
 	}
 
@@ -333,6 +341,6 @@ public class CharacterSelector : UserInterface
 
 	public void UpdateSelectorUI()
 	{
-		coinHudText.text = StatRecordController.CoinsCollected.ToString(); 
+		coinHudText.text = StatRecordController.CoinsCollected.ToString();
 	}
 }
