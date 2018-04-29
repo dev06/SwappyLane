@@ -51,14 +51,18 @@ public class Player : MonoBehaviour {
 
 	void OnGameOver()
 	{
-		Controller.isGameOver = true;
+		if(!Controller.isGameOver)
+		{
+			Controller.isGameOver = true;
 
-		transform.GetComponent<MeshRenderer>().enabled = false;
-		Debug.LogError("Game Over");
-		characterFragments.Play();
-		characterFragments.transform.position = transform.position;
-		StopCoroutine("IOnGameOver");
-		StartCoroutine("IOnGameOver");
+			transform.GetComponent<MeshRenderer>().enabled = false;
+//			Debug.LogError("Game Over");
+			characterFragments.Play();
+			characterFragments.transform.position = transform.position;
+			StopCoroutine("IOnGameOver");
+			StartCoroutine("IOnGameOver");			
+		}
+
 	}
 
 	IEnumerator IOnGameOver()

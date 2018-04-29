@@ -55,6 +55,7 @@ public class Package
 		this.id = id;
 		this.defaultPackage = defaultPackage;
 		this.model = model;
+		this.challenge = new Challenge(ChallengeType.None); 
 		SetSprite();
 	}
 
@@ -99,6 +100,12 @@ public class Challenge
 	public string description;
 	public float progress;
 	public float cap;
+
+	public Challenge(ChallengeType type)
+	{
+		this.type = type; 
+		completed = true; 
+	}
 
 	public Challenge( ChallengeType type, float cap)
 	{
@@ -155,7 +162,7 @@ public class Challenge
 			case ChallengeType.LevelReach: description = "Reach Level " + cap; break;
 			case ChallengeType.Roll: description = "Roll " + cap + " meters"; break;
 			case ChallengeType.BreakBlock: description = "Break " + cap + " blocks"; break;
-			case ChallengeType.UnlockSkins: description = "Unlock " + cap + " Skins"; break;
+			case ChallengeType.UnlockSkins: description = "Unlock " + cap + " Skins in total"; break;
 		}
 	}
 
@@ -216,34 +223,33 @@ public class PackageCreator
 	public static Challenge challenge_playgame_5 = new Challenge(ChallengeType.PlayGame, 13);
 	public static Challenge challenge_playgame_6 = new Challenge(ChallengeType.PlayGame, 15);
 
-	public static Challenge challenge_levelreach_1 = new Challenge(ChallengeType.LevelReach, 5);
-	public static Challenge challenge_levelreach_2 = new Challenge(ChallengeType.LevelReach, 10);
-	public static Challenge challenge_levelreach_3 = new Challenge(ChallengeType.LevelReach, 15);
-	public static Challenge challenge_levelreach_4 = new Challenge(ChallengeType.LevelReach, 20);
+	public static Challenge challenge_levelreach_1 = new Challenge(ChallengeType.LevelReach, 1);
+	public static Challenge challenge_levelreach_2 = new Challenge(ChallengeType.LevelReach, 2);
+	public static Challenge challenge_levelreach_3 = new Challenge(ChallengeType.LevelReach, 3);
+	public static Challenge challenge_levelreach_4 = new Challenge(ChallengeType.LevelReach, 4);
 	public static Challenge challenge_levelreach_5 = new Challenge(ChallengeType.LevelReach, 25);
 	public static Challenge challenge_levelreach_6 = new Challenge(ChallengeType.LevelReach, 30);
 
-	public static Challenge challenge_roll_1 = new Challenge(ChallengeType.Roll, 5);
-	public static Challenge challenge_roll_2 = new Challenge(ChallengeType.Roll, 10);
-	public static Challenge challenge_roll_3 = new Challenge(ChallengeType.Roll, 15);
-	public static Challenge challenge_roll_4 = new Challenge(ChallengeType.Roll, 20);
+	public static Challenge challenge_roll_1 = new Challenge(ChallengeType.Roll, 2);
+	public static Challenge challenge_roll_2 = new Challenge(ChallengeType.Roll, 3);
+	public static Challenge challenge_roll_3 = new Challenge(ChallengeType.Roll, 4);
+	public static Challenge challenge_roll_4 = new Challenge(ChallengeType.Roll, 5);
 	public static Challenge challenge_roll_5 = new Challenge(ChallengeType.Roll, 25);
 	public static Challenge challenge_roll_6 = new Challenge(ChallengeType.Roll, 30);
 
 	public static Challenge challenge_breakblock_1 = new Challenge(ChallengeType.BreakBlock, 5);
-	public static Challenge challenge_breakblock_2 = new Challenge(ChallengeType.BreakBlock, 10);
-	public static Challenge challenge_breakblock_3 = new Challenge(ChallengeType.BreakBlock, 15);
-	public static Challenge challenge_breakblock_4 = new Challenge(ChallengeType.BreakBlock, 20);
-	public static Challenge challenge_breakblock_5 = new Challenge(ChallengeType.BreakBlock, 25);
-	public static Challenge challenge_breakblock_6 = new Challenge(ChallengeType.BreakBlock, 30);
+	public static Challenge challenge_breakblock_2 = new Challenge(ChallengeType.BreakBlock, 7);
+	public static Challenge challenge_breakblock_3 = new Challenge(ChallengeType.BreakBlock, 9);
+	public static Challenge challenge_breakblock_4 = new Challenge(ChallengeType.BreakBlock, 11);
+	public static Challenge challenge_breakblock_5 = new Challenge(ChallengeType.BreakBlock, 13);
+	public static Challenge challenge_breakblock_6 = new Challenge(ChallengeType.BreakBlock, 15);
 
 	public static Challenge challenge_unlockskins_1 = new Challenge(ChallengeType.UnlockSkins, 5);
-	public static Challenge challenge_unlockskins_2 = new Challenge(ChallengeType.UnlockSkins, 10);
-	public static Challenge challenge_unlockskins_3 = new Challenge(ChallengeType.UnlockSkins, 15);
+	public static Challenge challenge_unlockskins_2 = new Challenge(ChallengeType.UnlockSkins, 7);
+	public static Challenge challenge_unlockskins_3 = new Challenge(ChallengeType.UnlockSkins, 9);
 	public static Challenge challenge_unlockskins_4 = new Challenge(ChallengeType.UnlockSkins, 20);
 	public static Challenge challenge_unlockskins_5 = new Challenge(ChallengeType.UnlockSkins, 25);
 	public static Challenge challenge_unlockskins_6 = new Challenge(ChallengeType.UnlockSkins, 30);
-
 
 	public static Purchase purchase_1 = new Purchase(4);
 	public static Purchase purchase_2 = new Purchase(4);
@@ -265,7 +271,6 @@ public class PackageCreator
 		new Package(PackageType.Skins, 5, AppResources.char_5, challenge_breakblock_1),
 		new Package(PackageType.Skins, 6, AppResources.char_6, challenge_unlockskins_1),
 		new Package(PackageType.Skins, 7, AppResources.char_7, challenge_playgame_2),
-
 		new Package(PackageType.Skins, 8, AppResources.char_8, challenge_levelreach_2),
 		new Package(PackageType.Skins, 9, AppResources.char_9, challenge_roll_2),
 		new Package(PackageType.Skins, 10, AppResources.char_10, challenge_breakblock_2),
@@ -364,6 +369,8 @@ public class CharacterSelector : UserInterface
 	{
 		base.Init();
 
+
+
 	}
 
 	public void ShowPanel(PanelType p)
@@ -383,20 +390,33 @@ public class CharacterSelector : UserInterface
 
 	public static void CheckForSkinUnlocks()
 	{
-		Debug.Log("fsfsf");
 		int count = 0;
-		for (int i = 0; i < PackageCreator.Skins.Length; i++)
+		
+		for (int i = 0; i < SkinItems.Count; i++)
 		{
-			if (PackageCreator.Skins[i].challenge == null) continue;
-			if (PackageCreator.Skins[i].challenge.completed)
-			{
-				Debug.Log(PackageCreator.Skins[i]);
-				count++;
+			SkinItems[i].Package.challenge.RefreshCompletion(); 
+
+			if(SkinItems[i].Package.challenge.completed == true)
+			{				
+				count++; 
 			}
 		}
 
-		//	StatRecordController.SkinsUnlocked = count;
+		StatRecordController.SkinsUnlocked = count;
 
+		for (int i = 0; i < SkinItems.Count; i++)
+		{
+			SkinItems[i].Package.challenge.RefreshCompletion(); 
+
+			if(SkinItems[i].Package.challenge.completed == true)
+			{				
+				SkinItems[i].DeactiveProgression(); 
+			}
+		}
+
+
+		//Debug.Log(SkinItems.Count); 
+		//Debug.Log("Total Skins Unlocked " + StatRecordController.SkinsUnlocked); 
 		// for (int i = 0 ; i < SkinItems.Count; i++)
 		// {
 		// 	if (SkinItems[i].Package.challenge == null) continue;

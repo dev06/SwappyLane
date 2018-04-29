@@ -89,7 +89,7 @@ public class StatRecordController : MonoBehaviour {
 
 		PlayerPrefs.SetFloat("MetersRolled", MetersRolled);
 		PlayerPrefs.SetInt("BlocksBreaked", BlocksBreaked);
-		PlayerPrefs.SetInt("SkinsUnlocked", SkinsUnlocked);
+		//PlayerPrefs.SetInt("SkinsUnlocked", SkinsUnlocked);
 
 	}
 
@@ -102,7 +102,7 @@ public class StatRecordController : MonoBehaviour {
 		CharacterSelector.ActiveThemePackage = PackageCreator.Theme[!PlayerPrefs.HasKey("ActiveTheme") ? 0 : (PlayerPrefs.GetInt("ActiveTheme")) - 1];
 		MetersRolled = PlayerPrefs.HasKey("MetersRolled") ? PlayerPrefs.GetFloat("MetersRolled") : 0;
 		BlocksBreaked = PlayerPrefs.HasKey("BlocksBreaked") ? PlayerPrefs.GetInt("BlocksBreaked") : 0;
-		SkinsUnlocked = PlayerPrefs.HasKey("SkinsUnlocked") ? PlayerPrefs.GetInt("SkinsUnlocked") : 0;
+		//SkinsUnlocked = PlayerPrefs.HasKey("SkinsUnlocked") ? PlayerPrefs.GetInt("SkinsUnlocked") : 0;
 
 	}
 }

@@ -36,21 +36,6 @@ public class LevelController : MonoBehaviour {
 		}
 	}
 
-	void Start () {
-
-	}
-
-	void Update () {
-
-		if (Input.GetKeyDown(KeyCode.L))
-		{
-			if (OnLevelComplete != null)
-			{
-				OnLevelComplete();
-			}
-			IncrementLevel();
-		}
-	}
 
 	public void IncrementLevel()
 	{

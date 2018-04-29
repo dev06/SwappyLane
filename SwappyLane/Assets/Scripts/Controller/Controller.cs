@@ -8,6 +8,7 @@ public enum State
 	MENU,
 	GAME,
 	CHARACTER_SELECTOR,
+	PAUSE,
 }
 
 public class Controller : MonoBehaviour {
@@ -58,16 +59,13 @@ public class Controller : MonoBehaviour {
 		StatRecordController.Instance.Initialize();
 	}
 
+	public static bool IN_PAUSE; 
 	void Update ()
 	{
-		if (Input.GetMouseButtonDown(0))
+
+		if(Input.GetKeyDown(KeyCode.Y))
 		{
-			if (GameState == State.MENU)
-			{
-				//SetState(State.GAME);
-
-			}
-
+			SetState((GameState == State.GAME) ? State.PAUSE : State.GAME); 
 		}
 
 	}

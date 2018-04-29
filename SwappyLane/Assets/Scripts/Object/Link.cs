@@ -32,6 +32,8 @@ public class Link : MonoBehaviour {
 
 	private Player player;
 
+	private bool gameInit; 
+
 	void OnEnable()
 	{
 		EventManager.OnStateChange += OnStateChange;
@@ -46,7 +48,12 @@ public class Link : MonoBehaviour {
 	{
 		if (s == State.GAME)
 		{
-			Initalize();
+			if(gameInit == false)
+			{
+				Initalize();	
+				
+				gameInit = true; 
+			}
 		}
 	}
 
@@ -126,6 +133,7 @@ public class Link : MonoBehaviour {
 	void Update ()
 	{
 		if (Controller.isGameOver) { return; }
+		if(Controller.IN_PAUSE) return; 
 		if (Controller.GameState != State.GAME) { return; }
 		CheckIfOutside();
 		UpdateObstacleRotation();

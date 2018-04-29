@@ -57,6 +57,7 @@ public class StorePanel : MonoBehaviour {
 
 		scrollView = transform.GetChild(0).GetComponent<ScrollRect>();
 
+		
 		GenerateElements(panelType);
 
 		if (panelType == PanelType.Skins)
@@ -97,6 +98,9 @@ public class StorePanel : MonoBehaviour {
 			s.SetPackage(type == PanelType.Skins ? PackageCreator.Skins[i] : PackageCreator.Theme[i]);
 			s.Initalize();
 		}
+
+		
+		CharacterSelector.CheckForSkinUnlocks(); 
 
 		RectTransform contentRect = content.GetComponent<RectTransform> ();
 

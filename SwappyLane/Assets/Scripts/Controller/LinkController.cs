@@ -107,7 +107,7 @@ public class LinkController : MonoBehaviour {
 		{
 			if (canCollideAgain)
 			{
-				//GAME OVER
+				
 				if (EventManager.OnGameOver != null)
 				{
 					EventManager.OnGameOver();
@@ -156,7 +156,9 @@ public class LinkController : MonoBehaviour {
 
 		if (Controller.isGameOver) { return; }
 
+		if(Controller.IN_PAUSE) return; 
 		if (Controller.GameState != State.GAME) { return; }
+
 
 		atTerminalVelocity = levelController.level.MaxLevelVelocity == velocity;
 

@@ -31,9 +31,16 @@ public class StoreItem : ButtonEventHandler {
 	{
 		progression_progress = progression.transform.GetChild(1).GetComponent<Image>();
 
+		if (package.type == PackageType.Skins)
+		{
+			
+			CharacterSelector.SkinItems.Add(this); 
+		}
+
 		if (package != null)
 		{
 			icon = GetComponent<Image>();
+			
 			icon.sprite = package.icon;
 
 			if (StatRecordController.Instance.UnlockChallenges)
@@ -44,17 +51,7 @@ public class StoreItem : ButtonEventHandler {
 			if (package.defaultPackage)
 			{
 				Unlock();
-			}
-
-			if (package.challenge != null)
-			{
-				package.challenge.RefreshCompletion();
-
-				if (package.challenge.completed)
-				{
-					progression.SetActive(false);
-				}
-			}
+			}	
 
 			type = package.type;
 		}
@@ -67,6 +64,8 @@ public class StoreItem : ButtonEventHandler {
 			{
 				Show();
 			}
+
+
 		}
 
 		if (package.type == PackageType.Theme)
@@ -101,8 +100,21 @@ public class StoreItem : ButtonEventHandler {
 		while (true)
 		{
 			progression_progress.fillAmount = Mathf.SmoothDamp(progression_progress.fillAmount, package.challenge.progress / package.challenge.cap,
-			                                  ref vel, Time.deltaTime * 20f);
+			ref vel, Time.deltaTime * 20f);
 			yield return null;
+		}
+	}
+
+	public void DeactiveProgression()
+	{
+		if (package.challenge != null)
+		{
+			package.challenge.RefreshCompletion();
+
+			if (package.challenge.completed)
+			{
+				progression.SetActive(false);
+			}
 		}
 	}
 

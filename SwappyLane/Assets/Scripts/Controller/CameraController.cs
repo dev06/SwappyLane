@@ -27,6 +27,7 @@ public class CameraController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		if(Controller.GameState != State.GAME) return; 
 		camera.fieldOfView = Mathf.SmoothDamp(camera.fieldOfView, targetFOV, ref fovVel, Time.deltaTime * targetSpeed); 
 	}
 
