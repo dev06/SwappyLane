@@ -36,5 +36,12 @@ public class AppResources : MonoBehaviour {
 	public static GameObject theme_1 = (GameObject)Resources.Load("Prefabs/Themes/theme_1") as GameObject;
 	public static GameObject theme_2 = (GameObject)Resources.Load("Prefabs/Themes/theme_2") as GameObject;
 	public static GameObject theme_3 = (GameObject)Resources.Load("Prefabs/Themes/theme_3") as GameObject;
+	public static GameObject theme_4 = (GameObject)Resources.Load("Prefabs/Themes/theme_4") as GameObject;
+	public static GameObject theme_5 = (GameObject)Resources.Load("Prefabs/Themes/theme_5") as GameObject;
+	public static GameObject theme_6 = (GameObject)Resources.Load("Prefabs/Themes/theme_6") as GameObject;
+	public static GameObject theme_7 = (GameObject)Resources.Load("Prefabs/Themes/theme_7") as GameObject;
+	public static GameObject theme_8 = (GameObject)Resources.Load("Prefabs/Themes/theme_8") as GameObject;
+	public static GameObject theme_9 = (GameObject)Resources.Load("Prefabs/Themes/theme_9") as GameObject;
+	public static GameObject theme_10 = (GameObject)Resources.Load("Prefabs/Themes/theme_10") as GameObject;
 
 }

@@ -82,7 +82,7 @@ public class Link : MonoBehaviour {
 			GameObject clone = (GameObject)Instantiate(prefab) as GameObject;
 			clone.transform.SetParent(transform);
 
-			clone.transform.localScale = new Vector3(1, 1, clone.transform.localScale.z) * scaleMultiplier;
+			clone.transform.localScale = new Vector3(1, 1, 1f / 100f) * scaleMultiplier;
 			obstacles.Add(clone);
 			clone.SetActive(false);
 		}
@@ -172,18 +172,18 @@ public class Link : MonoBehaviour {
 		}
 	}
 
-	private Vector3 GetPositionByDirection(int direction)
+	private Vector3[] GetPositionByDirection(int direction)
 	{
 		switch (direction)
 		{
-			case 0: return new Vector3(0, 1, 0f);
-			case 1: return new Vector3(1, 0, 0f);
-			case 2: return new Vector3(0, -1, 0f);
-			case 3: return new Vector3(-1, 0, 0f);
-			default: return Vector3.zero;
+			case 0: return new Vector3[2] { new Vector3(0, 1, 0f), new Vector3(0, 0, 0)};
+			case 1: return new Vector3[2] { new Vector3(1, 0, 0f), new Vector3(0, 0, -90)};
+			case 2: return new Vector3[2] { new Vector3(0, -1, 0f), new Vector3(0, 0, 180)};
+			case 3: return new Vector3[2] { new Vector3(-1, 0, 0f), new Vector3(0, 0, 90)};
 		}
-	}
 
+		return null;
+	}
 
 	private void ChangeCubeSides()
 	{
@@ -220,8 +220,8 @@ public class Link : MonoBehaviour {
 				dir = availablePositionDirection[Random.Range(0, availablePositionDirection.Count)];
 			}
 
-			obstacles[i].transform.localPosition  = GetPositionByDirection(dir);
-			obstacles[i].transform.localRotation = Quaternion.Euler(Vector3.zero);
+			obstacles[i].transform.localPosition  = GetPositionByDirection(dir)[0];
+			obstacles[i].transform.localRotation = Quaternion.Euler(GetPositionByDirection(dir)[1]);
 
 			if (obstacles[i].activeSelf)
 			{
@@ -231,7 +231,7 @@ public class Link : MonoBehaviour {
 		}
 
 
-		Vector3 remainingLoc = GetPositionByDirection(availablePositionDirection[Random.Range(0, availablePositionDirection.Count)]);
+		Vector3 remainingLoc = GetPositionByDirection(availablePositionDirection[Random.Range(0, availablePositionDirection.Count)])[0];
 		coin.SetActive(true);
 		coin.transform.localPosition = remainingLoc;
 

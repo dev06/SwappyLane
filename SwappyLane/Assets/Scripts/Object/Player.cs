@@ -91,6 +91,7 @@ public class Player : MonoBehaviour {
 		}
 
 		transform.Rotate(new Vector3(0, 0, rotatingVelocity * Time.deltaTime));
+		StatRecordController.MetersRolled += Time.deltaTime / 10f;
 	}
 
 	private void AutoRotate()

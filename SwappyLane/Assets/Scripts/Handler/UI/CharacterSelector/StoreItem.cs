@@ -76,17 +76,14 @@ public class StoreItem : ButtonEventHandler {
 				Show();
 			}
 
-			if(package.purchase != null)
+			if (package.purchase != null)
 			{
-				if(package.purchase.IsPurchased)
+				if (package.purchase.IsPurchased)
 				{
-					Unlock(); 
-				}				
+					Unlock();
+				}
 			}
-
 		}
-
-
 	}
 
 	public void DoDance()
@@ -104,9 +101,7 @@ public class StoreItem : ButtonEventHandler {
 		while (true)
 		{
 			progression_progress.fillAmount = Mathf.SmoothDamp(progression_progress.fillAmount, package.challenge.progress / package.challenge.cap,
-			ref vel, Time.deltaTime * 20f);
-
-
+			                                  ref vel, Time.deltaTime * 20f);
 			yield return null;
 		}
 	}
@@ -114,26 +109,23 @@ public class StoreItem : ButtonEventHandler {
 	public void Unlock()
 	{
 		progression.SetActive(false);
-		
-		if(package.type == PackageType.Skins)
+
+		if (package.type == PackageType.Skins)
 		{
 			if (package.challenge != null)
 			{
 				package.challenge.completed = true;
 			}
 		}
-		else if(package.type == PackageType.Theme)
+		else if (package.type == PackageType.Theme)
 		{
-			if(package.purchase != null)
+			if (package.purchase != null)
 			{
-				package.purchase.IsPurchased = true; 
+				package.purchase.IsPurchased = true;
 
 				PlayerPrefs.SetString("theme_" + package.id, package.purchase.IsPurchased.ToString());
-
 			}
-
 		}
-
 	}
 
 	public void SetPackage(Package p)
@@ -145,75 +137,44 @@ public class StoreItem : ButtonEventHandler {
 	{
 		SelectorInfoHandler infoHandler = FindObjectOfType<SelectorInfoHandler>();
 		infoHandler.ActiveStoreItem = this;
-		if(package.type == PackageType.Skins)
+		if (package.type == PackageType.Skins)
 		{
-			if(package.defaultPackage)
+			if (package.defaultPackage)
 			{
-				Select(); 
+				Select();
 			}
 			else
 			{
-				if(package.challenge.completed == false)
+				if (package.challenge.completed == false)
 				{
 					infoHandler.ShowContainer(SelectorInfoHandler.ContainerType.Challenge, package);
 				}
 				else
 				{
-					Select(); 
+					Select();
 				}
 			}
 
 		}
-		else if(package.type == PackageType.Theme)	
+		else if (package.type == PackageType.Theme)
 		{
-			if(package.defaultPackage)
+			if (package.defaultPackage)
 			{
-				Select(); 
+				Select();
 			}
 			else
 			{
-				if(package.purchase.IsPurchased == false)
+				if (package.purchase.IsPurchased == false)
 				{
-					infoHandler.ShowContainer(SelectorInfoHandler.ContainerType.Buy, package);				
+					infoHandler.ShowContainer(SelectorInfoHandler.ContainerType.Buy, package);
 				}
 				else
 				{
-					Select(); 
+					Select();
 				}
 			}
 
 		}
-
-
-
-
-		// if (package.challenge != null)
-		// {
-		// 	if (package.challenge.completed == false)
-		// 	{
-		// 		switch (type)
-		// 		{
-		// 			case PackageType.Skins:
-		// 			{
-		// 				infoHandler.ShowContainer(SelectorInfoHandler.ContainerType.Challenge, package);
-		// 				break;
-		// 			}
-		// 			case PackageType.Theme:
-		// 			{
-		// 				infoHandler.ShowContainer(SelectorInfoHandler.ContainerType.Buy, package);
-		// 				break;
-		// 			}
-		// 		}
-		// 	}
-		// 	else
-		// 	{
-		// 		Select();
-		// 	}
-		// }
-		// else
-		// {
-		// 	Select();
-		// }
 	}
 
 	public void Select()
@@ -239,9 +200,9 @@ public class StoreItem : ButtonEventHandler {
 
 	public bool CanPurchase()
 	{
-		if(package.purchase == null) return false; 
+		if (package.purchase == null) return false;
 
-		return (StatRecordController.CoinsCollected >= package.purchase.cost); 
+		return (StatRecordController.CoinsCollected >= package.purchase.cost);
 	}
 
 	public void Show()
@@ -257,8 +218,8 @@ public class StoreItem : ButtonEventHandler {
 	public Package Package
 
 	{
-		get{
-			return package; 
+		get {
+			return package;
 		}
 	}
 }

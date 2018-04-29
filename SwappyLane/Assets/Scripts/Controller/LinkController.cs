@@ -97,6 +97,8 @@ public class LinkController : MonoBehaviour {
 				EventManager.OnTerminalVelocityStatus(false);
 			}
 
+			StatRecordController.BlocksBreaked++;
+
 			StopCoroutine("HitCoolDown");
 			StartCoroutine("HitCoolDown");
 		}

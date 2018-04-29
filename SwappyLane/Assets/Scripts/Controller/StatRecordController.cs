@@ -13,6 +13,9 @@ public class StatRecordController : MonoBehaviour {
 	public static int TotalGamesPlayed;
 	public static int HighestLevelReached;
 	public static int CoinsCollected;
+	public static float MetersRolled;
+	public static int BlocksBreaked;
+	public static int SkinsUnlocked;
 
 	private LevelController levelController;
 
@@ -83,6 +86,11 @@ public class StatRecordController : MonoBehaviour {
 		PlayerPrefs.SetInt("ActiveTheme", CharacterSelector.ActiveThemePackage.id);
 		PlayerPrefs.SetInt("LastLevel", levelController.level.Index);
 		PlayerPrefs.SetInt("CoinsCollected", CoinsCollected);
+
+		PlayerPrefs.SetFloat("MetersRolled", MetersRolled);
+		PlayerPrefs.SetInt("BlocksBreaked", BlocksBreaked);
+		PlayerPrefs.SetInt("SkinsUnlocked", SkinsUnlocked);
+
 	}
 
 	public void LoadStats()
@@ -92,5 +100,9 @@ public class StatRecordController : MonoBehaviour {
 		CoinsCollected = PlayerPrefs.HasKey("CoinsCollected") ? PlayerPrefs.GetInt("CoinsCollected") : 0;
 		CharacterSelector.ActiveSkinPackage = PackageCreator.Skins[!PlayerPrefs.HasKey("ActiveSkin") ? 0 : (PlayerPrefs.GetInt("ActiveSkin")) - 1];
 		CharacterSelector.ActiveThemePackage = PackageCreator.Theme[!PlayerPrefs.HasKey("ActiveTheme") ? 0 : (PlayerPrefs.GetInt("ActiveTheme")) - 1];
+		MetersRolled = PlayerPrefs.HasKey("MetersRolled") ? PlayerPrefs.GetFloat("MetersRolled") : 0;
+		BlocksBreaked = PlayerPrefs.HasKey("BlocksBreaked") ? PlayerPrefs.GetInt("BlocksBreaked") : 0;
+		SkinsUnlocked = PlayerPrefs.HasKey("SkinsUnlocked") ? PlayerPrefs.GetInt("SkinsUnlocked") : 0;
+
 	}
 }
