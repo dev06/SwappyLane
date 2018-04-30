@@ -51,7 +51,7 @@ public class Player : MonoBehaviour {
 
 	void OnGameOver()
 	{
-		if(!Controller.isGameOver)
+		if (!Controller.isGameOver)
 		{
 			Controller.isGameOver = true;
 
@@ -59,8 +59,12 @@ public class Player : MonoBehaviour {
 //			Debug.LogError("Game Over");
 			characterFragments.Play();
 			characterFragments.transform.position = transform.position;
+			if (Controller.GameState == State.PAUSE)
+			{
+				UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+			}
 			StopCoroutine("IOnGameOver");
-			StartCoroutine("IOnGameOver");			
+			StartCoroutine("IOnGameOver");
 		}
 
 	}
@@ -88,6 +92,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		//Debug.Log("fsfsf");
 		if (Controller.GameState != State.GAME) return;
 		if (auto)
 		{

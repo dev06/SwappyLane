@@ -4,6 +4,17 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class SimpleButtonHandler : ButtonEventHandler {
 
+	public override void OnPointerDown(PointerEventData data)
+	{
+		switch (buttonID)
+		{
+			case ButtonID.Pause:
+			{
+				Controller.SetState(State.PAUSE);
+				break;
+			}
+		}
+	}
 
 	public override void OnPointerClick(PointerEventData data)
 	{
@@ -37,6 +48,21 @@ public class SimpleButtonHandler : ButtonEventHandler {
 				if (EventManager.OnButtonClick != null)
 				{
 					EventManager.OnButtonClick(buttonID);
+				}
+				break;
+			}
+
+
+			case ButtonID.Play:
+			{
+				Controller.SetState(State.GAME);
+				break;
+			}
+			case ButtonID.Restart:
+			{
+				if (EventManager.OnGameOver != null)
+				{
+					EventManager.OnGameOver();
 				}
 				break;
 			}

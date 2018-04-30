@@ -8,9 +8,10 @@ public class UserInterface : MonoBehaviour {
 
 	protected CanvasGroup group;
 
-	public virtual void Init()
+	public  virtual void Init()
 	{
 		group = GetComponent<CanvasGroup>();
+
 	}
 
 
@@ -25,6 +26,10 @@ public class UserInterface : MonoBehaviour {
 		group.blocksRaycasts = showInEditor;
 	}
 
+	public virtual void Test()
+	{
+		Debug.Log("Testing...");
+	}
 
 	public virtual void Show()
 	{

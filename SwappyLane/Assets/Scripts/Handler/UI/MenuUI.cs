@@ -6,7 +6,7 @@ public class MenuUI : UserInterface {
 
 	public Text currentLevelText;
 
-	public Text coinText; 
+	public Text coinText;
 
 	private LevelController levelController;
 	void OnEnable()
@@ -20,15 +20,12 @@ public class MenuUI : UserInterface {
 	}
 
 
-
 	public override void Init()
 	{
 		base.Init();
-
-
 		levelController = LevelController.Instance;
 		currentLevelText.text = "Level " + levelController.level.Index;
-		coinText.text = "x " + StatRecordController.CoinsCollected.ToString(); 
+		coinText.text = "x " + StatRecordController.CoinsCollected.ToString();
 	}
 
 	void OnStateChange(State s)

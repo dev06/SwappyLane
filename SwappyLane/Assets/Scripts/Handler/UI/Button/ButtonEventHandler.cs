@@ -13,6 +13,10 @@ public enum ButtonID
 	StoreItem,
 	InfoClose,
 	InfoBuy,
+	Pause,
+	Play,
+	Restart,
+
 }
 public class ButtonEventHandler : MonoBehaviour, IPointerClickHandler, IPointerDownHandler  {
 

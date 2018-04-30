@@ -55,7 +55,7 @@ public class Package
 		this.id = id;
 		this.defaultPackage = defaultPackage;
 		this.model = model;
-		this.challenge = new Challenge(ChallengeType.None); 
+		this.challenge = new Challenge(ChallengeType.None);
 		SetSprite();
 	}
 
@@ -103,8 +103,8 @@ public class Challenge
 
 	public Challenge(ChallengeType type)
 	{
-		this.type = type; 
-		completed = true; 
+		this.type = type;
+		completed = true;
 	}
 
 	public Challenge( ChallengeType type, float cap)
@@ -295,6 +295,7 @@ public class PackageCreator
 		new Package(PackageType.Theme, 8, AppResources.theme_8, purchase_7),
 		new Package(PackageType.Theme, 9, AppResources.theme_9, purchase_8),
 		new Package(PackageType.Theme, 10, AppResources.theme_10, purchase_9),
+		new Package(PackageType.Theme, 11, AppResources.theme_11, purchase_9),
 
 	};
 }
@@ -368,9 +369,6 @@ public class CharacterSelector : UserInterface
 	public override void Init()
 	{
 		base.Init();
-
-
-
 	}
 
 	public void ShowPanel(PanelType p)
@@ -391,14 +389,14 @@ public class CharacterSelector : UserInterface
 	public static void CheckForSkinUnlocks()
 	{
 		int count = 0;
-		
+
 		for (int i = 0; i < SkinItems.Count; i++)
 		{
-			SkinItems[i].Package.challenge.RefreshCompletion(); 
+			SkinItems[i].Package.challenge.RefreshCompletion();
 
-			if(SkinItems[i].Package.challenge.completed == true)
-			{				
-				count++; 
+			if (SkinItems[i].Package.challenge.completed == true)
+			{
+				count++;
 			}
 		}
 
@@ -406,17 +404,17 @@ public class CharacterSelector : UserInterface
 
 		for (int i = 0; i < SkinItems.Count; i++)
 		{
-			SkinItems[i].Package.challenge.RefreshCompletion(); 
+			SkinItems[i].Package.challenge.RefreshCompletion();
 
-			if(SkinItems[i].Package.challenge.completed == true)
-			{				
-				SkinItems[i].DeactiveProgression(); 
+			if (SkinItems[i].Package.challenge.completed == true)
+			{
+				SkinItems[i].DeactiveProgression();
 			}
 		}
 
 
-		//Debug.Log(SkinItems.Count); 
-		//Debug.Log("Total Skins Unlocked " + StatRecordController.SkinsUnlocked); 
+		//Debug.Log(SkinItems.Count);
+		//Debug.Log("Total Skins Unlocked " + StatRecordController.SkinsUnlocked);
 		// for (int i = 0 ; i < SkinItems.Count; i++)
 		// {
 		// 	if (SkinItems[i].Package.challenge == null) continue;

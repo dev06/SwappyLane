@@ -32,7 +32,7 @@ public class Link : MonoBehaviour {
 
 	private Player player;
 
-	private bool gameInit; 
+	private bool gameInit;
 
 	void OnEnable()
 	{
@@ -48,11 +48,11 @@ public class Link : MonoBehaviour {
 	{
 		if (s == State.GAME)
 		{
-			if(gameInit == false)
+			if (gameInit == false)
 			{
-				Initalize();	
-				
-				gameInit = true; 
+				Initalize();
+
+				gameInit = true;
 			}
 		}
 	}
@@ -133,7 +133,6 @@ public class Link : MonoBehaviour {
 	void Update ()
 	{
 		if (Controller.isGameOver) { return; }
-		if(Controller.IN_PAUSE) return; 
 		if (Controller.GameState != State.GAME) { return; }
 		CheckIfOutside();
 		UpdateObstacleRotation();

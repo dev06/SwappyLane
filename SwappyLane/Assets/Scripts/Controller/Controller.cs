@@ -54,22 +54,15 @@ public class Controller : MonoBehaviour {
 
 		linkController.Initalize();
 
-		FindObjectOfType<UserInterface>().Init();
+		UserInterface[] interfaces =  FindObjectsOfType<UserInterface>();
+
+		foreach (UserInterface ui in interfaces)
+		{
+			ui.Init();
+		}
 
 		StatRecordController.Instance.Initialize();
 	}
-
-	public static bool IN_PAUSE; 
-	void Update ()
-	{
-
-		if(Input.GetKeyDown(KeyCode.Y))
-		{
-			SetState((GameState == State.GAME) ? State.PAUSE : State.GAME); 
-		}
-
-	}
-
 
 	public void SpawnLink()
 	{

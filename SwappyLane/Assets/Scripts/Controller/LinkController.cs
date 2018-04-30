@@ -107,7 +107,7 @@ public class LinkController : MonoBehaviour {
 		{
 			if (canCollideAgain)
 			{
-				
+
 				if (EventManager.OnGameOver != null)
 				{
 					EventManager.OnGameOver();
@@ -155,8 +155,6 @@ public class LinkController : MonoBehaviour {
 	void Update () {
 
 		if (Controller.isGameOver) { return; }
-
-		if(Controller.IN_PAUSE) return; 
 		if (Controller.GameState != State.GAME) { return; }
 
 
