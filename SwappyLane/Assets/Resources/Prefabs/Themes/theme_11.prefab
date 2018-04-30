@@ -248,7 +248,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5544fb4bb668a724297cc017638aedd3, type: 2}
+  - {fileID: 2100000, guid: d7177e8f1a360e9408e8e37eccadab5b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -280,7 +280,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5544fb4bb668a724297cc017638aedd3, type: 2}
+  - {fileID: 2100000, guid: d7177e8f1a360e9408e8e37eccadab5b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -312,7 +312,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 95efc93fa6198c04393055043d6505d2, type: 2}
+  - {fileID: 2100000, guid: 9a297a001c9732640a96eafc4974ce97, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -344,7 +344,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5544fb4bb668a724297cc017638aedd3, type: 2}
+  - {fileID: 2100000, guid: d7177e8f1a360e9408e8e37eccadab5b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -369,7 +369,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1317652409049430}
-  m_Mesh: {fileID: 4300000, guid: 1858e43594b46214481de81792618a3d, type: 3}
+  m_Mesh: {fileID: 4300000, guid: e6136ec4ba723d0478e3391c0c56a6db, type: 3}
 --- !u!33 &33320400736853344
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -383,14 +383,14 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1927439293485686}
-  m_Mesh: {fileID: 4300000, guid: 1858e43594b46214481de81792618a3d, type: 3}
+  m_Mesh: {fileID: 4300000, guid: e6136ec4ba723d0478e3391c0c56a6db, type: 3}
 --- !u!33 &33545424689626212
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1907438546782386}
-  m_Mesh: {fileID: 4300000, guid: 1858e43594b46214481de81792618a3d, type: 3}
+  m_Mesh: {fileID: 4300000, guid: e6136ec4ba723d0478e3391c0c56a6db, type: 3}
 --- !u!54 &54040934556086344
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -588,7 +588,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -268311613
+  randomSeed: 2064606306
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1495,9 +1495,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0, g: 0, b: 0, a: 1}
-        key1: {r: 0.9686275, g: 0.9686275, b: 0.9686275, a: 1}
-        key2: {r: 0.39607844, g: 0.21568628, b: 0.14901961, a: 0}
+        key0: {r: 0.89019614, g: 0.058823533, b: 0.4666667, a: 1}
+        key1: {r: 0.9803922, g: 0.9803922, b: 0.9803922, a: 1}
+        key2: {r: 0.9686275, g: 0.9686275, b: 0.9686275, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1525,7 +1525,7 @@ ParticleSystem:
       minGradient:
         serializedVersion: 2
         key0: {r: 0.96470594, g: 0.96470594, b: 0.96470594, a: 1}
-        key1: {r: 0, g: 0, b: 0, a: 1}
+        key1: {r: 0.57254905, g: 0, b: 0.2784314, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -3880,7 +3880,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 64119b37b3a4e514a913383f337b27cc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 84f52465cc831ac429d82b0ea8edc6a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

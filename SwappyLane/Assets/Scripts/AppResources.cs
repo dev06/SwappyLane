@@ -28,8 +28,8 @@ public class AppResources : MonoBehaviour {
 	public static GameObject char_14 = (GameObject)Resources.Load("Prefabs/Characters/char_14") as GameObject;
 	public static GameObject char_15 = (GameObject)Resources.Load("Prefabs/Characters/char_15") as GameObject;
 	public static GameObject char_16 = (GameObject)Resources.Load("Prefabs/Characters/char_16") as GameObject;
-	// public static GameObject char_16 = (GameObject)Resources.Load("Prefabs/Characters/char_14") as GameObject;
-	// public static GameObject char_16 = (GameObject)Resources.Load("Prefabs/Characters/char_15") as GameObject;
+	public static GameObject char_17 = (GameObject)Resources.Load("Prefabs/Characters/char_17") as GameObject;
+	//public static GameObject char_18 = (GameObject)Resources.Load("Prefabs/Characters/char_18") as GameObject;
 
 
 
@@ -44,5 +44,6 @@ public class AppResources : MonoBehaviour {
 	public static GameObject theme_9 = (GameObject)Resources.Load("Prefabs/Themes/theme_9") as GameObject;
 	public static GameObject theme_10 = (GameObject)Resources.Load("Prefabs/Themes/theme_10") as GameObject;
 	public static GameObject theme_11 = (GameObject)Resources.Load("Prefabs/Themes/theme_11") as GameObject;
+	public static GameObject theme_12 = (GameObject)Resources.Load("Prefabs/Themes/theme_12") as GameObject;
 
 }

@@ -9,6 +9,7 @@ public class MenuUI : UserInterface {
 	public Text coinText;
 
 	private LevelController levelController;
+	private Animation animation;
 	void OnEnable()
 	{
 		EventManager.OnStateChange += OnStateChange;
@@ -38,5 +39,7 @@ public class MenuUI : UserInterface {
 		}
 
 		Show();
+		GetComponent<Animation>().Play();
+
 	}
 }

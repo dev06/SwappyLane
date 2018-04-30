@@ -280,6 +280,7 @@ public class PackageCreator
 		new Package(PackageType.Skins, 14, AppResources.char_14, challenge_breakblock_3),
 		new Package(PackageType.Skins, 15, AppResources.char_15, challenge_unlockskins_3),
 		new Package(PackageType.Skins, 16, AppResources.char_16, challenge_playgame_4),
+		new Package(PackageType.Skins, 17, AppResources.char_17, challenge_roll_4),
 
 	};
 
@@ -296,6 +297,7 @@ public class PackageCreator
 		new Package(PackageType.Theme, 9, AppResources.theme_9, purchase_8),
 		new Package(PackageType.Theme, 10, AppResources.theme_10, purchase_9),
 		new Package(PackageType.Theme, 11, AppResources.theme_11, purchase_9),
+		new Package(PackageType.Theme, 12, AppResources.theme_12, purchase_9),
 
 	};
 }
