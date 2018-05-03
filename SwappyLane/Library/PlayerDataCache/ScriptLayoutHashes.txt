@@ -26,6 +26,7 @@ b84586ea0deaee8fe99068101a096003 Assembly-CSharp.dll:.UserInterface
 9865a0db77364f8930077972a1d5efab Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.BloomOptimized
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ThemeTemplate
 88e745da281bc889e248b64cf4d72a54 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.SunShafts
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Haptic
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CameraController
 cac5093fb1baf037bd671ecbc6727828 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.ScreenOverlay
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.LevelCompletedHandler
@@ -195,4 +196,4 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingRenderer
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Haptic
+edfb7854e4ad83f3594cabb76a2cb12c Assembly-CSharp.dll:.SettingsHandler

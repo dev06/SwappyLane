@@ -26,7 +26,7 @@ public class MenuUI : UserInterface {
 		base.Init();
 		levelController = LevelController.Instance;
 		currentLevelText.text = "Level " + levelController.level.Index;
-		coinText.text = "x " + StatRecordController.CoinsCollected.ToString();
+		UpdateUI();
 	}
 
 	void OnStateChange(State s)
@@ -40,6 +40,11 @@ public class MenuUI : UserInterface {
 
 		Show();
 		GetComponent<Animation>().Play();
+		UpdateUI();
+	}
 
+	private void UpdateUI()
+	{
+		coinText.text = "x " + StatRecordController.CoinsCollected.ToString();
 	}
 }

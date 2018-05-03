@@ -66,6 +66,15 @@ public class SimpleButtonHandler : ButtonEventHandler {
 				}
 				break;
 			}
+
+			case ButtonID.ToggleVibration:
+			{
+				if (EventManager.OnButtonClick != null)
+				{
+					EventManager.OnButtonClick(buttonID);
+				}
+				break;
+			}
 		}
 	}
 }

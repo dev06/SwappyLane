@@ -16,6 +16,7 @@ public enum ButtonID
 	Pause,
 	Play,
 	Restart,
+	ToggleVibration,
 
 }
 public class ButtonEventHandler : MonoBehaviour, IPointerClickHandler, IPointerDownHandler  {

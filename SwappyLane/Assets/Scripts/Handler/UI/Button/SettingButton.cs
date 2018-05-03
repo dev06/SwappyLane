@@ -4,20 +4,32 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class SettingButton : ButtonEventHandler {
 
-	// Use this for initialization
-	void Start () {
 
+	private SettingsHandler settingHandler;
+	private Vector3 targetRotation;
+
+
+	void Start()
+	{
+		settingHandler = FindObjectOfType<SettingsHandler>();
 	}
 
-	// Update is called once per frame
-	void Update () {
-
+	void Update()
+	{
+		transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(targetRotation), Time.deltaTime * 10f);
 	}
 
 	public override void OnPointerClick(PointerEventData data)
 	{
 		base.OnPointerClick(data);
-		Debug.Log("Settings");
+
+		if (EventManager.OnButtonClick != null)
+		{
+			EventManager.OnButtonClick(buttonID);
+		}
+
+
+		targetRotation = new Vector3(0, 0, settingHandler.Active ? -45f : 0f);
 
 	}
 }

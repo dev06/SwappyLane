@@ -17,7 +17,7 @@ public class Controller : MonoBehaviour {
 
 	public static bool isGameOver;
 
-	public static bool HAPTIC = true; 
+	public static bool HAPTIC = true;
 
 	private int linkSize = 15;
 
@@ -65,7 +65,7 @@ public class Controller : MonoBehaviour {
 
 		StatRecordController.Instance.Initialize();
 
-		Haptic.Vibrate(HapticIntensity.Light); 
+		// Haptic.Vibrate(HapticIntensity.Light);
 	}
 
 	public void SpawnLink()
