@@ -17,6 +17,8 @@ public class Controller : MonoBehaviour {
 
 	public static bool isGameOver;
 
+	public static bool HAPTIC = true; 
+
 	private int linkSize = 15;
 
 	public static State GameState = State.MENU;
@@ -62,6 +64,8 @@ public class Controller : MonoBehaviour {
 		}
 
 		StatRecordController.Instance.Initialize();
+
+		Haptic.Vibrate(HapticIntensity.Light); 
 	}
 
 	public void SpawnLink()

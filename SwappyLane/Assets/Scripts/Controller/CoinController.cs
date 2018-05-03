@@ -37,8 +37,8 @@ public class CoinController : MonoBehaviour {
 	{
 		g.SetActive(false); 
 		LevelCoins++; 
-
 		coinHUD.UpdateHUD(); 
+		Haptic.Vibrate(HapticIntensity.Light); 
 	}
 	
 	void Start () 

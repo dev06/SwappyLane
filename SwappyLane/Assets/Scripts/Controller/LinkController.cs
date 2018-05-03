@@ -101,6 +101,8 @@ public class LinkController : MonoBehaviour {
 
 			StopCoroutine("HitCoolDown");
 			StartCoroutine("HitCoolDown");
+
+			Haptic.Vibrate(HapticIntensity.Heavy); 
 		}
 
 		else
