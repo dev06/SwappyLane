@@ -286,6 +286,7 @@ public class PackageCreator
 		new Package(PackageType.Skins, 16, AppResources.char_16, challenge_playgame_4),
 		new Package(PackageType.Skins, 17, AppResources.char_17, challenge_roll_3),
 		new Package(PackageType.Skins, 18, AppResources.char_18, challenge_breakblock_4),
+		//		new Package(PackageType.Skins, 19, AppResources.char_19, challenge_unlockskins_3),
 
 	};
 
