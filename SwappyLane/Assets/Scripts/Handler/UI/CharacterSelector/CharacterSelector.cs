@@ -216,50 +216,54 @@ public class CharacterSelectorEvent
 public class PackageCreator
 {
 
-	public static Challenge challenge_playgame_1 = new Challenge(ChallengeType.PlayGame, 5);
-	public static Challenge challenge_playgame_2 = new Challenge(ChallengeType.PlayGame, 7);
-	public static Challenge challenge_playgame_3 = new Challenge(ChallengeType.PlayGame, 9);
-	public static Challenge challenge_playgame_4 = new Challenge(ChallengeType.PlayGame, 11);
-	public static Challenge challenge_playgame_5 = new Challenge(ChallengeType.PlayGame, 13);
-	public static Challenge challenge_playgame_6 = new Challenge(ChallengeType.PlayGame, 15);
+	public static Challenge challenge_playgame_1 = new Challenge(ChallengeType.PlayGame, 25);
+	public static Challenge challenge_playgame_2 = new Challenge(ChallengeType.PlayGame, 50);
+	public static Challenge challenge_playgame_3 = new Challenge(ChallengeType.PlayGame, 100);
+	public static Challenge challenge_playgame_4 = new Challenge(ChallengeType.PlayGame, 200);
+	public static Challenge challenge_playgame_5 = new Challenge(ChallengeType.PlayGame, 500);
+	public static Challenge challenge_playgame_6 = new Challenge(ChallengeType.PlayGame, 1000);
 
-	public static Challenge challenge_levelreach_1 = new Challenge(ChallengeType.LevelReach, 1);
-	public static Challenge challenge_levelreach_2 = new Challenge(ChallengeType.LevelReach, 2);
-	public static Challenge challenge_levelreach_3 = new Challenge(ChallengeType.LevelReach, 3);
-	public static Challenge challenge_levelreach_4 = new Challenge(ChallengeType.LevelReach, 4);
-	public static Challenge challenge_levelreach_5 = new Challenge(ChallengeType.LevelReach, 25);
-	public static Challenge challenge_levelreach_6 = new Challenge(ChallengeType.LevelReach, 30);
+	public static Challenge challenge_levelreach_1 = new Challenge(ChallengeType.LevelReach, 10);
+	public static Challenge challenge_levelreach_2 = new Challenge(ChallengeType.LevelReach, 20);
+	public static Challenge challenge_levelreach_3 = new Challenge(ChallengeType.LevelReach, 40);
+	public static Challenge challenge_levelreach_4 = new Challenge(ChallengeType.LevelReach, 50);
+	public static Challenge challenge_levelreach_5 = new Challenge(ChallengeType.LevelReach, 70);
+	public static Challenge challenge_levelreach_6 = new Challenge(ChallengeType.LevelReach, 100);
 
-	public static Challenge challenge_roll_1 = new Challenge(ChallengeType.Roll, 2);
-	public static Challenge challenge_roll_2 = new Challenge(ChallengeType.Roll, 3);
-	public static Challenge challenge_roll_3 = new Challenge(ChallengeType.Roll, 4);
-	public static Challenge challenge_roll_4 = new Challenge(ChallengeType.Roll, 5);
-	public static Challenge challenge_roll_5 = new Challenge(ChallengeType.Roll, 25);
-	public static Challenge challenge_roll_6 = new Challenge(ChallengeType.Roll, 30);
+	public static Challenge challenge_roll_1 = new Challenge(ChallengeType.Roll, 150);
+	public static Challenge challenge_roll_2 = new Challenge(ChallengeType.Roll, 250);
+	public static Challenge challenge_roll_3 = new Challenge(ChallengeType.Roll, 500);
+	public static Challenge challenge_roll_4 = new Challenge(ChallengeType.Roll, 750);
+	public static Challenge challenge_roll_5 = new Challenge(ChallengeType.Roll, 1000);
+	public static Challenge challenge_roll_6 = new Challenge(ChallengeType.Roll, 2000);
 
-	public static Challenge challenge_breakblock_1 = new Challenge(ChallengeType.BreakBlock, 5);
-	public static Challenge challenge_breakblock_2 = new Challenge(ChallengeType.BreakBlock, 7);
-	public static Challenge challenge_breakblock_3 = new Challenge(ChallengeType.BreakBlock, 9);
-	public static Challenge challenge_breakblock_4 = new Challenge(ChallengeType.BreakBlock, 11);
-	public static Challenge challenge_breakblock_5 = new Challenge(ChallengeType.BreakBlock, 13);
-	public static Challenge challenge_breakblock_6 = new Challenge(ChallengeType.BreakBlock, 15);
+	public static Challenge challenge_breakblock_1 = new Challenge(ChallengeType.BreakBlock, 50);
+	public static Challenge challenge_breakblock_2 = new Challenge(ChallengeType.BreakBlock, 100);
+	public static Challenge challenge_breakblock_3 = new Challenge(ChallengeType.BreakBlock, 150);
+	public static Challenge challenge_breakblock_4 = new Challenge(ChallengeType.BreakBlock, 250);
+	public static Challenge challenge_breakblock_5 = new Challenge(ChallengeType.BreakBlock, 500);
+	public static Challenge challenge_breakblock_6 = new Challenge(ChallengeType.BreakBlock, 1000);
 
-	public static Challenge challenge_unlockskins_1 = new Challenge(ChallengeType.UnlockSkins, 5);
+	public static Challenge challenge_unlockskins_1 = new Challenge(ChallengeType.UnlockSkins, 3);
 	public static Challenge challenge_unlockskins_2 = new Challenge(ChallengeType.UnlockSkins, 7);
-	public static Challenge challenge_unlockskins_3 = new Challenge(ChallengeType.UnlockSkins, 9);
+	public static Challenge challenge_unlockskins_3 = new Challenge(ChallengeType.UnlockSkins, 15);
 	public static Challenge challenge_unlockskins_4 = new Challenge(ChallengeType.UnlockSkins, 20);
 	public static Challenge challenge_unlockskins_5 = new Challenge(ChallengeType.UnlockSkins, 25);
 	public static Challenge challenge_unlockskins_6 = new Challenge(ChallengeType.UnlockSkins, 30);
 
-	public static Purchase purchase_1 = new Purchase(4);
-	public static Purchase purchase_2 = new Purchase(4);
-	public static Purchase purchase_3 = new Purchase(4);
-	public static Purchase purchase_4 = new Purchase(4);
-	public static Purchase purchase_5 = new Purchase(4);
-	public static Purchase purchase_6 = new Purchase(4);
-	public static Purchase purchase_7 = new Purchase(4);
-	public static Purchase purchase_8 = new Purchase(4);
-	public static Purchase purchase_9 = new Purchase(3);
+	public static Purchase purchase_1 = new Purchase(1000);
+	public static Purchase purchase_2 = new Purchase(1000);
+	public static Purchase purchase_3 = new Purchase(1000);
+	public static Purchase purchase_4 = new Purchase(1000);
+	public static Purchase purchase_5 = new Purchase(1000);
+	public static Purchase purchase_6 = new Purchase(1000);
+	public static Purchase purchase_7 = new Purchase(1500);
+	public static Purchase purchase_8 = new Purchase(1500);
+	public static Purchase purchase_9 = new Purchase(1500);
+	public static Purchase purchase_10 = new Purchase(1500);
+	public static Purchase purchase_11 = new Purchase(1500);
+	public static Purchase purchase_12 = new Purchase(1500);
+
 
 
 	public static Package[] Skins =
@@ -276,11 +280,11 @@ public class PackageCreator
 		new Package(PackageType.Skins, 10, AppResources.char_10, challenge_breakblock_2),
 		new Package(PackageType.Skins, 11, AppResources.char_11, challenge_unlockskins_2),
 		new Package(PackageType.Skins, 12, AppResources.char_12, challenge_playgame_3),
-		new Package(PackageType.Skins, 13, AppResources.char_13, challenge_roll_3),
+		new Package(PackageType.Skins, 13, AppResources.char_13, challenge_levelreach_3),
 		new Package(PackageType.Skins, 14, AppResources.char_14, challenge_breakblock_3),
 		new Package(PackageType.Skins, 15, AppResources.char_15, challenge_unlockskins_3),
 		new Package(PackageType.Skins, 16, AppResources.char_16, challenge_playgame_4),
-		new Package(PackageType.Skins, 17, AppResources.char_17, challenge_roll_4),
+		new Package(PackageType.Skins, 17, AppResources.char_17, challenge_roll_3),
 		new Package(PackageType.Skins, 18, AppResources.char_18, challenge_breakblock_4),
 
 	};
