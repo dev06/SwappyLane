@@ -30,7 +30,7 @@ public class LevelController : MonoBehaviour {
 		{
 			StartingIndex = PlayerPrefs.HasKey("LastLevel") ? PlayerPrefs.GetInt("LastLevel") : 1;
 
-			StartingIndex = 21; // used for manually override the level
+			//StartingIndex = 21; // used for manually override the level
 
 			level = new Level(StartingIndex);
 		}

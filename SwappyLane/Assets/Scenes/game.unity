@@ -2702,7 +2702,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1331045899}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.9710115
+  m_Size: 0.36346647
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6311,7 +6311,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 636252924}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.9980807
+  m_Size: 0.37669381
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6430,7 +6430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeleteSave: 0
-  UnlockChallenges: 1
+  UnlockChallenges: 0
 --- !u!1 &1034779064
 GameObject:
   m_ObjectHideFlags: 0
