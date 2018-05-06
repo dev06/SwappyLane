@@ -3154,7 +3154,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1331045899}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.6426712
+  m_Size: 0.9728883
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6844,7 +6844,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 636252924}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.66225964
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6963,8 +6963,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeleteSave: 0
-  UnlockChallenges: 0
-  GiveMoney: 1
+  UnlockChallenges: 1
+  GiveMoney: 0
 --- !u!1 &1034779064
 GameObject:
   m_ObjectHideFlags: 0
@@ -7343,7 +7343,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1460601418
+  randomSeed: -796971017
   InitialModule:
     serializedVersion: 3
     enabled: 1

@@ -6,11 +6,21 @@ ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Icosphere
+    100004: Sphere
     400000: //RootNode
+    400002: Icosphere
+    400004: Sphere
     2300000: //RootNode
+    2300002: Icosphere
+    2300004: Sphere
     3300000: //RootNode
+    3300002: Icosphere
+    3300004: Sphere
     4300000: Cube
     4300002: Icosphere
+    4300004: Cylinder
+    4300006: Sphere
   materials:
     importMaterials: 0
     materialName: 0
