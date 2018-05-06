@@ -46,6 +46,7 @@
 <type fullname="StatRecordController" preserve="all"/>
 <type fullname="EventManager" preserve="all"/>
 <type fullname="CharacterTemplate" preserve="all"/>
+<type fullname="CoinCollectSFX" preserve="all"/>
 <type fullname="LevelCompletedHandler" preserve="all"/>
 <type fullname="LevelProgessionHandler" preserve="all"/>
 <type fullname="Obstacle" preserve="all"/>
@@ -62,6 +63,7 @@
 <type fullname="GameUI" preserve="all"/>
 <type fullname="MenuUI" preserve="all"/>
 <type fullname="PauseUI" preserve="all"/>
+<type fullname="SecondChanceUI" preserve="all"/>
 <type fullname="SelectorInfoHandler" preserve="all"/>
 <type fullname="SettingsHandler" preserve="all"/>
 <type fullname="UserInterface" preserve="all"/>

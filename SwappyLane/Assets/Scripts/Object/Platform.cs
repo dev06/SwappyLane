@@ -16,7 +16,7 @@ public class Platform : MonoBehaviour {
 
 
 	void Update () {
-		if (Controller.isGameOver) return;
+		if (Controller.Freeze) return;
 		if (Controller.GameState != State.GAME) return;
 		RotatePlatform();
 	}

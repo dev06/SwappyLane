@@ -8,6 +8,8 @@ public class StatRecordController : MonoBehaviour {
 
 	public bool UnlockChallenges;
 
+	public bool GiveMoney; 
+
 	public static StatRecordController Instance;
 
 	public static int TotalGamesPlayed;
@@ -97,12 +99,10 @@ public class StatRecordController : MonoBehaviour {
 	{
 		TotalGamesPlayed = PlayerPrefs.GetInt("TotalGamesPlayed");
 		HighestLevelReached = PlayerPrefs.GetInt("HighestLevelReached");
-		CoinsCollected = PlayerPrefs.HasKey("CoinsCollected") ? PlayerPrefs.GetInt("CoinsCollected") : 0;
+		CoinsCollected = (PlayerPrefs.HasKey("CoinsCollected") ? PlayerPrefs.GetInt("CoinsCollected") : 1000);
 		CharacterSelector.ActiveSkinPackage = PackageCreator.Skins[!PlayerPrefs.HasKey("ActiveSkin") ? 0 : (PlayerPrefs.GetInt("ActiveSkin")) - 1];
 		CharacterSelector.ActiveThemePackage = PackageCreator.Theme[!PlayerPrefs.HasKey("ActiveTheme") ? 0 : (PlayerPrefs.GetInt("ActiveTheme")) - 1];
 		MetersRolled = PlayerPrefs.HasKey("MetersRolled") ? PlayerPrefs.GetFloat("MetersRolled") : 0;
 		BlocksBreaked = PlayerPrefs.HasKey("BlocksBreaked") ? PlayerPrefs.GetInt("BlocksBreaked") : 0;
-		//SkinsUnlocked = PlayerPrefs.HasKey("SkinsUnlocked") ? PlayerPrefs.GetInt("SkinsUnlocked") : 0;
-
 	}
 }

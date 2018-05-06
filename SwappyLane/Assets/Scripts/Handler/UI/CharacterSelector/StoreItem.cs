@@ -33,7 +33,6 @@ public class StoreItem : ButtonEventHandler {
 
 		if (package.type == PackageType.Skins)
 		{
-			
 			CharacterSelector.SkinItems.Add(this); 
 		}
 
@@ -62,10 +61,15 @@ public class StoreItem : ButtonEventHandler {
 		{
 			if (CharacterSelector.ActiveSkinPackage.id == package.id)
 			{
-				Show();
+				if(CharacterSelector.ActiveSkinPackage.challenge.completed)
+				{
+					Show();
+				}
+				else
+				{
+					Select(PackageType.Skins, 1); 
+				}
 			}
-
-
 		}
 
 		if (package.type == PackageType.Theme)
@@ -207,6 +211,18 @@ public class StoreItem : ButtonEventHandler {
 		if (package.type == PackageType.Theme)
 		{
 			CharacterSelector.ActiveThemePackage = package;
+		}
+	}
+
+	public void Select(PackageType type, int id)
+	{
+		for(int i = 0;i < CharacterSelector.SkinItems.Count; i++)
+		{
+			if(id == CharacterSelector.SkinItems[i].Package.id)
+			{
+				CharacterSelector.SkinItems[i].Select(); 
+				break; 
+			}
 		}
 	}
 

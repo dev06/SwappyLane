@@ -363,6 +363,8 @@ extern "C" void SpriteState_t1353336012_marshal_pinvoke_cleanup(void* marshaledS
 extern const RuntimeType SpriteState_t1353336012_0_0_0;
 extern "C" void DelegatePInvokeWrapper_PanelClick_t980557261();
 extern const RuntimeType PanelClick_t980557261_0_0_0;
+extern "C" void DelegatePInvokeWrapper_Bool_t561385376();
+extern const RuntimeType Bool_t561385376_0_0_0;
 extern "C" void DelegatePInvokeWrapper_ButtonEvent_t104831572();
 extern const RuntimeType ButtonEvent_t104831572_0_0_0;
 extern "C" void DelegatePInvokeWrapper_Gameplay_t915255140();
@@ -373,7 +375,7 @@ extern "C" void DelegatePInvokeWrapper_TerminalVelocityStatus_t1183127853();
 extern const RuntimeType TerminalVelocityStatus_t1183127853_0_0_0;
 extern "C" void DelegatePInvokeWrapper_LevelComplete_t261934956();
 extern const RuntimeType LevelComplete_t261934956_0_0_0;
-extern Il2CppInteropData g_Il2CppInteropData[106] = 
+extern Il2CppInteropData g_Il2CppInteropData[107] = 
 {
 	{ NULL, Context_t2636657155_marshal_pinvoke, Context_t2636657155_marshal_pinvoke_back, Context_t2636657155_marshal_pinvoke_cleanup, NULL, NULL, &Context_t2636657155_0_0_0 } /* Mono.Globalization.Unicode.SimpleCollator/Context */,
 	{ NULL, Escape_t169451053_marshal_pinvoke, Escape_t169451053_marshal_pinvoke_back, Escape_t169451053_marshal_pinvoke_cleanup, NULL, NULL, &Escape_t169451053_0_0_0 } /* Mono.Globalization.Unicode.SimpleCollator/Escape */,
@@ -475,6 +477,7 @@ extern Il2CppInteropData g_Il2CppInteropData[106] =
 	{ NULL, Navigation_t1571958496_marshal_pinvoke, Navigation_t1571958496_marshal_pinvoke_back, Navigation_t1571958496_marshal_pinvoke_cleanup, NULL, NULL, &Navigation_t1571958496_0_0_0 } /* UnityEngine.UI.Navigation */,
 	{ NULL, SpriteState_t1353336012_marshal_pinvoke, SpriteState_t1353336012_marshal_pinvoke_back, SpriteState_t1353336012_marshal_pinvoke_cleanup, NULL, NULL, &SpriteState_t1353336012_0_0_0 } /* UnityEngine.UI.SpriteState */,
 	{ DelegatePInvokeWrapper_PanelClick_t980557261, NULL, NULL, NULL, NULL, NULL, &PanelClick_t980557261_0_0_0 } /* CharacterSelectorEvent/PanelClick */,
+	{ DelegatePInvokeWrapper_Bool_t561385376, NULL, NULL, NULL, NULL, NULL, &Bool_t561385376_0_0_0 } /* EventManager/Bool */,
 	{ DelegatePInvokeWrapper_ButtonEvent_t104831572, NULL, NULL, NULL, NULL, NULL, &ButtonEvent_t104831572_0_0_0 } /* EventManager/ButtonEvent */,
 	{ DelegatePInvokeWrapper_Gameplay_t915255140, NULL, NULL, NULL, NULL, NULL, &Gameplay_t915255140_0_0_0 } /* EventManager/Gameplay */,
 	{ DelegatePInvokeWrapper_StateChange_t385718435, NULL, NULL, NULL, NULL, NULL, &StateChange_t385718435_0_0_0 } /* EventManager/StateChange */,

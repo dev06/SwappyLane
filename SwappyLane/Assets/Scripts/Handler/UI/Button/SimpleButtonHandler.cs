@@ -75,6 +75,33 @@ public class SimpleButtonHandler : ButtonEventHandler {
 				}
 				break;
 			}
+			case ButtonID.ToggleSFX:
+			{
+				if (EventManager.OnButtonClick != null)
+				{
+					EventManager.OnButtonClick(buttonID);
+				}
+				break;
+			}
+
+			case ButtonID.Continue_Yes:
+			{
+				if(EventManager.OnSecondChanceDecision != null)
+				{
+					EventManager.OnSecondChanceDecision(true); 
+
+					StatRecordController.CoinsCollected-= Controller.CONTINUE_COST; 
+				}
+				break; 
+			}
+			case ButtonID.Continue_No:
+			{
+				if(EventManager.OnSecondChanceDecision != null)
+				{
+					EventManager.OnSecondChanceDecision(false); 
+				}
+				break; 
+			}
 		}
 	}
 }

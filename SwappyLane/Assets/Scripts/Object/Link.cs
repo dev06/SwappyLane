@@ -90,6 +90,7 @@ public class Link : MonoBehaviour {
 			clone.transform.SetParent(transform);
 
 			clone.transform.localScale = new Vector3(1, 1, 1f / 100f) * scaleMultiplier;
+			clone.GetComponent<Obstacle>().Link = this; 
 			obstacles.Add(clone);
 			clone.SetActive(false);
 		}
@@ -118,7 +119,38 @@ public class Link : MonoBehaviour {
 			obstacles[i].SetActive(false);
 		}
 
-		int count =	Random.Range(1, (levelController.level.Index / 2) + 1);
+		//0 - 1 -> 1
+		//0 - 2 -> 2
+		//0 - 3 -> 3
+
+		float spawn_val = levelController.level.Index; 
+		float progress = (levelController.level.Progress / levelController.level.Length); 
+
+		int count = 0; 
+
+		float c3_start = -.1f * Mathf.Log(levelController.level.Index, 10) + 0.4f; 
+		float c2_start = -.1f * Mathf.Log(levelController.level.Index, 10) + 0.3f; 
+
+
+
+
+		if(progress > c3_start)
+		{
+			count = levelController.level.Index >= 10 ? 3 : levelController.level.Index >= 5  ? 2 : 1; 
+		}
+		else if(progress > c2_start)
+		{
+			count = levelController.level.Index >= 5 ? 2 : 1;
+		}
+		else
+		{
+			count = 1; 
+		}
+
+
+
+		count = Random.Range(1, count + 1); 
+
 
 		count = Mathf.Clamp(count, 1, 3);
 
@@ -132,7 +164,7 @@ public class Link : MonoBehaviour {
 
 	void Update ()
 	{
-		if (Controller.isGameOver) { return; }
+		if (Controller.Freeze) { return; }
 		if (Controller.GameState != State.GAME) { return; }
 		CheckIfOutside();
 		UpdateObstacleRotation();
@@ -148,7 +180,7 @@ public class Link : MonoBehaviour {
 
 	void UpdateObstacleRotation()
 	{
-		if (levelController.level.Index < 8) { return; }
+		if (levelController.level.Index < 11) { return; }
 
 		if (Vector3.Distance(transform.position, player.transform.position) > 10)
 		{
@@ -166,6 +198,16 @@ public class Link : MonoBehaviour {
 
 	}
 
+	public void Deactivate()
+	{
+		transform.localPosition = new Vector3(0, 0, .5f);
+		CanTranslate = false;
+		//levelController.UpdateLevelProgress();
+		transform.gameObject.SetActive(false);
+		//CheckForCoinMiss(); 
+	}
+
+
 	void CheckIfOutside()
 	{
 
@@ -173,9 +215,21 @@ public class Link : MonoBehaviour {
 		{
 			transform.localPosition = new Vector3(0, 0, .5f);
 			CanTranslate = false;
-			ChangeCubeSides();
 			levelController.UpdateLevelProgress();
 			transform.gameObject.SetActive(false);
+			CheckForCoinMiss(); 
+			//Debug.Log(this.coin.activeSelf); 
+		}
+	}
+
+	private void CheckForCoinMiss()
+	{
+		if(this.coin.activeSelf)
+		{
+			if(EventManager.OnCoinMiss != null)
+			{
+				EventManager.OnCoinMiss(); 
+			}				
 		}
 	}
 
@@ -192,6 +246,11 @@ public class Link : MonoBehaviour {
 		return null;
 	}
 
+	public void UpdateLinkCubes()
+	{
+		ChangeCubeSides(); 
+	}
+
 	private void ChangeCubeSides()
 	{
 
@@ -205,6 +264,7 @@ public class Link : MonoBehaviour {
 		availablePositionDirection = positionDirection;
 
 		ActiveCubes();
+
 		int rand = Random.Range(0, obstacles.Count);
 
 		for (int i = 0; i < obstacles.Count; i++)
@@ -241,8 +301,6 @@ public class Link : MonoBehaviour {
 		Vector3 remainingLoc = GetPositionByDirection(availablePositionDirection[Random.Range(0, availablePositionDirection.Count)])[0];
 		coin.SetActive(true);
 		coin.transform.localPosition = remainingLoc;
-
-
 
 	}
 

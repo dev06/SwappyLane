@@ -30,7 +30,7 @@ public class LevelController : MonoBehaviour {
 		{
 			StartingIndex = PlayerPrefs.HasKey("LastLevel") ? PlayerPrefs.GetInt("LastLevel") : 1;
 
-			//StartingIndex = 21; // used for manually override the level
+			//StartingIndex = 50; // used for manually override the level
 
 			level = new Level(StartingIndex);
 		}
@@ -91,9 +91,9 @@ public class Level
 	public Level(int index)
 	{
 		this.index = index;
-		Length = (index * 6) + 10;
+		Length = (index * 5) + 10;
 		maxVelocity = (index) + 8;
-		maxVelocity = Mathf.Clamp(maxVelocity, LinkController.MIN_VELOCITY, LinkController.MAX_VELOCITY);
+		maxVelocity = Mathf.Clamp(maxVelocity, LinkController.SEC_VELOCITY, LinkController.MAX_VELOCITY);
 	}
 
 	public float MaxLevelVelocity

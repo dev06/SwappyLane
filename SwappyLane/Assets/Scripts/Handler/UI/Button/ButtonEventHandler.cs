@@ -17,6 +17,9 @@ public enum ButtonID
 	Play,
 	Restart,
 	ToggleVibration,
+	Continue_Yes,
+	Continue_No,
+	ToggleSFX,
 
 }
 public class ButtonEventHandler : MonoBehaviour, IPointerClickHandler, IPointerDownHandler  {

@@ -9,6 +9,7 @@ public enum State
 	GAME,
 	CHARACTER_SELECTOR,
 	PAUSE,
+	SECOND_CHANCE,
 }
 
 public class Controller : MonoBehaviour {
@@ -17,7 +18,13 @@ public class Controller : MonoBehaviour {
 
 	public static bool isGameOver;
 
+	public static bool Freeze; 
+
 	public static bool HAPTIC = true;
+
+	public static bool SFX = true; 
+
+	public static int CONTINUE_COST; 
 
 	private int linkSize = 15;
 
@@ -33,16 +40,15 @@ public class Controller : MonoBehaviour {
 
 		isGameOver = false;
 
+		Freeze = false; 
+
 		Application.targetFrameRate = 60;
 	}
 	public GameObject link;
 
 	private Vector3[] positions;
 
-
-
 	private LinkController linkController;
-
 
 	public List<GameObject> links = new List<GameObject>();
 
@@ -64,8 +70,11 @@ public class Controller : MonoBehaviour {
 		}
 
 		StatRecordController.Instance.Initialize();
+	}
 
-		// Haptic.Vibrate(HapticIntensity.Light);
+	void Update()
+	{
+
 	}
 
 	public void SpawnLink()
@@ -101,4 +110,6 @@ public class Controller : MonoBehaviour {
 			EventManager.OnStateChange(GameState);
 		}
 	}
+
+
 }

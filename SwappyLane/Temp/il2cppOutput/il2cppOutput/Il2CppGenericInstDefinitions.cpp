@@ -318,6 +318,7 @@ extern const Il2CppType List_1_t1440998580_0_0_0;
 extern const Il2CppType List_1_t573379950_0_0_0;
 extern const Il2CppType FieldWithTarget_t2256174789_0_0_0;
 extern const Il2CppType UserInterface_t2997471354_0_0_0;
+extern const Il2CppType Link_t3892240916_0_0_0;
 extern const Il2CppType Package_t313596708_0_0_0;
 extern const Il2CppType StorePanel_t247554135_0_0_0;
 extern const Il2CppType StoreItem_t2666977466_0_0_0;
@@ -516,11 +517,12 @@ extern const Il2CppType RectOffset_t3387826427_0_0_0;
 extern const Il2CppType TextAnchor_t112990806_0_0_0;
 extern const Il2CppType AnimationTriggers_t3244928895_0_0_0;
 extern const Il2CppType Animator_t69676727_0_0_0;
+extern const Il2CppType AudioSource_t1135106623_0_0_0;
 extern const Il2CppType CoinHUD_t774117538_0_0_0;
 extern const Il2CppType Platform_t358478341_0_0_0;
-extern const Il2CppType Link_t3892240916_0_0_0;
 extern const Il2CppType Animation_t2068071072_0_0_0;
 extern const Il2CppType Player_t1147783557_0_0_0;
+extern const Il2CppType Obstacle_t1396786087_0_0_0;
 extern const Il2CppType ParticleSystem_t3394631041_0_0_0;
 extern const Il2CppType MeshRenderer_t1268241104_0_0_0;
 extern const Il2CppType CharacterSelector_t2041732578_0_0_0;
@@ -1294,6 +1296,8 @@ static const RuntimeType* GenInst_FieldWithTarget_t2256174789_0_0_0_Types[] = { 
 extern const Il2CppGenericInst GenInst_FieldWithTarget_t2256174789_0_0_0 = { 1, GenInst_FieldWithTarget_t2256174789_0_0_0_Types };
 static const RuntimeType* GenInst_UserInterface_t2997471354_0_0_0_Types[] = { (&UserInterface_t2997471354_0_0_0) };
 extern const Il2CppGenericInst GenInst_UserInterface_t2997471354_0_0_0 = { 1, GenInst_UserInterface_t2997471354_0_0_0_Types };
+static const RuntimeType* GenInst_Link_t3892240916_0_0_0_Types[] = { (&Link_t3892240916_0_0_0) };
+extern const Il2CppGenericInst GenInst_Link_t3892240916_0_0_0 = { 1, GenInst_Link_t3892240916_0_0_0_Types };
 static const RuntimeType* GenInst_Package_t313596708_0_0_0_Types[] = { (&Package_t313596708_0_0_0) };
 extern const Il2CppGenericInst GenInst_Package_t313596708_0_0_0 = { 1, GenInst_Package_t313596708_0_0_0_Types };
 static const RuntimeType* GenInst_StorePanel_t247554135_0_0_0_Types[] = { (&StorePanel_t247554135_0_0_0) };
@@ -1698,16 +1702,18 @@ static const RuntimeType* GenInst_AnimationTriggers_t3244928895_0_0_0_Types[] = 
 extern const Il2CppGenericInst GenInst_AnimationTriggers_t3244928895_0_0_0 = { 1, GenInst_AnimationTriggers_t3244928895_0_0_0_Types };
 static const RuntimeType* GenInst_Animator_t69676727_0_0_0_Types[] = { (&Animator_t69676727_0_0_0) };
 extern const Il2CppGenericInst GenInst_Animator_t69676727_0_0_0 = { 1, GenInst_Animator_t69676727_0_0_0_Types };
+static const RuntimeType* GenInst_AudioSource_t1135106623_0_0_0_Types[] = { (&AudioSource_t1135106623_0_0_0) };
+extern const Il2CppGenericInst GenInst_AudioSource_t1135106623_0_0_0 = { 1, GenInst_AudioSource_t1135106623_0_0_0_Types };
 static const RuntimeType* GenInst_CoinHUD_t774117538_0_0_0_Types[] = { (&CoinHUD_t774117538_0_0_0) };
 extern const Il2CppGenericInst GenInst_CoinHUD_t774117538_0_0_0 = { 1, GenInst_CoinHUD_t774117538_0_0_0_Types };
 static const RuntimeType* GenInst_Platform_t358478341_0_0_0_Types[] = { (&Platform_t358478341_0_0_0) };
 extern const Il2CppGenericInst GenInst_Platform_t358478341_0_0_0 = { 1, GenInst_Platform_t358478341_0_0_0_Types };
-static const RuntimeType* GenInst_Link_t3892240916_0_0_0_Types[] = { (&Link_t3892240916_0_0_0) };
-extern const Il2CppGenericInst GenInst_Link_t3892240916_0_0_0 = { 1, GenInst_Link_t3892240916_0_0_0_Types };
 static const RuntimeType* GenInst_Animation_t2068071072_0_0_0_Types[] = { (&Animation_t2068071072_0_0_0) };
 extern const Il2CppGenericInst GenInst_Animation_t2068071072_0_0_0 = { 1, GenInst_Animation_t2068071072_0_0_0_Types };
 static const RuntimeType* GenInst_Player_t1147783557_0_0_0_Types[] = { (&Player_t1147783557_0_0_0) };
 extern const Il2CppGenericInst GenInst_Player_t1147783557_0_0_0 = { 1, GenInst_Player_t1147783557_0_0_0_Types };
+static const RuntimeType* GenInst_Obstacle_t1396786087_0_0_0_Types[] = { (&Obstacle_t1396786087_0_0_0) };
+extern const Il2CppGenericInst GenInst_Obstacle_t1396786087_0_0_0 = { 1, GenInst_Obstacle_t1396786087_0_0_0_Types };
 static const RuntimeType* GenInst_ParticleSystem_t3394631041_0_0_0_Types[] = { (&ParticleSystem_t3394631041_0_0_0) };
 extern const Il2CppGenericInst GenInst_ParticleSystem_t3394631041_0_0_0 = { 1, GenInst_ParticleSystem_t3394631041_0_0_0_Types };
 static const RuntimeType* GenInst_MeshRenderer_t1268241104_0_0_0_Types[] = { (&MeshRenderer_t1268241104_0_0_0) };
@@ -1764,7 +1770,7 @@ static const RuntimeType* GenInst_KeyValuePair_2_t38854645_0_0_0_KeyValuePair_2_
 extern const Il2CppGenericInst GenInst_KeyValuePair_2_t38854645_0_0_0_KeyValuePair_2_t38854645_0_0_0 = { 2, GenInst_KeyValuePair_2_t38854645_0_0_0_KeyValuePair_2_t38854645_0_0_0_Types };
 static const RuntimeType* GenInst_KeyValuePair_2_t38854645_0_0_0_RuntimeObject_0_0_0_Types[] = { (&KeyValuePair_2_t38854645_0_0_0), (&RuntimeObject_0_0_0) };
 extern const Il2CppGenericInst GenInst_KeyValuePair_2_t38854645_0_0_0_RuntimeObject_0_0_0 = { 2, GenInst_KeyValuePair_2_t38854645_0_0_0_RuntimeObject_0_0_0_Types };
-extern const Il2CppGenericInst* const g_Il2CppGenericInstTable[617] = 
+extern const Il2CppGenericInst* const g_Il2CppGenericInstTable[619] = 
 {
 	&GenInst_RuntimeObject_0_0_0,
 	&GenInst_Int32_t2071877448_0_0_0,
@@ -2148,6 +2154,7 @@ extern const Il2CppGenericInst* const g_Il2CppGenericInstTable[617] =
 	&GenInst_String_t_0_0_0_RuntimeObject_0_0_0_RuntimeObject_0_0_0,
 	&GenInst_FieldWithTarget_t2256174789_0_0_0,
 	&GenInst_UserInterface_t2997471354_0_0_0,
+	&GenInst_Link_t3892240916_0_0_0,
 	&GenInst_Package_t313596708_0_0_0,
 	&GenInst_StorePanel_t247554135_0_0_0,
 	&GenInst_StoreItem_t2666977466_0_0_0,
@@ -2350,11 +2357,12 @@ extern const Il2CppGenericInst* const g_Il2CppGenericInstTable[617] =
 	&GenInst_TextAnchor_t112990806_0_0_0,
 	&GenInst_AnimationTriggers_t3244928895_0_0_0,
 	&GenInst_Animator_t69676727_0_0_0,
+	&GenInst_AudioSource_t1135106623_0_0_0,
 	&GenInst_CoinHUD_t774117538_0_0_0,
 	&GenInst_Platform_t358478341_0_0_0,
-	&GenInst_Link_t3892240916_0_0_0,
 	&GenInst_Animation_t2068071072_0_0_0,
 	&GenInst_Player_t1147783557_0_0_0,
+	&GenInst_Obstacle_t1396786087_0_0_0,
 	&GenInst_ParticleSystem_t3394631041_0_0_0,
 	&GenInst_MeshRenderer_t1268241104_0_0_0,
 	&GenInst_CharacterSelector_t2041732578_0_0_0,

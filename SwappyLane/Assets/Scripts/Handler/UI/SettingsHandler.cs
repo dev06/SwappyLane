@@ -7,35 +7,56 @@ public class SettingsHandler : MonoBehaviour {
 	private Animation animation;
 
 
-	public Sprite vibration_on;
-	public Sprite vibration_off;
+	public Sprite[] vibration_sprites;
+	public Sprite[] sfx_sprites; 
 	private Image vibration_image;
+	private Image sfx_image; 
 
 	public bool Active;
 
 	void OnEnable()
 	{
 		EventManager.OnButtonClick += OnButtonClick;
+		EventManager.OnStateChange+=OnStateChange; 
 	}
 	void OnDisable()
 	{
 		EventManager.OnButtonClick -= OnButtonClick;
+		EventManager.OnStateChange-=OnStateChange; 
 	}
 
 	void Start()
 	{
 		vibration_image = transform.GetChild(0).GetComponent<Image>();
-		vibration_image.sprite = Controller.HAPTIC ? vibration_on : vibration_off;
+		vibration_image.sprite = Controller.HAPTIC ? vibration_sprites[0] : vibration_sprites[1];
 
+		sfx_image = transform.GetChild(1).GetComponent<Image>(); 
+		sfx_image.sprite = Controller.SFX ? sfx_sprites[0] : sfx_sprites[1]; 
 	}
+
+	void OnStateChange(State s)
+	{
+		if(s != State.MENU)
+		{
+			Play(-1); 
+			return; 
+		}
+	}
+
+
+
 
 	void OnButtonClick(ButtonID b)
 	{
-
 		if (b == ButtonID.ToggleVibration)
 		{
 			Controller.HAPTIC = !Controller.HAPTIC;
-			vibration_image.sprite = Controller.HAPTIC ? vibration_on : vibration_off;
+			vibration_image.sprite = Controller.HAPTIC ? vibration_sprites[0] : vibration_sprites[1];
+		}
+		else if(b == ButtonID.ToggleSFX)
+		{
+			Controller.SFX = !Controller.SFX; 
+			sfx_image.sprite = Controller.SFX ? sfx_sprites[0] : sfx_sprites[1]; 
 		}
 
 		if (b != ButtonID.Setting) { return; }
@@ -55,9 +76,6 @@ public class SettingsHandler : MonoBehaviour {
 		animation.Play();
 
 		Active = i > 0;
-
-
-
 	}
 
 }

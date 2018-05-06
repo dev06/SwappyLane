@@ -11,7 +11,7 @@ Summary:
     Generic Abstract Classes = 3
     Attributes = 177
   Total Field Removals = 796
-  Total Method Removals = 11257
+  Total Method Removals = 11253
 ---------------------------------------------------
 ---------------------------------------------------
 Assembly: Mono.Security
@@ -9438,7 +9438,7 @@ Summary:
     Generic Abstract Classes = 0
     Attributes = 48
   Total Field Removals = 58
-  Total Method Removals = 4983
+  Total Method Removals = 4979
   References Removed = 0
 ---------------------------------------------------
     <PrivateImplementationDetails>
@@ -10451,8 +10451,6 @@ Summary:
         INTERNAL_CALL_Pause(UnityEngine.AudioSource)
         INTERNAL_CALL_UnPause(UnityEngine.AudioSource)
         Pause()
-        Play()
-        Play(System.UInt64)
         PlayClipAtPoint(UnityEngine.AudioClip,UnityEngine.Vector3)
         PlayClipAtPoint(UnityEngine.AudioClip,UnityEngine.Vector3,System.Single)
         PlayDelayed(System.Single)
@@ -10462,7 +10460,6 @@ Summary:
         set_bypassEffects(System.Boolean)
         set_bypassListenerEffects(System.Boolean)
         set_bypassReverbZones(System.Boolean)
-        set_clip(UnityEngine.AudioClip)
         set_dopplerLevel(System.Single)
         set_ignoreListenerPause(System.Boolean)
         set_ignoreListenerVolume(System.Boolean)
@@ -10474,7 +10471,6 @@ Summary:
         set_mute(System.Boolean)
         set_outputAudioMixerGroup(UnityEngine.Audio.AudioMixerGroup)
         set_panStereo(System.Single)
-        set_pitch(System.Single)
         set_playOnAwake(System.Boolean)
         set_priority(System.Int32)
         set_reverbZoneMix(System.Single)

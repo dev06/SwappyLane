@@ -11,6 +11,11 @@ public class EventManager : MonoBehaviour {
 
 	public delegate void Gameplay();
 	public static Gameplay OnGameOver;
+	public static Gameplay OnSecondChance; 
+	public static Gameplay OnCoinMiss; 
+
+	public delegate void Bool(bool b); 
+	public static Bool OnSecondChanceDecision; 
 
 
 	public delegate void TerminalVelocityStatus(bool b);

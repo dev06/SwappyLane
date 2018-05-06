@@ -183,6 +183,9 @@ UnityEngine.Audio.AudioMixerPlayable::INTERNAL_CALL_SetAutoNormalizeInternal
 UnityEngine.Audio.AudioPlayableOutput::INTERNAL_CALL_InternalSetTarget
 UnityEngine.Audio.AudioPlayableOutput::INTERNAL_CALL_InternalGetTarget
 UnityEngine.AudioClip::get_length
+UnityEngine.AudioSource::Play
+UnityEngine.AudioSource::set_clip
+UnityEngine.AudioSource::set_pitch
 UnityEngine.Behaviour::get_enabled
 UnityEngine.Behaviour::get_isActiveAndEnabled
 UnityEngine.Behaviour::set_enabled

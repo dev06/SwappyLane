@@ -6,6 +6,8 @@ public class LinkController : MonoBehaviour {
 
 	public static LinkController Instance;
 
+	public static float SEC_VELOCITY = 1F; 
+
 	public static float MIN_VELOCITY = 5f;
 
 	public static float MAX_VELOCITY = 10f;
@@ -26,6 +28,8 @@ public class LinkController : MonoBehaviour {
 
 	private CameraController cameraController;
 
+	private CoinController coinController; 
+
 	private Controller controller;
 
 	private ParticleSystem fragments;
@@ -36,6 +40,10 @@ public class LinkController : MonoBehaviour {
 
 	private bool canCollideAgain = true;
 
+	private Link[] linkList; 
+
+
+
 	void Awake()
 	{
 		if (Instance == null)
@@ -44,6 +52,24 @@ public class LinkController : MonoBehaviour {
 		}
 	}
 
+	public void Initalize()
+	{
+		controller = Controller.Instance;
+
+		cameraController = CameraController.Instance;
+
+		levelController = LevelController.Instance;
+
+		coinController = CoinController.Instance; 
+
+		levelController.Initalize();
+
+		tmVelocity = GameObject.Find("TerminalVelocityBoost").GetComponent<ParticleSystem>();
+
+		linkList = FindObjectsOfType<Link>();  
+	}
+
+
 	void OnEnable()
 	{
 		EventManager.OnObstacleHit += OnObstacleHit;
@@ -51,6 +77,8 @@ public class LinkController : MonoBehaviour {
 		LevelController.OnLevelComplete += OnLevelComplete;
 
 		LevelController.OnNewLevelStart += OnNewLevelStart;
+
+		EventManager.OnSecondChanceDecision +=OnSecondChanceDecision; 
 	}
 
 	void OnDisable()
@@ -61,7 +89,51 @@ public class LinkController : MonoBehaviour {
 
 		LevelController.OnNewLevelStart -= OnNewLevelStart;
 
+		EventManager.OnSecondChanceDecision -=OnSecondChanceDecision; 
+
 	}
+
+	void OnSecondChanceDecision(bool b)
+	{
+		if(b)
+		{
+
+			tmVelocity.Stop();
+
+			terminalVelocityStart = false;
+
+			if (EventManager.OnTerminalVelocityStatus != null)
+			{
+				EventManager.OnTerminalVelocityStatus(false);
+			}
+
+			Velocity = SEC_VELOCITY; 
+		}
+
+		else
+		{
+
+			if (EventManager.OnGameOver != null)
+			{
+				EventManager.OnGameOver();
+			}
+
+		}
+	}
+
+	public void DeactivateAllLinks()
+	{
+		foreach(Link l in linkList)
+		{
+			l.Deactivate(); 
+		}
+
+		movingLinkIndex = (int)levelController.level.Progress; 
+
+		index = 0; 
+	}
+
+
 
 	IEnumerator HitCoolDown()
 	{
@@ -107,12 +179,30 @@ public class LinkController : MonoBehaviour {
 
 		else
 		{
-			if (canCollideAgain)
-			{
 
-				if (EventManager.OnGameOver != null)
+			if (canCollideAgain)
+			{	
+
+				if (EventManager.OnTerminalVelocityStatus != null)
 				{
-					EventManager.OnGameOver();
+					EventManager.OnTerminalVelocityStatus(false);
+				}
+
+				Controller.CONTINUE_COST = levelController.level.Index * 5; 
+
+				if(StatRecordController.CoinsCollected >= Controller.CONTINUE_COST)
+				{
+					if(EventManager.OnSecondChance != null)
+					{
+						EventManager.OnSecondChance(); 
+					}
+				}
+				else
+				{
+					if (EventManager.OnGameOver != null)
+					{
+						EventManager.OnGameOver();
+					}
 				}
 
 				Haptic.Vibrate(HapticIntensity.Heavy);
@@ -130,6 +220,15 @@ public class LinkController : MonoBehaviour {
 
 		index = 0;
 
+		if(linkList == null)
+		{
+			linkList =FindObjectsOfType<Link>(); 
+		}
+
+		foreach(Link l in linkList)
+		{
+			l.transform.gameObject.SetActive(false); 
+		}
 	}
 
 	void OnNewLevelStart()
@@ -137,28 +236,10 @@ public class LinkController : MonoBehaviour {
 		movingLinkIndex = 0;
 	}
 
-	public void Initalize()
-	{
-		controller = Controller.Instance;
-
-		cameraController = CameraController.Instance;
-
-		levelController = LevelController.Instance;
-
-		levelController.Initalize();
-
-		tmVelocity = GameObject.Find("TerminalVelocityBoost").GetComponent<ParticleSystem>();
-
-	}
-
-	void Start ()
-	{
-
-	}
 
 	void Update () {
 
-		if (Controller.isGameOver) { return; }
+		if (Controller.Freeze) { return; }
 		if (Controller.GameState != State.GAME) { return; }
 
 
@@ -218,6 +299,8 @@ public class LinkController : MonoBehaviour {
 		l.transform.gameObject.SetActive(true);
 
 		l.CanTranslate = true;
+
+		l.UpdateLinkCubes(); 
 
 		movingLinkIndex++;
 

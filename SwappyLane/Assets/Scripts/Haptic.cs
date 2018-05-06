@@ -8,7 +8,8 @@ public class Haptic : MonoBehaviour {
 	public static void Vibrate(HapticIntensity intensity)
 	{
 		if (Controller.HAPTIC == false) { return; }
-#if UNITY_IPHONE && !UNITY_EDITOR
+#if !UNITY_EDITOR
+#if UNITY_IPHONE
 		switch (intensity)
 		{
 			case HapticIntensity.Light:
@@ -33,20 +34,22 @@ public class Haptic : MonoBehaviour {
 		{
 			case HapticIntensity.Light:
 			{
-				Vibration.Vibrate(3);
+				Vibration.Vibrate(5);
 				break;
 			}
 			case HapticIntensity.Medium:
 			{
-				Vibration.Vibrate(5);
+				Vibration.Vibrate(7);
 				break;
 			}
 			case HapticIntensity.Heavy:
 			{
-				Vibration.Vibrate(7);
+				Vibration.Vibrate(9);
 				break;
 			}
 		}
+#endif
+
 #endif
 	}
 

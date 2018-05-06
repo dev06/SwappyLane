@@ -8131,6 +8131,10 @@ extern "C" void AudioConfigurationChangeHandler__ctor_m114228029 ();
 extern "C" void AudioConfigurationChangeHandler_Invoke_m635374412 ();
 extern "C" void AudioConfigurationChangeHandler_BeginInvoke_m2418670597 ();
 extern "C" void AudioConfigurationChangeHandler_EndInvoke_m2237100787 ();
+extern "C" void AudioSource_set_pitch_m3064416458 ();
+extern "C" void AudioSource_set_clip_m738814682 ();
+extern "C" void AudioSource_Play_m889724421 ();
+extern "C" void AudioSource_Play_m353744792 ();
 extern "C" void Behaviour__ctor_m2699265412 ();
 extern "C" void Behaviour_get_enabled_m4079055610 ();
 extern "C" void Behaviour_set_enabled_m1796096907 ();
@@ -11718,6 +11722,15 @@ extern "C" void CharacterTemplate_CreateCharacter_m3935171511 ();
 extern "C" void Coin__ctor_m1169454972 ();
 extern "C" void Coin_Start_m3780878476 ();
 extern "C" void Coin_Update_m10562229 ();
+extern "C" void CoinCollectSFX__ctor_m811090971 ();
+extern "C" void CoinCollectSFX_OnEnable_m3496668567 ();
+extern "C" void CoinCollectSFX_OnDisable_m1745043988 ();
+extern "C" void CoinCollectSFX_OnCoinHit_m3374819788 ();
+extern "C" void CoinCollectSFX_OnObstacleHit_m3937231768 ();
+extern "C" void CoinCollectSFX_OnCoinMiss_m4120068165 ();
+extern "C" void CoinCollectSFX_OnLevelComplete_m1444230133 ();
+extern "C" void CoinCollectSFX_Start_m1396130199 ();
+extern "C" void CoinCollectSFX_SetPitch_m444879094 ();
 extern "C" void CoinController__ctor_m510487156 ();
 extern "C" void CoinController_Awake_m2915090793 ();
 extern "C" void CoinController_OnEnable_m1741217012 ();
@@ -11734,11 +11747,16 @@ extern "C" void CoinHUD_UpdateHUD_m83990197 ();
 extern "C" void Controller__ctor_m2477390111 ();
 extern "C" void Controller_Awake_m587736580 ();
 extern "C" void Controller_Start_m165415507 ();
+extern "C" void Controller_Update_m2428618086 ();
 extern "C" void Controller_SpawnLink_m218450384 ();
 extern "C" void Controller_LastLinkPosition_m3130140118 ();
 extern "C" void Controller_SetState_m2922874809 ();
 extern "C" void Controller__cctor_m3776262562 ();
 extern "C" void EventManager__ctor_m993597962 ();
+extern "C" void Bool__ctor_m294043817 ();
+extern "C" void Bool_Invoke_m1974436066 ();
+extern "C" void Bool_BeginInvoke_m2275727001 ();
+extern "C" void Bool_EndInvoke_m498582587 ();
 extern "C" void ButtonEvent__ctor_m332792713 ();
 extern "C" void ButtonEvent_Invoke_m1228559592 ();
 extern "C" void ButtonEvent_BeginInvoke_m98846589 ();
@@ -11813,8 +11831,11 @@ extern "C" void Link_Initalize_m1686705912 ();
 extern "C" void Link_ActiveCubes_m469975357 ();
 extern "C" void Link_Update_m2972296018 ();
 extern "C" void Link_UpdateObstacleRotation_m218209427 ();
+extern "C" void Link_Deactivate_m2772711583 ();
 extern "C" void Link_CheckIfOutside_m1803941147 ();
+extern "C" void Link_CheckForCoinMiss_m2713309173 ();
 extern "C" void Link_GetPositionByDirection_m134269791 ();
+extern "C" void Link_UpdateLinkCubes_m4285496654 ();
 extern "C" void Link_ChangeCubeSides_m407122252 ();
 extern "C" void Link_get_PrevLink_m1764331936 ();
 extern "C" void Link_set_PrevLink_m3212887455 ();
@@ -11822,14 +11843,15 @@ extern "C" void Link_get_CanTranslate_m2735688336 ();
 extern "C" void Link_set_CanTranslate_m3751173795 ();
 extern "C" void LinkController__ctor_m1559935383 ();
 extern "C" void LinkController_Awake_m3972157628 ();
+extern "C" void LinkController_Initalize_m3891247412 ();
 extern "C" void LinkController_OnEnable_m2353184475 ();
 extern "C" void LinkController_OnDisable_m1662615960 ();
+extern "C" void LinkController_OnSecondChanceDecision_m4106920615 ();
+extern "C" void LinkController_DeactivateAllLinks_m2272799873 ();
 extern "C" void LinkController_HitCoolDown_m2702178545 ();
 extern "C" void LinkController_OnObstacleHit_m3606170772 ();
 extern "C" void LinkController_OnLevelComplete_m4097428069 ();
 extern "C" void LinkController_OnNewLevelStart_m3552687744 ();
-extern "C" void LinkController_Initalize_m3891247412 ();
-extern "C" void LinkController_Start_m1820693275 ();
 extern "C" void LinkController_Update_m2949827870 ();
 extern "C" void LinkController_MoveNextLink_m1368423373 ();
 extern "C" void LinkController_get_Velocity_m3575676007 ();
@@ -11850,8 +11872,8 @@ extern "C" void MenuUI_OnStateChange_m1854824403 ();
 extern "C" void MenuUI_UpdateUI_m1865721113 ();
 extern "C" void Obstacle__ctor_m2539586060 ();
 extern "C" void Obstacle_Start_m3664876360 ();
-extern "C" void Obstacle_Update_m2596589739 ();
-extern "C" void Obstacle_CheckIfOutside_m1059790708 ();
+extern "C" void Obstacle_get_Link_m3713659732 ();
+extern "C" void Obstacle_set_Link_m3602278919 ();
 extern "C" void Package__ctor_m2092373981 ();
 extern "C" void Package__ctor_m3456549453 ();
 extern "C" void Package__ctor_m2936332625 ();
@@ -11880,7 +11902,9 @@ extern "C" void Player_OnDisable_m264880805 ();
 extern "C" void Player_OnTerminalVelocityStatus_m3781354089 ();
 extern "C" void Player_OnLevelComplete_m3757165542 ();
 extern "C" void Player_OnGameOver_m2985752517 ();
-extern "C" void Player_IOnGameOver_m2565780386 ();
+extern "C" void Player_OnSecondChance_m3778136187 ();
+extern "C" void Player_OnSecondChanceDecision_m3701743544 ();
+extern "C" void Player_IOnGameOver_m3880090033 ();
 extern "C" void Player_Start_m3139373552 ();
 extern "C" void Player_Update_m717746161 ();
 extern "C" void Player_AutoRotate_m4190598462 ();
@@ -11895,6 +11919,12 @@ extern "C" void Purchase__ctor_m2799457373 ();
 extern "C" void Purchase_RefreshPurchased_m335595272 ();
 extern "C" void Purchase_get_IsPurchased_m2114180390 ();
 extern "C" void Purchase_set_IsPurchased_m2817091975 ();
+extern "C" void SecondChanceUI__ctor_m285579981 ();
+extern "C" void SecondChanceUI_OnEnable_m180814493 ();
+extern "C" void SecondChanceUI_OnDisable_m1974030498 ();
+extern "C" void SecondChanceUI_Init_m4221637759 ();
+extern "C" void SecondChanceUI_OnStateChange_m709604816 ();
+extern "C" void SecondChanceUI_Show_m463443196 ();
 extern "C" void SelectorInfoHandler__ctor_m3445352310 ();
 extern "C" void SelectorInfoHandler_OnEnable_m1913244582 ();
 extern "C" void SelectorInfoHandler_OnDisable_m1719714789 ();
@@ -11906,13 +11936,17 @@ extern "C" void SelectorInfoHandler_HideContainers_m569350384 ();
 extern "C" void SelectorInfoHandler_get_ActiveStoreItem_m3896578754 ();
 extern "C" void SelectorInfoHandler_set_ActiveStoreItem_m293973005 ();
 extern "C" void SettingButton__ctor_m3757373999 ();
+extern "C" void SettingButton_OnEnable_m3431033987 ();
+extern "C" void SettingButton_OnDisable_m4254414700 ();
 extern "C" void SettingButton_Start_m3858637507 ();
 extern "C" void SettingButton_Update_m2398596794 ();
+extern "C" void SettingButton_OnStateChange_m623123606 ();
 extern "C" void SettingButton_OnPointerClick_m1640583419 ();
 extern "C" void SettingsHandler__ctor_m2563757234 ();
 extern "C" void SettingsHandler_OnEnable_m1610745062 ();
 extern "C" void SettingsHandler_OnDisable_m3383146103 ();
 extern "C" void SettingsHandler_Start_m3516148774 ();
+extern "C" void SettingsHandler_OnStateChange_m1623224253 ();
 extern "C" void SettingsHandler_OnButtonClick_m1728184750 ();
 extern "C" void SettingsHandler_Play_m1374150479 ();
 extern "C" void SimpleButtonHandler__ctor_m495956003 ();
@@ -11936,6 +11970,7 @@ extern "C" void StoreItem_Unlock_m332746877 ();
 extern "C" void StoreItem_SetPackage_m6819847 ();
 extern "C" void StoreItem_OnPointerClick_m4035709177 ();
 extern "C" void StoreItem_Select_m1302074473 ();
+extern "C" void StoreItem_Select_m2403006108 ();
 extern "C" void StoreItem_CanPurchase_m1121453790 ();
 extern "C" void StoreItem_Show_m30872336 ();
 extern "C" void StoreItem_Hide_m2845666449 ();
@@ -12198,7 +12233,7 @@ extern "C" void VignetteAndChromaticAberration_CheckResources_m394291804 ();
 extern "C" void VignetteAndChromaticAberration_OnRenderImage_m3555084659 ();
 extern "C" void Vortex__ctor_m3778734735 ();
 extern "C" void Vortex_OnRenderImage_m3762609939 ();
-extern const Il2CppMethodPointer g_MethodPointers[12181] = 
+extern const Il2CppMethodPointer g_MethodPointers[12216] = 
 {
 	Locale_GetText_m1954433032,
 	Locale_GetText_m2553164138,
@@ -20314,6 +20349,10 @@ extern const Il2CppMethodPointer g_MethodPointers[12181] =
 	AudioConfigurationChangeHandler_Invoke_m635374412,
 	AudioConfigurationChangeHandler_BeginInvoke_m2418670597,
 	AudioConfigurationChangeHandler_EndInvoke_m2237100787,
+	AudioSource_set_pitch_m3064416458,
+	AudioSource_set_clip_m738814682,
+	AudioSource_Play_m889724421,
+	AudioSource_Play_m353744792,
 	Behaviour__ctor_m2699265412,
 	Behaviour_get_enabled_m4079055610,
 	Behaviour_set_enabled_m1796096907,
@@ -23901,6 +23940,15 @@ extern const Il2CppMethodPointer g_MethodPointers[12181] =
 	Coin__ctor_m1169454972,
 	Coin_Start_m3780878476,
 	Coin_Update_m10562229,
+	CoinCollectSFX__ctor_m811090971,
+	CoinCollectSFX_OnEnable_m3496668567,
+	CoinCollectSFX_OnDisable_m1745043988,
+	CoinCollectSFX_OnCoinHit_m3374819788,
+	CoinCollectSFX_OnObstacleHit_m3937231768,
+	CoinCollectSFX_OnCoinMiss_m4120068165,
+	CoinCollectSFX_OnLevelComplete_m1444230133,
+	CoinCollectSFX_Start_m1396130199,
+	CoinCollectSFX_SetPitch_m444879094,
 	CoinController__ctor_m510487156,
 	CoinController_Awake_m2915090793,
 	CoinController_OnEnable_m1741217012,
@@ -23917,11 +23965,16 @@ extern const Il2CppMethodPointer g_MethodPointers[12181] =
 	Controller__ctor_m2477390111,
 	Controller_Awake_m587736580,
 	Controller_Start_m165415507,
+	Controller_Update_m2428618086,
 	Controller_SpawnLink_m218450384,
 	Controller_LastLinkPosition_m3130140118,
 	Controller_SetState_m2922874809,
 	Controller__cctor_m3776262562,
 	EventManager__ctor_m993597962,
+	Bool__ctor_m294043817,
+	Bool_Invoke_m1974436066,
+	Bool_BeginInvoke_m2275727001,
+	Bool_EndInvoke_m498582587,
 	ButtonEvent__ctor_m332792713,
 	ButtonEvent_Invoke_m1228559592,
 	ButtonEvent_BeginInvoke_m98846589,
@@ -23996,8 +24049,11 @@ extern const Il2CppMethodPointer g_MethodPointers[12181] =
 	Link_ActiveCubes_m469975357,
 	Link_Update_m2972296018,
 	Link_UpdateObstacleRotation_m218209427,
+	Link_Deactivate_m2772711583,
 	Link_CheckIfOutside_m1803941147,
+	Link_CheckForCoinMiss_m2713309173,
 	Link_GetPositionByDirection_m134269791,
+	Link_UpdateLinkCubes_m4285496654,
 	Link_ChangeCubeSides_m407122252,
 	Link_get_PrevLink_m1764331936,
 	Link_set_PrevLink_m3212887455,
@@ -24005,14 +24061,15 @@ extern const Il2CppMethodPointer g_MethodPointers[12181] =
 	Link_set_CanTranslate_m3751173795,
 	LinkController__ctor_m1559935383,
 	LinkController_Awake_m3972157628,
+	LinkController_Initalize_m3891247412,
 	LinkController_OnEnable_m2353184475,
 	LinkController_OnDisable_m1662615960,
+	LinkController_OnSecondChanceDecision_m4106920615,
+	LinkController_DeactivateAllLinks_m2272799873,
 	LinkController_HitCoolDown_m2702178545,
 	LinkController_OnObstacleHit_m3606170772,
 	LinkController_OnLevelComplete_m4097428069,
 	LinkController_OnNewLevelStart_m3552687744,
-	LinkController_Initalize_m3891247412,
-	LinkController_Start_m1820693275,
 	LinkController_Update_m2949827870,
 	LinkController_MoveNextLink_m1368423373,
 	LinkController_get_Velocity_m3575676007,
@@ -24033,8 +24090,8 @@ extern const Il2CppMethodPointer g_MethodPointers[12181] =
 	MenuUI_UpdateUI_m1865721113,
 	Obstacle__ctor_m2539586060,
 	Obstacle_Start_m3664876360,
-	Obstacle_Update_m2596589739,
-	Obstacle_CheckIfOutside_m1059790708,
+	Obstacle_get_Link_m3713659732,
+	Obstacle_set_Link_m3602278919,
 	Package__ctor_m2092373981,
 	Package__ctor_m3456549453,
 	Package__ctor_m2936332625,
@@ -24063,7 +24120,9 @@ extern const Il2CppMethodPointer g_MethodPointers[12181] =
 	Player_OnTerminalVelocityStatus_m3781354089,
 	Player_OnLevelComplete_m3757165542,
 	Player_OnGameOver_m2985752517,
-	Player_IOnGameOver_m2565780386,
+	Player_OnSecondChance_m3778136187,
+	Player_OnSecondChanceDecision_m3701743544,
+	Player_IOnGameOver_m3880090033,
 	Player_Start_m3139373552,
 	Player_Update_m717746161,
 	Player_AutoRotate_m4190598462,
@@ -24078,6 +24137,12 @@ extern const Il2CppMethodPointer g_MethodPointers[12181] =
 	Purchase_RefreshPurchased_m335595272,
 	Purchase_get_IsPurchased_m2114180390,
 	Purchase_set_IsPurchased_m2817091975,
+	SecondChanceUI__ctor_m285579981,
+	SecondChanceUI_OnEnable_m180814493,
+	SecondChanceUI_OnDisable_m1974030498,
+	SecondChanceUI_Init_m4221637759,
+	SecondChanceUI_OnStateChange_m709604816,
+	SecondChanceUI_Show_m463443196,
 	SelectorInfoHandler__ctor_m3445352310,
 	SelectorInfoHandler_OnEnable_m1913244582,
 	SelectorInfoHandler_OnDisable_m1719714789,
@@ -24089,13 +24154,17 @@ extern const Il2CppMethodPointer g_MethodPointers[12181] =
 	SelectorInfoHandler_get_ActiveStoreItem_m3896578754,
 	SelectorInfoHandler_set_ActiveStoreItem_m293973005,
 	SettingButton__ctor_m3757373999,
+	SettingButton_OnEnable_m3431033987,
+	SettingButton_OnDisable_m4254414700,
 	SettingButton_Start_m3858637507,
 	SettingButton_Update_m2398596794,
+	SettingButton_OnStateChange_m623123606,
 	SettingButton_OnPointerClick_m1640583419,
 	SettingsHandler__ctor_m2563757234,
 	SettingsHandler_OnEnable_m1610745062,
 	SettingsHandler_OnDisable_m3383146103,
 	SettingsHandler_Start_m3516148774,
+	SettingsHandler_OnStateChange_m1623224253,
 	SettingsHandler_OnButtonClick_m1728184750,
 	SettingsHandler_Play_m1374150479,
 	SimpleButtonHandler__ctor_m495956003,
@@ -24119,6 +24188,7 @@ extern const Il2CppMethodPointer g_MethodPointers[12181] =
 	StoreItem_SetPackage_m6819847,
 	StoreItem_OnPointerClick_m4035709177,
 	StoreItem_Select_m1302074473,
+	StoreItem_Select_m2403006108,
 	StoreItem_CanPurchase_m1121453790,
 	StoreItem_Show_m30872336,
 	StoreItem_Hide_m2845666449,
