@@ -3154,7 +3154,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1331045899}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.9728881
+  m_Size: 0.6426712
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6844,7 +6844,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 636252924}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.9999999
+  m_Size: 0.66225964
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12608,8 +12608,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad85167eb40b2b244942d58455ffed08, type: 3}
   - {fileID: 21300000, guid: 2504117e571f16049b314459412a7e1c, type: 3}
   sfx_sprites:
-  - {fileID: 21300000, guid: 532625799aade084a829322582b436fb, type: 3}
-  - {fileID: 21300000, guid: bf0aabf6f7042104baea44b2047aae1a, type: 3}
+  - {fileID: 21300000, guid: 99584340a0669cf449b7fe6539a06a42, type: 3}
+  - {fileID: 21300000, guid: f0ca445c67a84534c9066527ae602f25, type: 3}
   Active: 0
 --- !u!111 &1757188087
 Animation:
