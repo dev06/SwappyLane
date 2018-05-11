@@ -36,6 +36,11 @@ public class StoreItem : ButtonEventHandler {
 			CharacterSelector.SkinItems.Add(this); 
 		}
 
+		if(package.type == PackageType.Theme)
+		{
+			CharacterSelector.ThemeItems.Add(this); 
+		}
+
 		if (package != null)
 		{
 			icon = GetComponent<Image>();
@@ -57,20 +62,21 @@ public class StoreItem : ButtonEventHandler {
 
 		Hide();
 
-		if (package.type == PackageType.Skins)
-		{
-			if (CharacterSelector.ActiveSkinPackage.id == package.id)
-			{
-				if(CharacterSelector.ActiveSkinPackage.challenge.completed)
-				{
-					Show();
-				}
-				else
-				{
-					Select(PackageType.Skins, 1); 
-				}
-			}
-		}
+// 		if (package.type == PackageType.Skins)
+// 		{
+// 			if (CharacterSelector.ActiveSkinPackage.id == package.id)
+// 			{
+		
+// 				//Show();
+// 				if(CharacterSelector.ActiveSkinPackage.challenge.completed)
+// 				{
+// 				}
+// 				else
+// 				{
+// //					Select(PackageType.Skins, 1); 
+// 				}
+// 			}
+// 		}
 
 		if (package.type == PackageType.Theme)
 		{
@@ -216,14 +222,33 @@ public class StoreItem : ButtonEventHandler {
 
 	public void Select(PackageType type, int id)
 	{
-		for(int i = 0;i < CharacterSelector.SkinItems.Count; i++)
+		if(type == PackageType.Skins)
 		{
-			if(id == CharacterSelector.SkinItems[i].Package.id)
+			for(int i = 0;i < CharacterSelector.SkinItems.Count; i++)
 			{
-				CharacterSelector.SkinItems[i].Select(); 
-				break; 
+				if(id == CharacterSelector.SkinItems[i].Package.id)
+				{
+					CharacterSelector.SkinItems[i].Select(); 
+					break; 
+				}
+			}	
+		}
+		
+		if(type == PackageType.Theme)
+		{
+			Debug.Log(CharacterSelector.ThemeItems.Count); 
+			for(int i = 0;i < CharacterSelector.ThemeItems.Count; i++)
+			{
+				if(id == CharacterSelector.ThemeItems[i].Package.id)
+				{
+					CharacterSelector.ThemeItems[i].Select(); 
+					break; 
+				}
 			}
 		}
+
+
+
 	}
 
 	public bool CanPurchase()

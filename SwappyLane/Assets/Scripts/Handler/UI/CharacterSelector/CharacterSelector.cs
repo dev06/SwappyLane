@@ -216,26 +216,26 @@ public class CharacterSelectorEvent
 public class PackageCreator
 {
 
-	public static Challenge challenge_playgame_1 = new Challenge(ChallengeType.PlayGame, 25);
+	public static Challenge challenge_playgame_1 = new Challenge(ChallengeType.PlayGame, 10);
 	public static Challenge challenge_playgame_2 = new Challenge(ChallengeType.PlayGame, 50);
 	public static Challenge challenge_playgame_3 = new Challenge(ChallengeType.PlayGame, 100);
-	public static Challenge challenge_playgame_4 = new Challenge(ChallengeType.PlayGame, 200);
+	public static Challenge challenge_playgame_4 = new Challenge(ChallengeType.PlayGame, 300);
 	public static Challenge challenge_playgame_5 = new Challenge(ChallengeType.PlayGame, 500);
 	public static Challenge challenge_playgame_6 = new Challenge(ChallengeType.PlayGame, 1000);
 
 	public static Challenge challenge_levelreach_1 = new Challenge(ChallengeType.LevelReach, 10);
-	public static Challenge challenge_levelreach_2 = new Challenge(ChallengeType.LevelReach, 20);
-	public static Challenge challenge_levelreach_3 = new Challenge(ChallengeType.LevelReach, 40);
-	public static Challenge challenge_levelreach_4 = new Challenge(ChallengeType.LevelReach, 50);
-	public static Challenge challenge_levelreach_5 = new Challenge(ChallengeType.LevelReach, 70);
-	public static Challenge challenge_levelreach_6 = new Challenge(ChallengeType.LevelReach, 100);
+	public static Challenge challenge_levelreach_2 = new Challenge(ChallengeType.LevelReach, 30);
+	public static Challenge challenge_levelreach_3 = new Challenge(ChallengeType.LevelReach, 50);
+	public static Challenge challenge_levelreach_4 = new Challenge(ChallengeType.LevelReach, 70);
+	public static Challenge challenge_levelreach_5 = new Challenge(ChallengeType.LevelReach, 100);
+	public static Challenge challenge_levelreach_6 = new Challenge(ChallengeType.LevelReach, 200);
 
-	public static Challenge challenge_roll_1 = new Challenge(ChallengeType.Roll, 150);
-	public static Challenge challenge_roll_2 = new Challenge(ChallengeType.Roll, 250);
-	public static Challenge challenge_roll_3 = new Challenge(ChallengeType.Roll, 500);
-	public static Challenge challenge_roll_4 = new Challenge(ChallengeType.Roll, 750);
-	public static Challenge challenge_roll_5 = new Challenge(ChallengeType.Roll, 1000);
-	public static Challenge challenge_roll_6 = new Challenge(ChallengeType.Roll, 2000);
+	public static Challenge challenge_roll_1 = new Challenge(ChallengeType.Roll, 200);
+	public static Challenge challenge_roll_2 = new Challenge(ChallengeType.Roll, 500);
+	public static Challenge challenge_roll_3 = new Challenge(ChallengeType.Roll, 1000);
+	public static Challenge challenge_roll_4 = new Challenge(ChallengeType.Roll, 2000);
+	public static Challenge challenge_roll_5 = new Challenge(ChallengeType.Roll, 3500);
+	public static Challenge challenge_roll_6 = new Challenge(ChallengeType.Roll, 5000);
 
 	public static Challenge challenge_breakblock_1 = new Challenge(ChallengeType.BreakBlock, 50);
 	public static Challenge challenge_breakblock_2 = new Challenge(ChallengeType.BreakBlock, 100);
@@ -251,18 +251,18 @@ public class PackageCreator
 	public static Challenge challenge_unlockskins_5 = new Challenge(ChallengeType.UnlockSkins, 25);
 	public static Challenge challenge_unlockskins_6 = new Challenge(ChallengeType.UnlockSkins, 30);
 
-	public static Purchase purchase_1 = new Purchase(1000);
-	public static Purchase purchase_2 = new Purchase(1000);
-	public static Purchase purchase_3 = new Purchase(1000);
-	public static Purchase purchase_4 = new Purchase(1000);
-	public static Purchase purchase_5 = new Purchase(1000);
-	public static Purchase purchase_6 = new Purchase(1000);
-	public static Purchase purchase_7 = new Purchase(1500);
-	public static Purchase purchase_8 = new Purchase(1500);
-	public static Purchase purchase_9 = new Purchase(1500);
-	public static Purchase purchase_10 = new Purchase(1500);
-	public static Purchase purchase_11 = new Purchase(1500);
-	public static Purchase purchase_12 = new Purchase(1500);
+	public static Purchase purchase_1 = new Purchase(750);
+	public static Purchase purchase_2 = new Purchase(750);
+	public static Purchase purchase_3 = new Purchase(750);
+	public static Purchase purchase_4 = new Purchase(750);
+	public static Purchase purchase_5 = new Purchase(750);
+	public static Purchase purchase_6 = new Purchase(750);
+	public static Purchase purchase_7 = new Purchase(1000);
+	public static Purchase purchase_8 = new Purchase(1000);
+	public static Purchase purchase_9 = new Purchase(1000);
+	public static Purchase purchase_10 = new Purchase(1000);
+	public static Purchase purchase_11 = new Purchase(1000);
+	public static Purchase purchase_12 = new Purchase(1000);
 
 
 
@@ -288,7 +288,7 @@ public class PackageCreator
 		new Package(PackageType.Skins, 18, AppResources.char_18, challenge_roll_4),
 		new Package(PackageType.Skins, 19, AppResources.char_19, challenge_breakblock_4),
 		new Package(PackageType.Skins, 20, AppResources.char_20, challenge_unlockskins_4),
-		new Package(PackageType.Skins, 21, AppResources.char_21, challenge_playgame_5),
+		new Package(PackageType.Skins, 21, AppResources.char_21, challenge_levelreach_5),
 
 	};
 
@@ -304,8 +304,8 @@ public class PackageCreator
 		new Package(PackageType.Theme, 8, AppResources.theme_8, purchase_7),
 		new Package(PackageType.Theme, 9, AppResources.theme_9, purchase_8),
 		new Package(PackageType.Theme, 10, AppResources.theme_10, purchase_9),
-		new Package(PackageType.Theme, 11, AppResources.theme_11, purchase_9),
-		new Package(PackageType.Theme, 12, AppResources.theme_12, purchase_9),
+		new Package(PackageType.Theme, 11, AppResources.theme_11, purchase_10),
+		new Package(PackageType.Theme, 12, AppResources.theme_12, purchase_11),
 
 	};
 }
@@ -315,6 +315,7 @@ public class CharacterSelector : UserInterface
 	public List<StorePanel> panels;
 
 	public static List<StoreItem> SkinItems = new List<StoreItem>();
+	public static List<StoreItem> ThemeItems = new List<StoreItem>(); 
 
 	public Text coinHudText;
 
@@ -356,6 +357,7 @@ public class CharacterSelector : UserInterface
 	void OnGameOver()
 	{
 		SkinItems.Clear();
+		ThemeItems.Clear(); 
 	}
 
 	void Start()
@@ -412,6 +414,7 @@ public class CharacterSelector : UserInterface
 
 		StatRecordController.SkinsUnlocked = count;
 
+		bool selected = false; 
 		for (int i = 0; i < SkinItems.Count; i++)
 		{
 			SkinItems[i].Package.challenge.RefreshCompletion();
@@ -419,21 +422,19 @@ public class CharacterSelector : UserInterface
 			if (SkinItems[i].Package.challenge.completed == true)
 			{
 				SkinItems[i].DeactiveProgression();
+
+				if(SkinItems[i].Package.id == ActiveSkinPackage.id)
+				{
+					SkinItems[i].Select(PackageType.Skins, ActiveSkinPackage.id); 
+					selected = true; 
+				}
 			}
 		}
 
-
-		//Debug.Log(SkinItems.Count);
-		//Debug.Log("Total Skins Unlocked " + StatRecordController.SkinsUnlocked);
-		// for (int i = 0 ; i < SkinItems.Count; i++)
-		// {
-		// 	if (SkinItems[i].Package.challenge == null) continue;
-		// 	if (SkinItems[i].Package.challenge.type != ChallengeType.UnlockSkins) continue;
-		// 	if (count >= SkinItems[i].Package.challenge.cap)
-		// 	{
-
-		// 	}
-		// }
+		if(selected == false)
+		{
+			SkinItems[1].Select(PackageType.Skins, 1); 
+		}
 	}
 
 	public void HideAll()

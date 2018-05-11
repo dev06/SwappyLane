@@ -16,7 +16,8 @@ public class CoinCollectSFX : MonoBehaviour {
 		EventManager.OnCoinHit +=OnCoinHit; 
 		EventManager.OnCoinMiss+=OnCoinMiss; 
 		LevelController.OnLevelComplete+=OnLevelComplete; 
-		EventManager.OnObstacleHit+=OnObstacleHit; 
+		EventManager.OnObstacleHit+=OnObstacleHit;
+
 	}
 
 	void OnDisable()
@@ -25,7 +26,9 @@ public class CoinCollectSFX : MonoBehaviour {
 		EventManager.OnCoinMiss-=OnCoinMiss; 
 		LevelController.OnLevelComplete-=OnLevelComplete; 
 		EventManager.OnObstacleHit-=OnObstacleHit; 
+
 	}
+
 
 	void OnCoinHit(GameObject go)
 	{	

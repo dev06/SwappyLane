@@ -99,7 +99,7 @@ public class StatRecordController : MonoBehaviour {
 	{
 		TotalGamesPlayed = PlayerPrefs.GetInt("TotalGamesPlayed");
 		HighestLevelReached = PlayerPrefs.GetInt("HighestLevelReached");
-		CoinsCollected = (PlayerPrefs.HasKey("CoinsCollected") ? PlayerPrefs.GetInt("CoinsCollected") : 1000);
+		CoinsCollected = (PlayerPrefs.HasKey("CoinsCollected") ? PlayerPrefs.GetInt("CoinsCollected") : 0);
 		CharacterSelector.ActiveSkinPackage = PackageCreator.Skins[!PlayerPrefs.HasKey("ActiveSkin") ? 0 : (PlayerPrefs.GetInt("ActiveSkin")) - 1];
 		CharacterSelector.ActiveThemePackage = PackageCreator.Theme[!PlayerPrefs.HasKey("ActiveTheme") ? 0 : (PlayerPrefs.GetInt("ActiveTheme")) - 1];
 		MetersRolled = PlayerPrefs.HasKey("MetersRolled") ? PlayerPrefs.GetFloat("MetersRolled") : 0;

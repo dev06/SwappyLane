@@ -128,19 +128,19 @@ public class Link : MonoBehaviour {
 
 		int count = 0; 
 
-		float c3_start = -.1f * Mathf.Log(levelController.level.Index, 10) + 0.4f; 
-		float c2_start = -.1f * Mathf.Log(levelController.level.Index, 10) + 0.3f; 
+		float c3_start = -.1f * Mathf.Log(levelController.level.Index, 10) + 0.3f; 
+		float c2_start = -.1f * Mathf.Log(levelController.level.Index, 10) + 0.2f; 
 
 
 
 
 		if(progress > c3_start)
 		{
-			count = levelController.level.Index >= 10 ? 3 : levelController.level.Index >= 5  ? 2 : 1; 
+			count = levelController.level.Index >= 6 ? 3 : levelController.level.Index >= 3  ? 2 : 1; 
 		}
 		else if(progress > c2_start)
 		{
-			count = levelController.level.Index >= 5 ? 2 : 1;
+			count = levelController.level.Index >= 3 ? 2 : 1;
 		}
 		else
 		{
@@ -180,7 +180,7 @@ public class Link : MonoBehaviour {
 
 	void UpdateObstacleRotation()
 	{
-		if (levelController.level.Index < 11) { return; }
+		if (levelController.level.Index < 7) { return; }
 
 		if (Vector3.Distance(transform.position, player.transform.position) > 10)
 		{

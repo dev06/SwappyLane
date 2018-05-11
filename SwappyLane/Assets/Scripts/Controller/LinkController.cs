@@ -123,6 +123,8 @@ public class LinkController : MonoBehaviour {
 
 	public void DeactivateAllLinks()
 	{
+		linkList = FindObjectsOfType<Link>();  
+
 		foreach(Link l in linkList)
 		{
 			l.Deactivate(); 
@@ -188,8 +190,8 @@ public class LinkController : MonoBehaviour {
 					EventManager.OnTerminalVelocityStatus(false);
 				}
 
-				Controller.CONTINUE_COST = levelController.level.Index * 5; 
-
+				float cost = (((levelController.level.Progress / levelController.level.Length) * levelController.level.Index * Controller.CONTINUE_COST_INTENSITY) + Controller.BASE_CONTINUE_COST); 
+				Controller.CONTINUE_COST = (int)Mathf.Round(cost / 100) * 100; 
 				if(StatRecordController.CoinsCollected >= Controller.CONTINUE_COST)
 				{
 					if(EventManager.OnSecondChance != null)
@@ -264,17 +266,19 @@ public class LinkController : MonoBehaviour {
 
 		velocity = Mathf.Clamp(velocity, MIN_VELOCITY, levelController.level.MaxLevelVelocity);
 
-		float delay = -Mathf.Log(levelController.level.Index, 10) * 3f + 10f;
+		float delay = -Mathf.Log(levelController.level.Index, 10) * 3.3f + 10f;
 
-		delay = Mathf.Clamp(delay, 4.75f, delay);
+		delay = Mathf.Clamp(delay, 4.5f, delay);
 
-		//		Debug.Log(delay);
+		//Debug.Log(delay);
 
 		startingDelay = delay / Velocity;
 
 		cameraController.UpdateZoomStatus(atTerminalVelocity);
 
-		startingDelay = Mathf.Clamp(startingDelay, .47f, 1f);
+		startingDelay = Mathf.Clamp(startingDelay, .46f, 1f);
+
+		//startingDelay = .47f; 
 
 		if (levelController.level != null)
 		{

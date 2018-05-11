@@ -30,7 +30,7 @@ public class LevelController : MonoBehaviour {
 		{
 			StartingIndex = PlayerPrefs.HasKey("LastLevel") ? PlayerPrefs.GetInt("LastLevel") : 1;
 
-			//StartingIndex = 50; // used for manually override the level
+			//StartingIndex = 30; // used for manually override the level
 
 			level = new Level(StartingIndex);
 		}
@@ -65,7 +65,10 @@ public class LevelController : MonoBehaviour {
 			{
 				OnLevelComplete();
 			}
-		}
+		}	
+
+	//	GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "game", level.Index); 
+
 	}
 
 	public void StartNewLevel()
@@ -76,6 +79,7 @@ public class LevelController : MonoBehaviour {
 		{
 			OnNewLevelStart();
 		}
+		//GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "game"); 
 	}
 }
 
@@ -92,6 +96,7 @@ public class Level
 	{
 		this.index = index;
 		Length = (index * 5) + 10;
+		Length = Mathf.Clamp(Length, Length, Controller.MAX_OBSTACLES_PER_LEVEL); 
 		maxVelocity = (index) + 8;
 		maxVelocity = Mathf.Clamp(maxVelocity, LinkController.SEC_VELOCITY, LinkController.MAX_VELOCITY);
 	}

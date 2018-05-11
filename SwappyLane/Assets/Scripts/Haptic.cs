@@ -8,6 +8,7 @@ public class Haptic : MonoBehaviour {
 	public static void Vibrate(HapticIntensity intensity)
 	{
 		if (Controller.HAPTIC == false) { return; }
+		if(SystemInfo.supportsVibration == false) return; 
 #if !UNITY_EDITOR
 #if UNITY_IPHONE
 		switch (intensity)
